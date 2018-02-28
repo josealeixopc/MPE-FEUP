@@ -1,5 +1,7 @@
 package logic;
 
+import logic.graph.Graph;
+
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
@@ -18,7 +20,7 @@ class Parser {
             fr = new FileReader(filename);
             br = new BufferedReader(fr);
             String line = br.readLine();
-            //graph.setStart(line) //TODO graph: set starting point
+            graph = new Graph(line);
 
             while ((line = br.readLine()) != null) {
                 parseLine(line);
@@ -46,10 +48,10 @@ class Parser {
         String origin = args[0];
         String destination = args[1];
         int date = Integer.parseInt(args[2]);
-        int price = Integer.parseInt(args[3]);
-        System.out.println("From: "+origin+", To: "+destination+", Date: "+date+", Price: "+price);
+        int cost = Integer.parseInt(args[3]);
+        System.out.println("From: "+origin+", To: "+destination+", Date: "+date+", Cost: "+cost);
 
-        //TODO add to graph
+        graph.addEdge(origin, destination, date, cost);
     }
 
     public Graph getGraph() {
