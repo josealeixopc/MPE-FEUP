@@ -34,7 +34,9 @@ Notes on Yes or No entries:
 - ** An NP-Hard problem that is also NP-Complete is verifiable in P time.
 - *** NP-Complete problems (all of which form a subset of NP-hard) might be. The rest of NP hard is not.
 
+<!-- markdownlint-disable MD033 -->
 <img src="https://upload.wikimedia.org/wikipedia/commons/a/a0/P_np_np-complete_np-hard.svg" max-height="300" alt="NP Diagram"/>
+<!-- markdownlint-enable MD033 -->
 
 ### The P=NP problem
 
