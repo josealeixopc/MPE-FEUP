@@ -1,5 +1,8 @@
 package logic;
 
+import logic.algorithm.Algorithm;
+import logic.algorithm.Greedy;
+
 import java.io.File;
 
 public class Main {
@@ -10,6 +13,7 @@ public class Main {
 
         System.out.println(data5Parser.getGraph().toString());
 
-
+        Algorithm algorithm = new Greedy(); //this is the line that changes with the algorithm
+        //algorithm.computeSolution(graph);
     }
 }
