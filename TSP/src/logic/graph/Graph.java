@@ -52,6 +52,14 @@ public class Graph {
         return startNode;
     }
 
+    /**
+     * Gets the total number of nodes available.
+     * @return amount of nodes airports in existance.
+     */
+    public int getNodesAmount(){
+        return nodes.size();
+    }
+
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
