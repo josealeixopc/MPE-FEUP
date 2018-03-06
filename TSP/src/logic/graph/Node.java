@@ -25,11 +25,19 @@ public class Node {
 
     /**
      *
-     * @param day The day for which we want the available connections from the airport.
-     * @return A list containing all the Edges available for the given day.
+     * @param day The minimum day from which we want the available connections from the airport.
+     * @return A list containing all the Edges available since the given day.
      */
-    public List<Edge> getEdges(int day){
-        return this.edges.get(day);
+    public List<Edge> getFutureEdges(int day){
+        List<Edge> edges = new ArrayList<>();
+        Set<Map.Entry<Integer,List<Edge>>> entries = this.edges.entrySet();
+        for(Iterator<Map.Entry<Integer,List<Edge>>> it = entries.iterator(); it.hasNext();){
+            Map.Entry<Integer,List<Edge>> entry = it.next();
+            if(entry.getKey()>=day){
+                edges.addAll(entry.getValue());
+            }
+        }
+        return edges;
     }
 
     /**

@@ -2,6 +2,7 @@ package logic.graph;
 
 public class Edge {
 
+    private int date;
     private Node origin;
     private Node destination;
     private int cost;
@@ -12,9 +13,10 @@ public class Edge {
      * @param destination Node (airport) of destination.
      * @param cost Cost of the edge (price of flight).
      */
-    Edge(Node origin, Node destination, int cost) {
+    Edge(Node origin, Node destination, int date, int cost) {
         this.origin = origin;
         this.destination = destination;
+        this.date = date;
         this.cost = cost;
     }
 
@@ -23,6 +25,7 @@ public class Edge {
         return "Edge{" +
                 "origin=" + origin.getName() +
                 ", destination=" + destination.getName() +
+                ", date=" + date +
                 ", cost=" + cost +
                 '}';
     }
