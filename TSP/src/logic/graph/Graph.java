@@ -42,7 +42,6 @@ public class Graph {
 
         Edge edge = new Edge(origin,destination, cost);
         origin.addEdge(date, edge);
-        destination.addEdge(date, edge);
     }
 
     @Override
