@@ -44,13 +44,43 @@ public class Node {
         currentEdges.add(edge);
     }
 
+    /**
+     * Returns the cost of travelling to a certain node on a certain day.
+     * @param node destination node.
+     * @param day day to travel.
+     * @return cost of travel, if it is possible. -1 if travel is not possible.
+     */
+    public int getCostToNode(Node node, int day){
+        for(Iterator<Edge> it = edges.get(day).iterator(); it.hasNext();){
+            Edge edge = it.next();
+            if(edge.getDestination().equals(node))
+                return edge.getCost();
+        }
+        return -1;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+
+        Node node = (Node) o;
+
+        return name != null ? name.equals(node.name) : node.name == null;
+    }
+
+    @Override
+    public int hashCode() {
+        return name != null ? name.hashCode() : 0;
+    }
+
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
 
         sb.append("Node[");
 
-        sb.append("Name: ").append(this.name).append(",");
+        /*sb.append("Name: ").append(this.name).append(",");
 
         Iterator<Map.Entry<Integer, List<Edge>>> it = this.edges.entrySet().iterator();
 
@@ -83,7 +113,7 @@ public class Node {
             else{
                 sb.append("]");
             }
-        }
+        }//*/sb.append(name);
 
         sb.append("]");
 
