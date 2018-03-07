@@ -40,9 +40,24 @@ public class Graph {
             nodes.put(destinationName, destination);
         }
 
-        Edge edge = new Edge(origin,destination, cost);
+        Edge edge = new Edge(origin,destination,date,cost);
         origin.addEdge(date, edge);
-        destination.addEdge(date, edge);
+    }
+
+    /**
+     * Getter for the starting node.
+     * @return the node (airport) where the algorithm starts.
+     */
+    public Node getStartNode(){
+        return startNode;
+    }
+
+    /**
+     * Gets the total number of nodes available.
+     * @return amount of nodes airports in existance.
+     */
+    public int getNodesAmount(){
+        return nodes.size();
     }
 
     @Override
