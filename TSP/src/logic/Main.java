@@ -1,5 +1,9 @@
 package logic;
 
+import logic.algorithm.Algorithm;
+import logic.algorithm.Backtrack;
+import logic.algorithm.Greedy;
+
 
 import logic.graph.Graph;
 
@@ -7,10 +11,23 @@ public class Main {
 
     public static void main(String[] args) {
 
-        Parser data5Parser = new Parser(Parser.DATA5);
-        Graph graph = data5Parser.getGraph();
+        Graph[] graphs = {new Parser(Parser.DATA5).getGraph(),
+                            new Parser(Parser.DATA10).getGraph()};
 
-        System.out.println(graph.toString());
+        for(Graph graph: graphs){
+            Algorithm greedy = new Greedy(graph);
+            greedy.computeSolution();
+            System.out.print("Greedy: ");
+            greedy.printResults();
+
+            Algorithm backtrack = new Backtrack(graph);
+            backtrack.computeSolution();
+            System.out.print("Backtrack: ");
+            backtrack.printResults();
+
+            System.out.println();
+        }
+
 
     }
 }

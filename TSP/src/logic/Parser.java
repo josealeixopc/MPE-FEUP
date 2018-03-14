@@ -11,6 +11,7 @@ class Parser {
 
     private static final String PREFIX = "travelling-salesman-challenge" + File.separator + "real_data" + File.separator;
     static final String DATA5 = PREFIX + "data_5.txt";
+    static final String DATA10 = PREFIX + "data_10.txt";
 
     private Graph graph;
 
@@ -58,7 +59,7 @@ class Parser {
         String destination = args[1];
         int date = Integer.parseInt(args[2]);
         int cost = Integer.parseInt(args[3]);
-        System.out.println("From: "+origin+", To: "+destination+", Date: "+date+", Cost: "+cost);
+        //System.out.println("From: "+origin+", To: "+destination+", Date: "+date+", Cost: "+cost);
 
         graph.addEdge(origin, destination, date, cost);
     }
