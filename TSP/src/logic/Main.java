@@ -15,6 +15,7 @@ public class Main {
                             new Parser(Parser.DATA10).getGraph()};
 
         for(Graph graph: graphs){
+            System.out.println("Data");
             Algorithm greedy = new Greedy(graph);
             greedy.computeSolution();
             System.out.print("Greedy: ");
