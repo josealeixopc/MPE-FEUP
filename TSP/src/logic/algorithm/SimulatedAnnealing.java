@@ -5,27 +5,14 @@ import logic.graph.Graph;
 import logic.graph.Node;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 import java.util.Random;
 
 public class SimulatedAnnealing extends Algorithm {
 
-    private float initialTemperature;
-    private float currentTemperature;
-    private float temperatureDecrease;
-
-    private ArrayList<Node> currentRoute;
-    private int currentCost;
-
-    private int bestCost;
-
     public SimulatedAnnealing(Graph graph){
         super(graph);
-
-        currentRoute = new ArrayList<>();
-        currentCost = 0;
-
-        bestCost = Integer.MAX_VALUE;
     }
 
     /**
@@ -34,12 +21,27 @@ public class SimulatedAnnealing extends Algorithm {
      * @param nextCost Cost of the next (worse) evaluated state
      * @return The probability of accepting the new state
      */
-    private float acceptanceProbability(int currentCost, int nextCost) {
-        return (float) Math.pow(Math.E, -(currentCost - nextCost) / this.currentTemperature);
+    private float calculateAcceptanceProbability(int currentCost, int nextCost, float temperature) {
+        return (float) Math.pow(Math.E, -(currentCost - nextCost) / temperature);
     }
 
-    private float costFunction(ArrayList<Node> route){
-        return 0;
+    private ArrayList<Node> swapOperation(ArrayList<Node> route) {
+
+        ArrayList<Node> swappedRoute = new ArrayList<>(route);
+
+        int index1 = new Random().nextInt(swappedRoute.size() - 2) + 1;
+        int index2 = new Random().nextInt(swappedRoute.size() - 2) + 1;
+
+        Collections.swap(swappedRoute, index1, index2);
+
+        // swap until you have a valid route
+        while(this.graph.getRouteCost(swappedRoute) == -1){
+            index1 = new Random().nextInt(swappedRoute.size() - 2) + 1;
+            index2 = new Random().nextInt(swappedRoute.size() - 2) + 1;
+            Collections.swap(swappedRoute, index1, index2);
+        }
+
+        return swappedRoute;
     }
 
     /**
@@ -96,10 +98,61 @@ public class SimulatedAnnealing extends Algorithm {
         return null;
     }
 
+
     @Override
     public void computeSolution() {
-        int numOfIterations = 100;
 
-        this.bestRoute = this.createRandomRoute(this.graph, numOfIterations);
+        // Get random initial route
+        ArrayList<Node> currentRoute = this.createRandomRoute(this.graph, 100);
+        this.bestRoute = currentRoute;
+        int bestCost = this.graph.getRouteCost(this.bestRoute);
+
+        if(currentRoute == null){
+            System.out.println("Could not generate a random initial path for Simulated Annealing.");
+            return;
+        }
+
+        // Set SA parameters
+        float initialTemperature = 1000;
+        float temperatureDecrease = 0.05f;
+        float iterationsPerTemperature = 100;
+
+        float currentTemperature = initialTemperature;
+
+        while(currentTemperature > 0){
+
+            int numOfIterations = 0;
+
+            while(numOfIterations < iterationsPerTemperature){
+
+                ArrayList<Node> nextRoute = swapOperation(currentRoute);
+
+                int nextCost = this.graph.getRouteCost(nextRoute);
+                int currentCost = this.graph.getRouteCost(currentRoute);
+
+                // If next state is better than current, accept
+                if(nextCost < currentCost){
+                    currentRoute = nextRoute;
+
+                    // If it's better than best route, update
+                    if(currentCost < bestCost){
+                        this.bestRoute = currentRoute;
+                        bestCost = currentCost;
+                    }
+                }
+                else{
+
+                    float probabilityOfAcceptance = calculateAcceptanceProbability(currentCost, nextCost, currentTemperature);
+
+                    if(Math.random() < probabilityOfAcceptance){
+                        currentRoute = nextRoute; // next route is worse than current
+                    }
+                }
+
+                numOfIterations++;
+            }
+
+            currentTemperature = currentTemperature - temperatureDecrease;
+        }
     }
 }

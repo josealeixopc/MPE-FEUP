@@ -22,14 +22,7 @@ public abstract class Algorithm {
      * @return cost of bestRoute; -1 if bestRoute was not calculated.
      */
     public int getBestRouteCost(){
-        if(bestRoute==null || bestRoute.size()-1!=graph.getNodesAmount())
-            return -1;
-
-        int cost=0;
-        for(int i=0; i+1<bestRoute.size(); i++){
-            cost+=bestRoute.get(i).getCostToNode(bestRoute.get(i+1),i);
-        }
-        return cost;
+        return this.graph.getRouteCost(this.bestRoute);
     }
 
     /**
