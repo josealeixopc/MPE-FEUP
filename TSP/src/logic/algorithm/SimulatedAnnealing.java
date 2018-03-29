@@ -44,6 +44,7 @@ public class SimulatedAnnealing extends Algorithm {
         return swappedRoute;
     }
 
+
     /**
      * Tries to find a random valid route for the given first city.
      * @param graph The graph of all the routes.
@@ -103,14 +104,19 @@ public class SimulatedAnnealing extends Algorithm {
     public void computeSolution() {
 
         // Get random initial route
-        ArrayList<Node> currentRoute = this.createRandomRoute(this.graph, 100);
-        this.bestRoute = currentRoute;
-        int bestCost = this.graph.getRouteCost(this.bestRoute);
+        int maxIterations = 100;
+        ArrayList<Node> currentRoute = this.createRandomRoute(this.graph, maxIterations);
 
         if(currentRoute == null){
             System.out.println("Could not generate a random initial path for Simulated Annealing.");
             return;
         }
+
+        // Set best route
+        this.bestRoute = currentRoute;
+        int bestCost = this.graph.getRouteCost(this.bestRoute);
+
+
 
         // Set SA parameters
         float initialTemperature = 1000;

@@ -21,7 +21,7 @@ public abstract class Algorithm {
      * Gets the cost of the best route found, if available.
      * @return cost of bestRoute; -1 if bestRoute was not calculated.
      */
-    public int getBestRouteCost(){
+    private int getBestRouteCost(){
         return this.graph.getRouteCost(this.bestRoute);
     }
 
