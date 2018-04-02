@@ -5,6 +5,7 @@ import logic.algorithm.Backtrack;
 import logic.algorithm.Greedy;
 
 
+import logic.algorithm.SimulatedAnnealing;
 import logic.graph.Graph;
 
 public class Main {
@@ -25,6 +26,11 @@ public class Main {
             backtrack.computeSolution();
             System.out.print("Backtrack: ");
             backtrack.printResults();
+
+            Algorithm simulatedAnnealing = new SimulatedAnnealing(graph);
+            simulatedAnnealing.computeSolution();
+            System.out.print("Simulated Annealing: ");
+            simulatedAnnealing.printResults();
 
             System.out.println();
         }
