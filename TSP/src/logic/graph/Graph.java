@@ -1,14 +1,12 @@
 package logic.graph;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.Iterator;
-import java.util.Map;
+import java.util.*;
 
 public class Graph {
 
     private Node startNode;
     private HashMap<String, Node> nodes;
+    private List<Edge> edges;
 
     /**
      * Create a new graph with an initial node.
@@ -17,6 +15,7 @@ public class Graph {
      */
     public Graph(String startNodeName) {
         nodes = new HashMap<>();
+        edges = new ArrayList<>();
         startNode = new Node(startNodeName);
         nodes.put(startNodeName, startNode);
     }
@@ -45,6 +44,7 @@ public class Graph {
 
         Edge edge = new Edge(origin, destination, date, cost);
         origin.addEdge(date, edge);
+        edges.add(edge);
     }
 
     /**
@@ -113,5 +113,9 @@ public class Graph {
         }
 
         return cost;
+    }
+
+    public List<Edge> getEdges() {
+        return edges;
     }
 }
