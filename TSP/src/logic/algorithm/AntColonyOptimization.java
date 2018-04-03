@@ -13,7 +13,7 @@ public class AntColonyOptimization extends Algorithm {
     private final double PHEROMON_WEIGHT = 0.5; //alpha
     private final double VISIBILITY_WEIGHT = 5; //beta
     private final double EVAPORATION_FACTOR =0.6;
-    private final double Q = 2500;
+    private final double Q = 1000;
     private final double INIT_PHEROMONE_LVL = 20.0;
 
     private int equalSolutionCounter=0;
@@ -23,7 +23,7 @@ public class AntColonyOptimization extends Algorithm {
     private HashMap<Edge, Double> pheromoneMap;
 
     public AntColonyOptimization(Graph graph){
-        this(graph,10);
+        this(graph,30);
     }
 
     public AntColonyOptimization(Graph graph, int nAnts){
