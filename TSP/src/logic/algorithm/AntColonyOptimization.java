@@ -9,10 +9,10 @@ import java.util.*;
 
 public class AntColonyOptimization extends Algorithm {
 
-    private final int MAX_EQUAL_CONSECUTIVE_SOLUTIONS = 8;//stopping condition
+    private final int MAX_EQUAL_CONSECUTIVE_SOLUTIONS = 200;//stopping condition
     private final double PHEROMON_WEIGHT = 0.5; //alpha
     private final double VISIBILITY_WEIGHT = 5; //beta
-    private final double EVAPORATION_FACTOR =0.6;
+    private final double EVAPORATION_FACTOR =0.8;
     private final double Q = 1000;
     private final double INIT_PHEROMONE_LVL = 20.0;
 
