@@ -51,12 +51,25 @@ public class Node {
      * @return cost of travel, if it is possible. -1 if travel is not possible.
      */
     public int getCostToNode(Node node, int day){
+        Edge edge = getEdgeToNode(node, day);
+        if(edge==null)
+            return -1;
+        else return edge.getCost();
+    }
+
+    /**
+     * Returns the edge for travelling to a certain node on a certain day.
+     * @param node destination node.
+     * @param day day to travel.
+     * @return edge that connects both nodes. If does not exist, returns null.
+     */
+    public Edge getEdgeToNode(Node node, int day){
         for(Iterator<Edge> it = edges.get(day).iterator(); it.hasNext();){
             Edge edge = it.next();
             if(edge.getDestination().equals(node))
-                return edge.getCost();
+                return edge;
         }
-        return -1;
+        return null;
     }
 
     @Override

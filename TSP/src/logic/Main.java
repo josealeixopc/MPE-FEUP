@@ -1,6 +1,7 @@
 package logic;
 
 import logic.algorithm.Algorithm;
+import logic.algorithm.AntColonyOptimization;
 import logic.algorithm.Backtrack;
 import logic.algorithm.Greedy;
 
@@ -16,6 +17,7 @@ public class Main {
                             new Parser(Parser.DATA10).getGraph()};
 
         for(Graph graph: graphs){
+            System.out.println("Data");
             Algorithm greedy = new Greedy(graph);
             greedy.computeSolution();
             System.out.print("Greedy: ");
@@ -25,6 +27,11 @@ public class Main {
             backtrack.computeSolution();
             System.out.print("Backtrack: ");
             backtrack.printResults();
+
+            Algorithm antColony = new AntColonyOptimization(graph);
+            antColony.computeSolution();
+            System.out.print("AntColony: ");
+            antColony.printResults();
 
             Algorithm simulatedAnnealing = new SimulatedAnnealing(graph);
             simulatedAnnealing.computeSolution();

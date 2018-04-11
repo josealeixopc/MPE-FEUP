@@ -34,6 +34,27 @@ public class Edge {
     }
 
     @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+
+        Edge edge = (Edge) o;
+
+        if (date != edge.date) return false;
+        if (!origin.equals(edge.origin)) return false;
+        return destination.equals(edge.destination);
+    }
+
+    @Override
+    public int hashCode() {
+        int result = date;
+        result = 31 * result + origin.hashCode();
+        result = 31 * result + destination.hashCode();
+        result = 31 * result + cost;
+        return result;
+    }
+
+    @Override
     public String toString() {
         return "Edge{" +
                 "origin=" + origin.getName() +
