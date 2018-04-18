@@ -7,12 +7,30 @@ import java.io.File;
 import java.io.FileReader;
 import java.io.IOException;
 
-class Parser {
+public class Parser {
 
     private static final String PREFIX = "travelling-salesman-challenge" + File.separator + "real_data" + File.separator;
     static final String DATA5 = PREFIX + "data_5.txt";
     static final String DATA10 = PREFIX + "data_10.txt";
+    static final String DATA15 = PREFIX + "data_15.txt";
+    static final String DATA20 = PREFIX + "data_20.txt";
+    static final String DATA30 = PREFIX + "data_30.txt";
+    static final String DATA40 = PREFIX + "data_40.txt";
+    static final String DATA50 = PREFIX + "data_50.txt";
+    static final String DATA60 = PREFIX + "data_60.txt";
+    static final String DATA70 = PREFIX + "data_70.txt";
+    static final String DATA100 = PREFIX + "data_100.txt";
+    static final String DATA200 = PREFIX + "data_200.txt";
+    //static final String DATA300 = PREFIX + "data_300.txt";
 
+    public static final String[] FILES = new String[]{
+            DATA5, DATA10, DATA15, DATA20,
+            DATA30, DATA40, DATA50, DATA60,
+            DATA70, DATA100, DATA200/*, DATA300*/};
+    public static final int[] OPTIMAL_SOLUTIONS = new int[]{
+            1950, 5375, 4281, Integer.MAX_VALUE,
+            Integer.MAX_VALUE, Integer.MAX_VALUE, Integer.MAX_VALUE, Integer.MAX_VALUE,
+            Integer.MAX_VALUE, Integer.MAX_VALUE, Integer.MAX_VALUE, Integer.MAX_VALUE};
     private Graph graph;
 
     /**

@@ -11,7 +11,7 @@ import java.util.List;
 public class Greedy extends Algorithm {
 
     public Greedy(Graph graph){
-        super(graph);
+        super("Greedy", graph);
     }
 
     @Override

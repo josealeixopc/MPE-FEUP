@@ -11,7 +11,7 @@ public class Backtrack extends Algorithm {
     private int bestCost;
 
     public Backtrack(Graph graph){
-        super(graph);
+        super("Backtrack", graph);
         bestCost = Integer.MAX_VALUE;
     }
 

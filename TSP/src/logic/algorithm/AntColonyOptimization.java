@@ -27,7 +27,7 @@ public class AntColonyOptimization extends Algorithm {
     }
 
     public AntColonyOptimization(Graph graph, int nAnts){
-        super(graph);
+        super("Ant Colony Optimization", graph);
         this.nAnts = nAnts;
         this.pheromoneMap = new HashMap<>();
         resetAntsPath();

@@ -6,6 +6,7 @@ import logic.graph.Node;
 import java.util.ArrayList;
 
 public abstract class Algorithm {
+    private String name;
     Graph graph;
     ArrayList<Node> bestRoute;
 
@@ -13,7 +14,8 @@ public abstract class Algorithm {
      * Constructor.
      * @param graph graph to be parsed.
      */
-    Algorithm(Graph graph){
+    Algorithm(String name, Graph graph){
+        this.name = name;
         this.graph=graph;
     }
 
@@ -34,6 +36,8 @@ public abstract class Algorithm {
             return;
         }
 
+        System.out.println("Cost = "+getBestRouteCost());
+
         boolean firstPrint = true;
         System.out.print("Route(");
         for(Node node: bestRoute){
@@ -42,7 +46,11 @@ public abstract class Algorithm {
                 System.out.print(node.getName());
             } else System.out.print(", "+node.getName());
         }
-        System.out.println("), cost="+getBestRouteCost());
+        System.out.println(")");
+    }
+
+    public String getName() {
+        return name;
     }
 
     /**

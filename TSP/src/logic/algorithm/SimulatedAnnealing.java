@@ -12,7 +12,7 @@ import java.util.Random;
 public class SimulatedAnnealing extends Algorithm {
 
     public SimulatedAnnealing(Graph graph){
-        super(graph);
+        super("Simulated Annealing", graph);
     }
 
     /**
