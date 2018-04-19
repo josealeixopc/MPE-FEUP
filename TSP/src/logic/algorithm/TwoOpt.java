@@ -6,14 +6,11 @@ import logic.graph.Node;
 
 import java.util.ArrayList;
 
-public class KOpt extends Algorithm {
+public class TwoOpt extends Algorithm {
 
-    private int k;
-
-    public KOpt(Graph graph, Algorithm prevAlgorithm, int k){
-        super(prevAlgorithm.getName()+" with "+k+"-opt", graph);
+    public TwoOpt(Graph graph, Algorithm prevAlgorithm){
+        super(prevAlgorithm.getName()+" with 2-opt", graph);
         super.bestRoute = prevAlgorithm.bestRoute;
-        this.k = k;
     }
 
     @Override

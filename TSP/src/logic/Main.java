@@ -44,7 +44,8 @@ public class Main {
                 runAlgorithm(algorithm);
 
                 Algorithm[] optimizations = new Algorithm[]{ //TODO comment unwanted optimizations
-                    new KOpt(graph,algorithm, 2)
+                    new TwoOpt(graph,algorithm),
+                    new ThreeOpt(graph,algorithm)
                 };
                 for(Algorithm optimization: optimizations){
                     runAlgorithm(optimization);
@@ -59,8 +60,8 @@ public class Main {
         long startTime = System.currentTimeMillis();
         algorithm.computeSolution();
         long finishTime = System.currentTimeMillis();
-        System.out.println("Time: "+(finishTime-startTime)+"ms");
         algorithm.printResults();
+        System.out.println("Time: "+(double)(finishTime-startTime)/1000+"s");
         System.out.println();
     }
 }
