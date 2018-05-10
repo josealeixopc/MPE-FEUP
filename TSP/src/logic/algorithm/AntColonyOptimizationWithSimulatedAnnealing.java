@@ -17,7 +17,7 @@ public class AntColonyOptimizationWithSimulatedAnnealing extends Algorithm {
     private final double INIT_PHEROMONE_LVL = 20.0;
 
     private int equalSolutionCounter=0;
-    private int bestRouteCost = Integer.MAX_VALUE;;
+    private int bestRouteCost = Integer.MAX_VALUE;
     private int nAnts;
     private ArrayList<ArrayList<Node>> ants = new ArrayList<>();
     private HashMap<Edge, Double> pheromoneMap;
@@ -74,16 +74,17 @@ public class AntColonyOptimizationWithSimulatedAnnealing extends Algorithm {
     private void elitistSimulatedAnnealing() {
         // Get random initial route
         ArrayList<Node> currentRoute = new ArrayList<>(this.iterationBestRoute);
+        ArrayList<Node> bestRouteSA=null;
 
         // Set best route
-        this.bestRoute = currentRoute;
-        int bestCost = this.graph.getRouteCost(this.bestRoute);
+        bestRouteSA = currentRoute;
+        int bestCost = this.graph.getRouteCost(bestRouteSA);
 
 
         // Set SA parameters
         float initialTemperature = 1000;
         float temperatureDecrease = 1;
-        float iterationsPerTemperature = 5;
+        float iterationsPerTemperature = 10;
 
         float currentTemperature = initialTemperature;
 
@@ -104,7 +105,7 @@ public class AntColonyOptimizationWithSimulatedAnnealing extends Algorithm {
 
                     // If it's better than best route, update
                     if(currentCost < bestCost){
-                        this.bestRoute = currentRoute;
+                        bestRouteSA = currentRoute;
                         bestCost = currentCost;
                     }
                 }
@@ -122,6 +123,7 @@ public class AntColonyOptimizationWithSimulatedAnnealing extends Algorithm {
 
             currentTemperature = currentTemperature - temperatureDecrease;
         }
+        updatePheromoneForAnt(bestRouteSA);
     }
 
     private void initPheromonePaths() {
@@ -191,28 +193,33 @@ public class AntColonyOptimizationWithSimulatedAnnealing extends Algorithm {
 
         // add pheromones where ants passed (while also calculation the bestRoute for this iteration)
         for(ArrayList<Node> ant: ants){
-            int routeCost = graph.getRouteCost(ant);
-            if(routeCost < 0)
-                continue;
-            double addedPheromone = Q/(double)routeCost;
-            for(int i=0; i<ant.size()-1; i++){
-                Edge edge = ant.get(i).getEdgeToNode(ant.get(i+1),i);
-                double currentPheromone = pheromoneMap.get(edge);
-                pheromoneMap.put(edge,currentPheromone+addedPheromone);
-            }
-
-            if(routeCost<bestRouteCost){
-                bestRouteCost = routeCost;
-                bestRoute = ant;
-                equalSolutionCounter=0;
-
-                iterationBestRoute = ant;
-                iterationBestCost = routeCost;
-            } else if(routeCost<iterationBestCost) {
-                iterationBestRoute = ant;
-                iterationBestCost = routeCost;
-            }
+            updatePheromoneForAnt(ant);
         }
         equalSolutionCounter++;
+    }
+
+    private void updatePheromoneForAnt(ArrayList<Node> ant) {
+        int routeCost = graph.getRouteCost(ant);
+        if(routeCost < 0)
+            return;
+
+        double addedPheromone = Q/(double)routeCost;
+        for(int i=0; i<ant.size()-1; i++){
+            Edge edge = ant.get(i).getEdgeToNode(ant.get(i+1),i);
+            double currentPheromone = pheromoneMap.get(edge);
+            pheromoneMap.put(edge,currentPheromone+addedPheromone);
+        }
+
+        if(routeCost<bestRouteCost){
+            bestRouteCost = routeCost;
+            bestRoute = ant;
+            equalSolutionCounter=0;
+            iterationBestRoute = ant;
+            iterationBestCost = routeCost;
+
+        } else if(routeCost<iterationBestCost) {
+            iterationBestRoute = ant;
+            iterationBestCost = routeCost;
+        }
     }
 }
