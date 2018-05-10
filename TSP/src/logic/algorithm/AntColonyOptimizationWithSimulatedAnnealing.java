@@ -72,8 +72,18 @@ public class AntColonyOptimizationWithSimulatedAnnealing extends Algorithm {
             float populationDiversity = (((float)iterationTotalCost/nAnts)-bestRouteCost)/(iterationWorstCost-bestRouteCost);
             if(populationDiversity>0.5f)
                 elitistSimulatedAnnealing();
-            // TODO else mutationOperator???
+            else mutationOperator();
         }
+    }
+
+    private void mutationOperator() {
+        int k1 = new Random().nextInt(graph.getNodesAmount()-2)+1;
+        int k2= k1+1;
+        ArrayList<Node> ant = new ArrayList<>(bestRoute);
+        Node tmp = ant.get(k1);
+        ant.set(k1,ant.get(k2));
+        ant.set(k2,tmp);
+        updatePheromoneForAnt(ant);
     }
 
     private void resetSAValues() {
@@ -222,7 +232,7 @@ public class AntColonyOptimizationWithSimulatedAnnealing extends Algorithm {
             pheromoneMap.put(edge,currentPheromone+addedPheromone);
         }
 
-        // update values for SA
+        // update values for SA and stopping condition
         if(routeCost<bestRouteCost){
             bestRouteCost = routeCost;
             bestRoute = ant;
