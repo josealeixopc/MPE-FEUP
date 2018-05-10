@@ -1,6 +1,5 @@
 package logic.algorithm;
 
-import logic.graph.Edge;
 import logic.graph.Graph;
 import logic.graph.Node;
 
@@ -54,10 +53,8 @@ public class ThreeOpt extends Algorithm {
 
         //twist in 4 different positions the rest of the course
         ArrayList<Node> route1 = new ArrayList<>(route);
-        for(int l=section1.size()-1; l>=0; l--)
-            route1.add(section1.get(l));
-        for(int l=section2.size()-1; l>=0; l--)
-            route1.add(section2.get(l));
+        route1.addAll(reverseArray(section1));
+        route1.addAll(reverseArray(section2));
 
         ArrayList<Node> route2 = new ArrayList<>(route);
         route2.addAll(section2);
@@ -65,12 +62,10 @@ public class ThreeOpt extends Algorithm {
 
         ArrayList<Node> route3 = new ArrayList<>(route);
         route3.addAll(section2);
-        for(int l=section1.size()-1; l>=0; l--)
-            route3.add(section1.get(l));
+        route3.addAll(reverseArray(section1));
 
         ArrayList<Node> route4 = new ArrayList<>(route);
-        for(int l=section2.size()-1; l>=0; l--)
-            route4.add(section2.get(l));
+        route4.addAll(reverseArray(section2));
         route4.addAll(section1);
 
         //get best twist
@@ -78,7 +73,7 @@ public class ThreeOpt extends Algorithm {
         int costR2 = graph.getRouteCost(route2);
         int costR3 = graph.getRouteCost(route3);
         int costR4 = graph.getRouteCost(route4);
-        int bestCost = Math.max(Math.max(costR1,costR2),Math.max(costR3,costR4));
+        int bestCost = Math.min(Math.max(costR1,costR2),Math.min(costR3,costR4));
         if(bestCost==costR1)
             route = route1;
         else if(bestCost==costR2)
@@ -88,10 +83,17 @@ public class ThreeOpt extends Algorithm {
         else route = route4;
 
         // add route's end
-        for(int l=k+1; l<bestRoute.size(); l++){
+        for(int l=k; l<bestRoute.size(); l++){
             route.add(bestRoute.get(l));
         }
 
         return route;
+    }
+
+    private static ArrayList<Node> reverseArray(ArrayList<Node> a){
+        ArrayList<Node> ret = new ArrayList<>();
+        for(int i=a.size()-1; i>=0; i--)
+            ret.add(a.get(i));
+        return ret;
     }
 }
