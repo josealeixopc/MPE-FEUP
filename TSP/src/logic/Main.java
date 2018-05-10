@@ -1,12 +1,8 @@
 package logic;
 
-import logic.algorithm.Algorithm;
-import logic.algorithm.AntColonyOptimization;
-import logic.algorithm.Backtrack;
-import logic.algorithm.Greedy;
+import logic.algorithm.*;
 
 
-import logic.algorithm.SimulatedAnnealing;
 import logic.graph.Graph;
 
 
@@ -18,14 +14,14 @@ public class Main {
                 Parser.DATA5, //1950
                 Parser.DATA10, //5375
                 Parser.DATA15, //
-                Parser.DATA20,
-                Parser.DATA30,
-                Parser.DATA40,
-                Parser.DATA50,
-                Parser.DATA60,
-                Parser.DATA70,
-                Parser.DATA100,
-                Parser.DATA200,
+                //Parser.DATA20,
+                //Parser.DATA30,
+                //Parser.DATA40,
+                //Parser.DATA50,
+//                Parser.DATA60,
+//                Parser.DATA70,
+//                Parser.DATA100,
+//                Parser.DATA200,
         };
 
         for(String file: wantedFiles){
@@ -39,10 +35,11 @@ public class Main {
             System.out.println();
 
             Algorithm[] algorithms = new Algorithm[]{ //comment unwanted algorithms
-                    new Backtrack(graph),
-                    new Greedy(graph),
-                    new SimulatedAnnealing(graph),
-                    new AntColonyOptimization(graph)
+                    //new Backtrack(graph),
+                    //new Greedy(graph),
+                    //new SimulatedAnnealing(graph),
+                    new AntColonyOptimization(graph),
+                    new AntColonyOptimizationWithSimulatedAnnealing(graph)
             };
             for(Algorithm algorithm: algorithms){
                 System.out.println("==="+algorithm.getName()+"===");
