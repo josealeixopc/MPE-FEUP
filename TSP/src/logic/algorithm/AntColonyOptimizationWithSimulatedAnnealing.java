@@ -24,6 +24,8 @@ public class AntColonyOptimizationWithSimulatedAnnealing extends Algorithm {
 
     private ArrayList<Node> iterationBestRoute;
     private int iterationBestCost;
+    private int iterationWorstCost;
+    private int iterationTotalCost;
 
     public AntColonyOptimizationWithSimulatedAnnealing(Graph graph){
         this(graph,30);
@@ -49,8 +51,7 @@ public class AntColonyOptimizationWithSimulatedAnnealing extends Algorithm {
     public void computeSolution() {
         initPheromonePaths();
         while(equalSolutionCounter<MAX_EQUAL_CONSECUTIVE_SOLUTIONS){
-            iterationBestCost=Integer.MAX_VALUE;
-            iterationBestRoute=null;
+            resetSAValues();
             resetAntsPath();
             for(ArrayList<Node> ant: ants){
                 if(ant.isEmpty()) //if ant hit a dead end
@@ -67,14 +68,25 @@ public class AntColonyOptimizationWithSimulatedAnnealing extends Algorithm {
                         ant.clear();
             }
             updatePheromones();
-            elitistSimulatedAnnealing();
+
+            float populationDiversity = (((float)iterationTotalCost/nAnts)-bestRouteCost)/(iterationWorstCost-bestRouteCost);
+            if(populationDiversity>0.5f)
+                elitistSimulatedAnnealing();
+            // TODO else mutationOperator???
         }
+    }
+
+    private void resetSAValues() {
+        iterationBestCost=Integer.MAX_VALUE;
+        iterationWorstCost=-1;
+        iterationTotalCost=0;
+        iterationBestRoute=null;
     }
 
     private void elitistSimulatedAnnealing() {
         // Get random initial route
         ArrayList<Node> currentRoute = new ArrayList<>(this.iterationBestRoute);
-        ArrayList<Node> bestRouteSA=null;
+        ArrayList<Node> bestRouteSA;
 
         // Set best route
         bestRouteSA = currentRoute;
@@ -210,6 +222,7 @@ public class AntColonyOptimizationWithSimulatedAnnealing extends Algorithm {
             pheromoneMap.put(edge,currentPheromone+addedPheromone);
         }
 
+        // update values for SA
         if(routeCost<bestRouteCost){
             bestRouteCost = routeCost;
             bestRoute = ant;
@@ -221,5 +234,10 @@ public class AntColonyOptimizationWithSimulatedAnnealing extends Algorithm {
             iterationBestRoute = ant;
             iterationBestCost = routeCost;
         }
+
+        if(routeCost>iterationWorstCost)
+            iterationWorstCost=routeCost;
+
+        iterationTotalCost+=routeCost;
     }
 }
