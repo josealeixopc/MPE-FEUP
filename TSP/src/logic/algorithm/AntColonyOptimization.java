@@ -1,9 +1,9 @@
 package logic.algorithm;
 
-import javafx.util.Pair;
 import logic.graph.Edge;
 import logic.graph.Graph;
 import logic.graph.Node;
+import logic.utils.Pair;
 
 import java.util.*;
 
@@ -17,7 +17,7 @@ public class AntColonyOptimization extends Algorithm {
     private final double INIT_PHEROMONE_LVL = 20.0;
 
     private int equalSolutionCounter=0;
-    private int bestRouteCost = Integer.MAX_VALUE;;
+    private int bestRouteCost = Integer.MAX_VALUE;
     private int nAnts;
     private ArrayList<ArrayList<Node>> ants = new ArrayList<>();
     private HashMap<Edge, Double> pheromoneMap;
@@ -26,7 +26,7 @@ public class AntColonyOptimization extends Algorithm {
         this(graph,30);
     }
 
-    public AntColonyOptimization(Graph graph, int nAnts){
+    private AntColonyOptimization(Graph graph, int nAnts){
         super("Ant Colony Optimization", graph);
         this.nAnts = nAnts;
         this.pheromoneMap = new HashMap<>();
@@ -100,9 +100,9 @@ public class AntColonyOptimization extends Algorithm {
 
         double chosenCost = new Random().nextDouble()*totalCost;
         for(Pair<Edge, Double> pair: edgesWeightedCosts){
-            chosenCost -= pair.getValue();
+            chosenCost -= pair.getRight();
             if(chosenCost<=0.0) {
-                Edge edge = pair.getKey();
+                Edge edge = pair.getLeft();
                 ant.add(edge.getDestination());
                 return true;
             }

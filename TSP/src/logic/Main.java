@@ -34,12 +34,13 @@ public class Main {
             System.out.println("Finished parsing in "+(parsingFinishTime-parsingStartTime)+"ms");
             System.out.println();
 
-                    new Backtrack(graph),
             Algorithm[] algorithms = new Algorithm[]{ //TODO comment unwanted algorithms
+                    new Backtrack(graph),
                     new Greedy(graph),
                     new SimulatedAnnealing(graph),
                     new AntColonyOptimization(graph)
             };
+
             for(Algorithm algorithm: algorithms){
                 runAlgorithm(algorithm);
 
