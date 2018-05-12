@@ -11,7 +11,7 @@ public class Node {
      * Creates a new node for an airport, initializing the HashMap for its edges.
      * @param name The 3-letter code for the airport.
      */
-    Node(String name){
+    public Node(String name){
         this.name = name;
         this.edges = new HashMap<>();
     }

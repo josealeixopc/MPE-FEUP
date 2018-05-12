@@ -23,7 +23,7 @@ public abstract class Algorithm {
      * Gets the cost of the best route found, if available.
      * @return cost of bestRoute; -1 if bestRoute was not calculated.
      */
-    private int getBestRouteCost(){
+    int getBestRouteCost(){
         return this.graph.getRouteCost(this.bestRoute);
     }
 
@@ -36,8 +36,6 @@ public abstract class Algorithm {
             return;
         }
 
-        System.out.println("Cost = "+getBestRouteCost());
-
         boolean firstPrint = true;
         System.out.print("Route(");
         for(Node node: bestRoute){
@@ -47,6 +45,7 @@ public abstract class Algorithm {
             } else System.out.print(", "+node.getName());
         }
         System.out.println(")");
+        System.out.println("Cost = "+getBestRouteCost());
     }
 
     public String getName() {
