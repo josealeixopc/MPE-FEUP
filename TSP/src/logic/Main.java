@@ -1,8 +1,12 @@
 package logic;
 
-import logic.algorithm.*;
+import logic.algorithm.Algorithm;
+import logic.algorithm.AntColonyOptimization;
+import logic.algorithm.Backtrack;
+import logic.algorithm.Greedy;
 
 
+import logic.algorithm.SimulatedAnnealing;
 import logic.graph.Graph;
 
 
@@ -10,18 +14,18 @@ public class Main {
 
     public static void main(String[] args) {
 
-        String[] wantedFiles = new String[]{ //TODO comment unwanted files
-                Parser.DATA5,
-                Parser.DATA10,
-                Parser.DATA15,
-                Parser.DATA20,
-                Parser.DATA30,
-                Parser.DATA40,
-                Parser.DATA50,
-                Parser.DATA60,
-                Parser.DATA70,
-                Parser.DATA100,
-                Parser.DATA200,
+        String[] wantedFiles = new String[]{ //comment unwanted files
+                Parser.DATA5, //1950
+                Parser.DATA10, //5375
+                Parser.DATA15, //
+                //Parser.DATA20,
+                //Parser.DATA30,
+                //Parser.DATA40,
+                //Parser.DATA50,
+//                Parser.DATA60,
+//                Parser.DATA70,
+//                Parser.DATA100,
+//                Parser.DATA200,
         };
 
         for(String file: wantedFiles){
@@ -34,35 +38,49 @@ public class Main {
             System.out.println("Finished parsing in "+(parsingFinishTime-parsingStartTime)+"ms");
             System.out.println();
 
-            Algorithm[] algorithms = new Algorithm[]{ //TODO comment unwanted algorithms
-                    new Backtrack(graph),
-                    new Greedy(graph),
-                    new SimulatedAnnealing(graph),
-                    new AntColonyOptimization(graph)
+            Algorithm[] algorithms = new Algorithm[]{ //comment unwanted algorithms
+                    //new Backtrack(graph),
+                    //new Greedy(graph),
+                    //new SimulatedAnnealing(graph),
+                    new AntColonyOptimization(graph),
+                    new AntColonyOptimizationWithSimulatedAnnealing(graph)
             };
-
             for(Algorithm algorithm: algorithms){
-                runAlgorithm(algorithm);
-
-                Algorithm[] optimizations = new Algorithm[]{ //TODO comment unwanted optimizations
-                    new TwoOpt(graph,algorithm),
-                    new ThreeOpt(graph,algorithm)
-                };
-                for(Algorithm optimization: optimizations){
-                    runAlgorithm(optimization);
-                }
+                System.out.println("==="+algorithm.getName()+"===");
+                long startTime = System.currentTimeMillis();
+                algorithm.computeSolution();
+                long finishTime = System.currentTimeMillis();
+                System.out.println("Time: "+(finishTime-startTime)+"ms");
+                algorithm.printResults();
+                System.out.println();
             }
             System.out.println();
         }
-    }
+        /*for(Graph graph: graphs){
+            System.out.println("Data");
+            Algorithm greedy = new Greedy(graph);
+            greedy.computeSolution();
+            System.out.print("Greedy: ");
+            greedy.printResults();
 
-    private static void runAlgorithm(Algorithm algorithm) {
-        System.out.println("==="+algorithm.getName()+"===");
-        long startTime = System.currentTimeMillis();
-        algorithm.computeSolution();
-        long finishTime = System.currentTimeMillis();
-        algorithm.printResults();
-        System.out.println("Time: "+(double)(finishTime-startTime)/1000+"s");
-        System.out.println();
+            Algorithm backtrack = new Backtrack(graph);
+            backtrack.computeSolution();
+            System.out.print("Backtrack: ");
+            backtrack.printResults();
+
+            Algorithm antColony = new AntColonyOptimization(graph);
+            antColony.computeSolution();
+            System.out.print("AntColony: ");
+            antColony.printResults();
+
+            Algorithm simulatedAnnealing = new SimulatedAnnealing(graph);
+            simulatedAnnealing.computeSolution();
+            System.out.print("Simulated Annealing: ");
+            simulatedAnnealing.printResults();
+
+            System.out.println();
+        }//*/
+
+
     }
 }
