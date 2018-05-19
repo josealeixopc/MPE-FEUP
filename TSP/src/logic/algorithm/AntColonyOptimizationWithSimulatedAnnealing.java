@@ -3,7 +3,6 @@ package logic.algorithm;
 import logic.graph.Edge;
 import logic.graph.Graph;
 import logic.graph.Node;
-import logic.utils.Pair;
 
 import java.util.*;
 
@@ -132,9 +131,11 @@ public class AntColonyOptimizationWithSimulatedAnnealing extends AntColonyOptimi
         // update values for SA and stopping condition
         if(routeCost<bestRouteCost){
             bestRouteCost = routeCost;
-            bestRoute = ant;
+            this.setBestRoute(ant);
             iterationBestRoute = ant;
             iterationBestCost = routeCost;
+
+
 
         } else if(routeCost<iterationBestCost) {
             iterationBestRoute = ant;

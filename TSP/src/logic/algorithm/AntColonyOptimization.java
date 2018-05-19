@@ -160,7 +160,7 @@ public class AntColonyOptimization extends Algorithm {
 
         if(routeCost<bestRouteCost){
             bestRouteCost = routeCost;
-            this.setNewBestRoute(ant, bestRouteCost);
+            this.setBestRoute(ant, bestRouteCost);
         }
     }
 }

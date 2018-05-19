@@ -142,7 +142,7 @@ public class SimulatedAnnealing extends Algorithm {
 
                     // If it's better than best route, update
                     if(currentCost < bestCost){
-                        this.bestRoute = currentRoute;
+                        this.setBestRoute(currentRoute);
                         bestCost = currentCost;
                     }
                 }

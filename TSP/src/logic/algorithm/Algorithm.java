@@ -1,9 +1,13 @@
 package logic.algorithm;
 
+import logic.Main;
 import logic.graph.Graph;
 import logic.graph.Node;
 
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.TreeMap;
 
 public abstract class Algorithm {
 
@@ -12,7 +16,7 @@ public abstract class Algorithm {
     ArrayList<Node> bestRoute;
     int numOfIterations;
 
-    ArrayList<Integer> historyOfBestCosts;
+    private TreeMap<Long, Integer> historyOfBestRoutes;
 
     public static long MAX_PROCESS_TIME_MILLIS = 1000;
 
@@ -25,18 +29,45 @@ public abstract class Algorithm {
     Algorithm(String name, Graph graph){
         this.name = name;
         this.graph=graph;
-        this.historyOfBestCosts = new ArrayList<>();
+        this.historyOfBestRoutes = new TreeMap<>();
     }
 
-    public void setNewBestRoute(ArrayList<Node> newBestRoute){
-        setNewBestRoute(newBestRoute, this.graph.getRouteCost(newBestRoute));
+    void setBestRoute(ArrayList<Node> newBestRoute){
+        setBestRoute(newBestRoute, this.graph.getRouteCost(newBestRoute));
     }
 
-    public void setNewBestRoute(ArrayList<Node> newBestRoute, int costOfNewBestRoute){
+    void setBestRoute(ArrayList<Node> newBestRoute, int costOfNewBestRoute){
         this.bestRoute = newBestRoute;
-        this.historyOfBestCosts.add(costOfNewBestRoute);
+        long timeTaken = System.currentTimeMillis() - (endTime - MAX_PROCESS_TIME_MILLIS); // current time - starting time
+        this.historyOfBestRoutes.put(timeTaken, costOfNewBestRoute);
     }
 
+    /**
+     * 
+     * @return Returns a map whose key is the time it took to find the solution it points to.
+     */
+    public TreeMap<Long, Integer> getHistoryOfBestRoutes(){
+        return this.historyOfBestRoutes;
+    }
+
+    public String writeHistoryOfBestRoutes(){
+        StringBuilder sb = new StringBuilder();
+
+        if(this.historyOfBestRoutes.entrySet().isEmpty()){
+            sb.append("No results available");
+        }
+        else {
+            for (Map.Entry<Long, Integer> bestRouteRecord : this.historyOfBestRoutes.entrySet()) {
+                sb.append(bestRouteRecord.getKey());
+                sb.append(",");
+                sb.append(bestRouteRecord.getValue());
+                sb.append("\n");
+            }
+        }
+
+        return sb.toString();
+    }
+    
     /**
      * Gets the cost of the best route found, if available.
      * @return cost of bestRoute; -1 if bestRoute was not calculated.
