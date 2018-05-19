@@ -8,16 +8,19 @@ import java.util.ArrayList;
 
 public class TwoOpt extends Algorithm {
 
+    private ArrayList<Node> initialRoute;
+
     public TwoOpt(Graph graph, Algorithm prevAlgorithm){
         super(prevAlgorithm.getName()+" with 2-opt", graph);
         super.bestRoute = prevAlgorithm.bestRoute;
+        this.initialRoute = prevAlgorithm.bestRoute;
     }
 
     @Override
     public void computeSolution() {
         int bestRouteCost = getBestRouteCost();
-        for(int i=1; i<bestRoute.size()-2; i++){
-            for(int j=i+1; j<bestRoute.size()-1; j++){
+        for(int i=1; i<initialRoute.size()-2; i++){
+            for(int j=i+1; j<initialRoute.size()-1; j++){
                 ArrayList<Node> route = optSwap(i,j);
                 int cost = graph.getRouteCost(route);
                 if(cost<0)
@@ -35,12 +38,12 @@ public class TwoOpt extends Algorithm {
 
         // add route's beginning
         for(int k=0; k<i; k++){
-            route.add(bestRoute.get(k));
+            route.add(initialRoute.get(k));
         }
 
         // add route's middle reversed
         for(int k=j; k>=i; k--){
-            String nodeName = bestRoute.get(k).getName();
+            String nodeName = initialRoute.get(k).getName();
             Edge edge = route.get(route.size()-1).getEdgeToNode(new Node(nodeName),i+j-k);
             if(edge==null)
                 return null;
@@ -48,8 +51,8 @@ public class TwoOpt extends Algorithm {
         }
 
         // add route's end
-        for(int k=j+1; k<bestRoute.size(); k++){
-            route.add(bestRoute.get(k));
+        for(int k=j+1; k<initialRoute.size(); k++){
+            route.add(initialRoute.get(k));
         }
 
         return route;
