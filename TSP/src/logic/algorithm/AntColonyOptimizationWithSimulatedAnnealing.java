@@ -1,9 +1,9 @@
 package logic.algorithm;
 
-import javafx.util.Pair;
 import logic.graph.Edge;
 import logic.graph.Graph;
 import logic.graph.Node;
+import logic.utils.Pair;
 
 import java.util.*;
 
@@ -31,7 +31,7 @@ public class AntColonyOptimizationWithSimulatedAnnealing extends Algorithm {
         this(graph,30);
     }
 
-    public AntColonyOptimizationWithSimulatedAnnealing(Graph graph, int nAnts){
+    private AntColonyOptimizationWithSimulatedAnnealing(Graph graph, int nAnts){
         super("Ant Colony Optimization with SA Optimization", graph);
         this.nAnts = nAnts;
         this.pheromoneMap = new HashMap<>();
@@ -50,7 +50,10 @@ public class AntColonyOptimizationWithSimulatedAnnealing extends Algorithm {
     @Override
     public void computeSolution() {
         initPheromonePaths();
-        while(equalSolutionCounter<MAX_EQUAL_CONSECUTIVE_SOLUTIONS){
+
+        long end = System.currentTimeMillis() + MAX_TIME_MILLIS;
+
+        while(System.currentTimeMillis() < end){
             resetSAValues();
             resetAntsPath();
             for(ArrayList<Node> ant: ants){
@@ -73,6 +76,8 @@ public class AntColonyOptimizationWithSimulatedAnnealing extends Algorithm {
             if(populationDiversity>0.5f)
                 elitistSimulatedAnnealing();
             else mutationOperator();
+
+            this.numOfIterations++;
         }
     }
 
@@ -105,7 +110,7 @@ public class AntColonyOptimizationWithSimulatedAnnealing extends Algorithm {
 
         // Set SA parameters
         float initialTemperature = 1000;
-        float temperatureDecrease = 1;
+        float temperatureDecrease = 10;
         float iterationsPerTemperature = 10;
 
         float currentTemperature = initialTemperature;
@@ -183,9 +188,9 @@ public class AntColonyOptimizationWithSimulatedAnnealing extends Algorithm {
 
         double chosenCost = new Random().nextDouble()*totalCost;
         for(Pair<Edge, Double> pair: edgesWeightedCosts){
-            chosenCost -= pair.getValue();
+            chosenCost -= pair.getRight();
             if(chosenCost<=0.0) {
-                Edge edge = pair.getKey();
+                Edge edge = pair.getLeft();
                 ant.add(edge.getDestination());
                 return true;
             }

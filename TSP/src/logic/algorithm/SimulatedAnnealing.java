@@ -125,7 +125,9 @@ public class SimulatedAnnealing extends Algorithm {
 
         float currentTemperature = initialTemperature;
 
-        while(currentTemperature > 0){
+        long end = System.currentTimeMillis() + MAX_TIME_MILLIS;
+
+        while(currentTemperature > 0 && System.currentTimeMillis() < end){
 
             int numOfIterations = 0;
 

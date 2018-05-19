@@ -3,12 +3,19 @@ package logic.algorithm;
 import logic.graph.Graph;
 import logic.graph.Node;
 
+import java.io.File;
+import java.io.FileWriter;
+import java.io.IOException;
 import java.util.ArrayList;
 
 public abstract class Algorithm {
+
     private String name;
     Graph graph;
     ArrayList<Node> bestRoute;
+    int numOfIterations;
+
+    public static long MAX_TIME_MILLIS = 30;
 
     /**
      * Constructor.
@@ -23,7 +30,7 @@ public abstract class Algorithm {
      * Gets the cost of the best route found, if available.
      * @return cost of bestRoute; -1 if bestRoute was not calculated.
      */
-    int getBestRouteCost(){
+    public int getBestRouteCost(){
         return this.graph.getRouteCost(this.bestRoute);
     }
 
@@ -46,7 +53,10 @@ public abstract class Algorithm {
         }
         System.out.println(")");
         System.out.println("Cost = "+getBestRouteCost());
+        System.out.println("Number of iterations = " + this.numOfIterations);
+        System.out.println("Number of nodes = " + this.graph.getNodesAmount());
     }
+
 
     public String getName() {
         return name;

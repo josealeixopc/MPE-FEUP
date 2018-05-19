@@ -45,7 +45,10 @@ public class AntColonyOptimization extends Algorithm {
     @Override
     public void computeSolution() {
         initPheromonePaths();
-        while(equalSolutionCounter<MAX_EQUAL_CONSECUTIVE_SOLUTIONS){
+
+        long end = System.currentTimeMillis() + MAX_TIME_MILLIS;
+
+        while(System.currentTimeMillis() < end){
             resetAntsPath();
             for(ArrayList<Node> ant: ants){
                 if(ant.isEmpty()) //if ant hit a dead end
@@ -62,6 +65,8 @@ public class AntColonyOptimization extends Algorithm {
                         ant.clear();
             }
             updatePheromones();
+
+            this.numOfIterations++;
         }
     }
 
