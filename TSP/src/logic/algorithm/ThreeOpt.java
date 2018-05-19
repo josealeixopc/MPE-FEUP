@@ -7,17 +7,20 @@ import java.util.ArrayList;
 
 public class ThreeOpt extends Algorithm {
 
+    private ArrayList<Node> initialRoute;
+
     public ThreeOpt(Graph graph, Algorithm prevAlgorithm){
         super(prevAlgorithm.getName()+" with 3-opt", graph);
         super.bestRoute = prevAlgorithm.bestRoute;
+        this.initialRoute = prevAlgorithm.bestRoute;
     }
 
     @Override
     public void computeSolution() {
         int bestRouteCost = getBestRouteCost();
-        for(int i=1; i<bestRoute.size()-3; i++){
-            for(int j=i+1; j<bestRoute.size()-2; j++){
-                for(int k=j+1; k<bestRoute.size()-1; k++){
+        for(int i=1; i<initialRoute.size()-3; i++){
+            for(int j=i+1; j<initialRoute.size()-2; j++){
+                for(int k=j+1; k<initialRoute.size()-1; k++){
                     ArrayList<Node> route = optSwap(i, j, k);
                     int cost = graph.getRouteCost(route);
                     if(cost<0)
@@ -38,17 +41,17 @@ public class ThreeOpt extends Algorithm {
 
         // part1
         for(int l=0; l<i; l++){
-            route.add(bestRoute.get(l));
+            route.add(initialRoute.get(l));
         }
 
         // part2
         for(int l=i; l<j; l++){
-            section1.add(bestRoute.get(l));
+            section1.add(initialRoute.get(l));
         }
 
         // part3
         for(int l=j; l<k; l++){
-            section2.add(bestRoute.get(l));
+            section2.add(initialRoute.get(l));
         }
 
         //twist in 4 different positions the rest of the course
