@@ -8,8 +8,12 @@ import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.nio.file.StandardOpenOption;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 
 public class Utils {
+
+    public static String RESULTS_FOLDER = "results";
 
     public static void createDirectoryIfNotExists(String directoryName){
 
@@ -50,6 +54,22 @@ public class Utils {
         } catch (IOException e) {
             e.printStackTrace();
         }
+    }
+
+    public static String createDirectoryForResults(String executionFolderName, long timeLimitMillis, int numberOfCities){
+        String newDirName = executionFolderName + File.separator + timeLimitMillis + "ms_" + numberOfCities;
+        createDirectoryIfNotExists(newDirName);
+
+        return newDirName;
+    }
+
+    public static String createDirectoryForExecution(){
+        DateTimeFormatter timeStampPattern = DateTimeFormatter.ofPattern("yyyy-MM-dd-HHmmss");
+
+        String newDirName = RESULTS_FOLDER + File.separator + timeStampPattern.format(LocalDateTime.now());
+        createDirectoryIfNotExists(newDirName);
+
+        return newDirName;
     }
 
 }

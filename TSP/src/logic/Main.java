@@ -7,44 +7,10 @@ import logic.graph.Graph;
 import logic.utils.Utils;
 
 import java.io.File;
-import java.io.FileOutputStream;
-import java.io.IOException;
 import java.util.*;
 
 
 public class Main {
-
-    private static String RESULTS_FOLDER = "results";
-
-    private static void saveResultsForTimeLimit(String timeLimitInSeconds, List<String> algorithmNames, Map<String, List<String>> numOfCitiesToAlgorithmResults){
-
-        String filename = RESULTS_FOLDER + File.separator + timeLimitInSeconds + "ms" + ".csv";
-        Utils.createFileIfNotExists(filename);
-
-        StringBuilder sb = new StringBuilder();
-
-        sb.append("Number of cities");
-
-        for(String a :algorithmNames){
-            sb.append(",");
-            sb.append(a);
-        }
-
-        sb.append("\n");
-
-        for(Map.Entry<String, List<String>> entry : numOfCitiesToAlgorithmResults.entrySet()){
-            sb.append(entry.getKey());
-
-            for(String s : entry.getValue()){
-                sb.append(",");
-                sb.append(s);
-            }
-
-            sb.append("\n");
-        }
-
-        Utils.writeToFile(filename, sb.toString());
-    }
 
     public static void main(String[] args) {
 
@@ -62,10 +28,10 @@ public class Main {
 //                Parser.DATA200,
         };
 
-        Utils.createDirectoryIfNotExists(RESULTS_FOLDER);
+        Utils.createDirectoryIfNotExists(Utils.RESULTS_FOLDER);
+        String executionResultsFolder = Utils.createDirectoryForExecution();
 
         List<String> algorithmNames = new ArrayList<>();
-        Map<String, List<String>> numOfCitiesToAlgorithmResults = new HashMap<>();
 
         for(String file: wantedFiles){
 
@@ -77,6 +43,8 @@ public class Main {
             Graph graph = new Parser(file).getGraph();
             long parsingFinishTime = System.currentTimeMillis();
 
+            int numberOfCities = graph.getNodesAmount();
+
             System.out.println("Finished parsing in "+(parsingFinishTime-parsingStartTime)+"ms");
             System.out.println();
 
@@ -87,6 +55,8 @@ public class Main {
                     new AntColonyOptimization(graph),
                     new AntColonyOptimizationWithSimulatedAnnealing(graph)
             };
+
+            String currentRunResultsFolder = Utils.createDirectoryForResults(executionResultsFolder, Algorithm.MAX_PROCESS_TIME_MILLIS, numberOfCities);
 
             for(Algorithm a : algorithms){
                 if(!algorithmNames.contains(a.getName())){
@@ -107,15 +77,49 @@ public class Main {
 
                 results.add(Integer.toString(algorithm.getBestRouteCost()));
 
-                String historyFileName = RESULTS_FOLDER + File.separator + "results_" + algorithm.getName() + ".csv";
-                Utils.createFileIfNotExists(historyFileName);
-                Utils.writeToFile(historyFileName, algorithm.writeHistoryOfBestRoutes());
+                saveRoutesHistoryOfAlgorithm(currentRunResultsFolder, algorithm);
             }
+
             System.out.println();
 
-            numOfCitiesToAlgorithmResults.put(Integer.toString(graph.getNodesAmount()), results);
-
-            saveResultsForTimeLimit(Long.toString(Algorithm.MAX_PROCESS_TIME_MILLIS), algorithmNames, numOfCitiesToAlgorithmResults);
+            saveBestRoutes(currentRunResultsFolder, algorithmNames, numberOfCities, results);
         }
+
+        System.out.println("Finished all instances.");
+    }
+
+    private static void saveBestRoutes(String folderName, List<String> algorithmNames, int numberOfCities, List<String> results){
+
+        String filename = folderName + File.separator + "best-routes" + ".csv";
+        Utils.createFileIfNotExists(filename);
+
+        StringBuilder sb = new StringBuilder();
+
+        sb.append("Number of cities");
+
+        for(String a :algorithmNames){
+            sb.append(",");
+            sb.append(a);
+        }
+
+        sb.append("\n");
+
+
+        sb.append(numberOfCities);
+
+        for(String s : results){
+            sb.append(",");
+            sb.append(s);
+        }
+
+        sb.append("\n");
+
+        Utils.writeToFile(filename, sb.toString());
+    }
+
+    private static void saveRoutesHistoryOfAlgorithm(String folderName, Algorithm algorithm){
+        String historyFileName = folderName + File.separator + "cost-history_" + algorithm.getName() + ".csv";
+        Utils.createFileIfNotExists(historyFileName);
+        Utils.writeToFile(historyFileName, algorithm.writeHistoryOfBestRoutes());
     }
 }

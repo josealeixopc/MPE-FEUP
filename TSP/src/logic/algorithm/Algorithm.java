@@ -18,7 +18,7 @@ public abstract class Algorithm {
 
     private TreeMap<Long, Integer> historyOfBestRoutes;
 
-    public static long MAX_PROCESS_TIME_MILLIS = 1000;
+    public static long MAX_PROCESS_TIME_MILLIS = 30000;
 
     private long endTime = 0;
 
@@ -57,6 +57,8 @@ public abstract class Algorithm {
             sb.append("No results available");
         }
         else {
+            sb.append("Time in milliseconds,Cost\n");
+
             for (Map.Entry<Long, Integer> bestRouteRecord : this.historyOfBestRoutes.entrySet()) {
                 sb.append(bestRouteRecord.getKey());
                 sb.append(",");
@@ -109,11 +111,11 @@ public abstract class Algorithm {
      */
     public abstract void computeSolution();
 
-    public void startTimer(){
+    void startTimer(){
         this.endTime = System.currentTimeMillis() + MAX_PROCESS_TIME_MILLIS;
     }
 
-    protected boolean timerEnded(){
+    boolean timerEnded(){
         return (System.currentTimeMillis() > this.endTime);
     }
 }
