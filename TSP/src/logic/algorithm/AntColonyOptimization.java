@@ -12,32 +12,27 @@ public class AntColonyOptimization extends Algorithm {
     private final double PHEROMON_WEIGHT = 0.5; //alpha
     private final double VISIBILITY_WEIGHT = 5; //beta
     private final double EVAPORATION_FACTOR =0.8;
-    private final double Q = 1000;
+    final double Q = 1000;
     private final double INIT_PHEROMONE_LVL = 20.0;
 
-    private int bestRouteCost = Integer.MAX_VALUE;
-    private int nAnts;
+    int bestRouteCost = Integer.MAX_VALUE;
+    int nAnts;
     private ArrayList<ArrayList<Node>> ants = new ArrayList<>();
-    private HashMap<Edge, Double> pheromoneMap;
+    HashMap<Edge, Double> pheromoneMap;
 
     public AntColonyOptimization(Graph graph){
         this(graph,30);
     }
 
     private AntColonyOptimization(Graph graph, int nAnts){
-        super("Ant Colony Optimization", graph);
+        this("Ant Colony Optimization", graph, nAnts);
+    }
+
+    AntColonyOptimization(String name, Graph graph, int nAnts){
+        super(name, graph);
         this.nAnts = nAnts;
         this.pheromoneMap = new HashMap<>();
         resetAntsPath();
-    }
-
-    private void resetAntsPath() {
-        ants = new ArrayList<>();
-        for(int i=0; i<nAnts; i++){
-            ArrayList<Node> ant = new ArrayList<>();
-            ant.add(graph.getStartNode());
-            ants.add(ant);
-        }
     }
 
     @Override
@@ -48,30 +43,43 @@ public class AntColonyOptimization extends Algorithm {
 
         while(!timerEnded()){
             resetAntsPath();
-            for(ArrayList<Node> ant: ants){
-                if(ant.isEmpty()) //if ant hit a dead end
-                    continue;
-
-                for(int day=0; day<graph.getNodesAmount()-1; day++){
-                    if(!calculateNextMove(ant,day)){
-                        ant.clear();
-                        break;
-                    }
-                }
-                if(!ant.isEmpty())
-                    if(!calculateLastMove(ant,graph.getNodesAmount()-1))
-                        ant.clear();
-            }
+            moveAnts();
             updatePheromones();
 
             this.numOfIterations++;
         }
     }
 
-    private void initPheromonePaths() {
+    protected void initPheromonePaths() {
         List<Edge> edges = graph.getEdges();
         for(Edge edge: edges){
             pheromoneMap.put(edge, INIT_PHEROMONE_LVL);
+        }
+    }
+
+    protected void resetAntsPath() {
+        ants = new ArrayList<>();
+        for(int i=0; i<nAnts; i++){
+            ArrayList<Node> ant = new ArrayList<>();
+            ant.add(graph.getStartNode());
+            ants.add(ant);
+        }
+    }
+
+    protected void moveAnts(){
+        for(ArrayList<Node> ant: ants){
+            if(ant.isEmpty()) //if ant hit a dead end
+                continue;
+
+            for(int day=0; day<graph.getNodesAmount()-1; day++){
+                if(!calculateNextMove(ant,day)){
+                    ant.clear();
+                    break;
+                }
+            }
+            if(!ant.isEmpty())
+                if(!calculateLastMove(ant,graph.getNodesAmount()-1))
+                    ant.clear();
         }
     }
 
@@ -81,7 +89,7 @@ public class AntColonyOptimization extends Algorithm {
      * @param day day of travel.
      * @return true if a new move was chosen; false in case no move was chosen.
      */
-    private boolean calculateNextMove(ArrayList<Node> ant, int day) {
+    protected boolean calculateNextMove(ArrayList<Node> ant, int day) {
         Node lastNode = ant.get(ant.size()-1);
         List<Edge> edges = lastNode.getEdges(day);
 
@@ -113,7 +121,7 @@ public class AntColonyOptimization extends Algorithm {
         return false; //should never reach here
     }
 
-    private boolean calculateLastMove(ArrayList<Node> ant, int day) {
+    protected boolean calculateLastMove(ArrayList<Node> ant, int day) {
         Node lastNode = ant.get(ant.size()-1);
         List<Edge> edges = lastNode.getEdges(day);
 
@@ -126,7 +134,7 @@ public class AntColonyOptimization extends Algorithm {
         return false;
     }
 
-    private void updatePheromones() {
+    protected void updatePheromones() {
         // evaporate pheromones
         for(Map.Entry<Edge, Double> pheromoneOnEdge: pheromoneMap.entrySet()){
             double newAmount = EVAPORATION_FACTOR*pheromoneOnEdge.getValue();
@@ -135,20 +143,24 @@ public class AntColonyOptimization extends Algorithm {
 
         // add pheromones where ants passed (while also calculation the bestRoute for this iteration)
         for(ArrayList<Node> ant: ants){
-            int routeCost = graph.getRouteCost(ant);
-            if(routeCost < 0)
-                continue;
-            double addedPheromone = Q/(double)routeCost;
-            for(int i=0; i<ant.size()-1; i++){
-                Edge edge = ant.get(i).getEdgeToNode(ant.get(i+1),i);
-                double currentPheromone = pheromoneMap.get(edge);
-                pheromoneMap.put(edge,currentPheromone+addedPheromone);
-            }
+            updatePheromoneForAnt(ant);
+        }
+    }
 
-            if(routeCost<bestRouteCost){
-                bestRouteCost = routeCost;
-                bestRoute = ant;
-            }
+    protected void updatePheromoneForAnt(ArrayList<Node> ant){
+        int routeCost = graph.getRouteCost(ant);
+        if(routeCost < 0)
+            return;
+        double addedPheromone = Q/(double)routeCost;
+        for(int i=0; i<ant.size()-1; i++){
+            Edge edge = ant.get(i).getEdgeToNode(ant.get(i+1),i);
+            double currentPheromone = pheromoneMap.get(edge);
+            pheromoneMap.put(edge,currentPheromone+addedPheromone);
+        }
+
+        if(routeCost<bestRouteCost){
+            bestRouteCost = routeCost;
+            this.setNewBestRoute(ant, bestRouteCost);
         }
     }
 }

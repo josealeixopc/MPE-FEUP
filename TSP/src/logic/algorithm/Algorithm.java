@@ -12,6 +12,8 @@ public abstract class Algorithm {
     ArrayList<Node> bestRoute;
     int numOfIterations;
 
+    ArrayList<Integer> historyOfBestCosts;
+
     public static long MAX_PROCESS_TIME_MILLIS = 1000;
 
     private long endTime = 0;
@@ -23,6 +25,16 @@ public abstract class Algorithm {
     Algorithm(String name, Graph graph){
         this.name = name;
         this.graph=graph;
+        this.historyOfBestCosts = new ArrayList<>();
+    }
+
+    public void setNewBestRoute(ArrayList<Node> newBestRoute){
+        setNewBestRoute(newBestRoute, this.graph.getRouteCost(newBestRoute));
+    }
+
+    public void setNewBestRoute(ArrayList<Node> newBestRoute, int costOfNewBestRoute){
+        this.bestRoute = newBestRoute;
+        this.historyOfBestCosts.add(costOfNewBestRoute);
     }
 
     /**
