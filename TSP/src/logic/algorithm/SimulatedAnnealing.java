@@ -102,6 +102,7 @@ public class SimulatedAnnealing extends Algorithm {
 
     @Override
     public void computeSolution() {
+        this.startTimer();
 
         // Get random initial route
         int maxIterations = 100;
@@ -117,7 +118,6 @@ public class SimulatedAnnealing extends Algorithm {
         int bestCost = this.graph.getRouteCost(this.bestRoute);
 
 
-
         // Set SA parameters
         float initialTemperature = 1000;
         float temperatureDecrease = 0.05f;
@@ -125,9 +125,7 @@ public class SimulatedAnnealing extends Algorithm {
 
         float currentTemperature = initialTemperature;
 
-        long end = System.currentTimeMillis() + MAX_TIME_MILLIS;
-
-        while(currentTemperature > 0 && System.currentTimeMillis() < end){
+        while(currentTemperature > 0 && !this.timerEnded()){
 
             int numOfIterations = 0;
 

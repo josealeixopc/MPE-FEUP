@@ -16,11 +16,18 @@ public class Greedy extends Algorithm {
 
     @Override
     public void computeSolution() {
+        this.startTimer();
+
         ArrayList<Node> route = new ArrayList<>();
         Node currentNode = graph.getStartNode();
         route.add(currentNode);
 
         for(int currentDate=0; currentDate<graph.getNodesAmount()-1; currentDate++){
+
+            if(this.timerEnded()){
+                return;
+            }
+
             List<Edge> edges = currentNode.getEdges(currentDate);
             Edge bestEdge = null;
             for(Iterator<Edge> it = edges.iterator(); it.hasNext();){
@@ -37,11 +44,12 @@ public class Greedy extends Algorithm {
                     bestEdge = edge;
                 }
             }
+
             if(bestEdge==null)
                 return;
+
             route.add(bestEdge.getDestination());
             currentNode=bestEdge.getDestination();
-
         }
 
         //add return to first

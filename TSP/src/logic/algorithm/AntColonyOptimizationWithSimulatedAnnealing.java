@@ -9,14 +9,12 @@ import java.util.*;
 
 public class AntColonyOptimizationWithSimulatedAnnealing extends Algorithm {
 
-    private final int MAX_EQUAL_CONSECUTIVE_SOLUTIONS = 200;//stopping condition
     private final double PHEROMON_WEIGHT = 0.5; //alpha
     private final double VISIBILITY_WEIGHT = 5; //beta
     private final double EVAPORATION_FACTOR =0.8;
     private final double Q = 1000;
     private final double INIT_PHEROMONE_LVL = 20.0;
 
-    private int equalSolutionCounter=0;
     private int bestRouteCost = Integer.MAX_VALUE;
     private int nAnts;
     private ArrayList<ArrayList<Node>> ants = new ArrayList<>();
@@ -49,11 +47,13 @@ public class AntColonyOptimizationWithSimulatedAnnealing extends Algorithm {
 
     @Override
     public void computeSolution() {
+        this.startTimer();
+
         initPheromonePaths();
 
-        long end = System.currentTimeMillis() + MAX_TIME_MILLIS;
+        long end = System.currentTimeMillis() + MAX_PROCESS_TIME_MILLIS;
 
-        while(System.currentTimeMillis() < end){
+        while(!this.timerEnded()){
             resetSAValues();
             resetAntsPath();
             for(ArrayList<Node> ant: ants){
@@ -222,7 +222,6 @@ public class AntColonyOptimizationWithSimulatedAnnealing extends Algorithm {
         for(ArrayList<Node> ant: ants){
             updatePheromoneForAnt(ant);
         }
-        equalSolutionCounter++;
     }
 
     private void updatePheromoneForAnt(ArrayList<Node> ant) {
@@ -241,7 +240,6 @@ public class AntColonyOptimizationWithSimulatedAnnealing extends Algorithm {
         if(routeCost<bestRouteCost){
             bestRouteCost = routeCost;
             bestRoute = ant;
-            equalSolutionCounter=0;
             iterationBestRoute = ant;
             iterationBestCost = routeCost;
 

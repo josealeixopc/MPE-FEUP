@@ -7,7 +7,6 @@ import logic.graph.Graph;
 
 import java.io.File;
 import java.io.FileOutputStream;
-import java.io.FileWriter;
 import java.io.IOException;
 import java.util.*;
 
@@ -88,9 +87,9 @@ public class Main {
             System.out.println();
 
             Algorithm[] algorithms = new Algorithm[]{ //comment unwanted algorithms
-                    //new Backtrack(graph),
-                    //new Greedy(graph),
-                    //new SimulatedAnnealing(graph),
+                    new Backtrack(graph),
+                    new Greedy(graph),
+                    new SimulatedAnnealing(graph),
                     new AntColonyOptimization(graph),
                     new AntColonyOptimizationWithSimulatedAnnealing(graph)
             };
@@ -116,9 +115,9 @@ public class Main {
             }
             System.out.println();
 
-            numOfCitiesToAlgorithmResults.put(file, results);
+            numOfCitiesToAlgorithmResults.put(Integer.toString(graph.getNodesAmount()), results);
 
-            saveResultsForTimeLimit(Long.toString(Algorithm.MAX_TIME_MILLIS), algorithmNames, numOfCitiesToAlgorithmResults);
+            saveResultsForTimeLimit(Long.toString(Algorithm.MAX_PROCESS_TIME_MILLIS), algorithmNames, numOfCitiesToAlgorithmResults);
         }
     }
 }

@@ -3,9 +3,6 @@ package logic.algorithm;
 import logic.graph.Graph;
 import logic.graph.Node;
 
-import java.io.File;
-import java.io.FileWriter;
-import java.io.IOException;
 import java.util.ArrayList;
 
 public abstract class Algorithm {
@@ -15,7 +12,9 @@ public abstract class Algorithm {
     ArrayList<Node> bestRoute;
     int numOfIterations;
 
-    public static long MAX_TIME_MILLIS = 30;
+    public static long MAX_PROCESS_TIME_MILLIS = 1000;
+
+    private long endTime = 0;
 
     /**
      * Constructor.
@@ -66,4 +65,12 @@ public abstract class Algorithm {
      * Implementation of the algorithm.
      */
     public abstract void computeSolution();
+
+    public void startTimer(){
+        this.endTime = System.currentTimeMillis() + MAX_PROCESS_TIME_MILLIS;
+    }
+
+    protected boolean timerEnded(){
+        return (System.currentTimeMillis() > this.endTime);
+    }
 }
