@@ -13,6 +13,7 @@ public class ThreeOpt extends Algorithm {
         super(prevAlgorithm.getName()+" with 3-opt", graph);
         super.bestRoute = prevAlgorithm.bestRoute;
         this.initialRoute = prevAlgorithm.bestRoute;
+        super.numOfIterations = prevAlgorithm.numOfIterations;
     }
 
     @Override
@@ -29,6 +30,7 @@ public class ThreeOpt extends Algorithm {
                         bestRouteCost = cost;
                         super.bestRoute = route;
                     }
+                    super.numOfIterations++;
                 }
             }
         }

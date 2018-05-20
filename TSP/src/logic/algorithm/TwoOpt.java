@@ -14,6 +14,7 @@ public class TwoOpt extends Algorithm {
         super(prevAlgorithm.getName()+" with 2-opt", graph);
         super.bestRoute = prevAlgorithm.bestRoute;
         this.initialRoute = prevAlgorithm.bestRoute;
+        super.numOfIterations = prevAlgorithm.numOfIterations;
     }
 
     @Override
@@ -29,6 +30,7 @@ public class TwoOpt extends Algorithm {
                     bestRouteCost=cost;
                     super.bestRoute = route;
                 }
+                super.numOfIterations++;
             }
         }
     }

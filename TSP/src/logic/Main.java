@@ -71,9 +71,12 @@ public class Main {
                 long startTime = System.currentTimeMillis();
                 algorithm.computeSolution();
                 long finishTime = System.currentTimeMillis();
-                System.out.println("Time: "+(finishTime-startTime)+"ms");
+                long deltaTime = finishTime-startTime;
+                System.out.println("Time: "+deltaTime+"ms");
                 algorithm.printResults();
                 System.out.println();
+
+                applyOptimizations(graph, algorithm, deltaTime, results, currentRunResultsFolder);
 
                 results.add(Integer.toString(algorithm.getBestRouteCost()));
 
@@ -86,6 +89,27 @@ public class Main {
         }
 
         System.out.println("Finished all instances.");
+    }
+
+    private static void applyOptimizations(Graph graph, Algorithm algorithm, long deltaTime, List<String> results, String currentRunResultsFolder) {
+        Algorithm[] optimizations = new Algorithm[]{ //comment unwanted algorithms
+                new TwoOpt(graph, algorithm),
+                new ThreeOpt(graph, algorithm)
+        };
+
+        for(Algorithm optimization: optimizations){
+            System.out.println("==="+optimization.getName()+"===");
+            long startTime = System.currentTimeMillis();
+            optimization.computeSolution();
+            long finishTime = System.currentTimeMillis();
+            System.out.println("Time: "+(deltaTime+finishTime-startTime)+"ms");
+            optimization.printResults();
+            System.out.println();
+
+            results.add(Integer.toString(algorithm.getBestRouteCost()));
+
+            saveRoutesHistoryOfAlgorithm(currentRunResultsFolder, optimization);
+        }
     }
 
     private static void saveBestRoutes(String folderName, List<String> algorithmNames, int numberOfCities, List<String> results){

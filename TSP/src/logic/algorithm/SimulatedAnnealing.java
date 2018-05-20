@@ -69,7 +69,7 @@ public class SimulatedAnnealing extends Algorithm {
                 if(day == numberOfCities - 1) {
 
                     // If you can travel from the current city to the start (and final) city, then the path is valid.
-                    // Else, do nothing and make another iteration.
+                    // Else, do nothing and make another outer iteration.
                     if(currentCity.getCostToNode(firstCity, day) != -1){
                         randomRoute.add(firstCity);
                         return randomRoute;
@@ -79,14 +79,17 @@ public class SimulatedAnnealing extends Algorithm {
                 else {
                     List<Edge> currentDayEdges = currentCity.getEdges(day);
 
-                    int randomInt = new Random().nextInt(currentDayEdges.size());
-                    Node nextCity = currentDayEdges.get(randomInt).getDestination();
-
-                    // If it has chosen a city which has already been visited, generate a new number.
-                    while(alreadyVisited.contains(nextCity)){
-                        randomInt = new Random().nextInt(currentDayEdges.size());
-                        nextCity = currentDayEdges.get(randomInt).getDestination();
+                    List<Edge> possibleTravels = new ArrayList<>();
+                    for(Edge e: currentDayEdges) {
+                        if(!alreadyVisited.contains(e.getDestination()))
+                            possibleTravels.add(e);
                     }
+
+                    if(possibleTravels.size() == 0) // if this city is a dead end
+                        break;
+
+                    int randomInt = new Random().nextInt(possibleTravels.size());
+                    Node nextCity = possibleTravels.get(randomInt).getDestination();
 
                     randomRoute.add(nextCity);
                     currentCity = nextCity;
@@ -156,6 +159,7 @@ public class SimulatedAnnealing extends Algorithm {
                 }
 
                 numOfIterations++;
+                super.numOfIterations++;
             }
 
             currentTemperature = currentTemperature - temperatureDecrease;
