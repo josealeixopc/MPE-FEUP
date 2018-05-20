@@ -21,13 +21,20 @@ public class AntColonyOptimizationWithSimulatedAnnealing extends AntColonyOptimi
         super("Ant Colony Optimization with SA Optimization", graph, nAnts);
     }
 
+    // Parameters
+
+    // ACO Parameters are in AntColonyOptimization.java
+
+    // Elitist SA parameters
+    private float initialTemperature = 1000;
+    private float temperatureDecrease = 10;
+    private float iterationsPerTemperature = 10;
+
     @Override
     public void computeSolution() {
         this.startTimer();
 
         initPheromonePaths();
-
-        long end = System.currentTimeMillis() + MAX_PROCESS_TIME_MILLIS;
 
         while(!this.timerEnded()){
             resetSAValues();
@@ -69,12 +76,6 @@ public class AntColonyOptimizationWithSimulatedAnnealing extends AntColonyOptimi
         // Set best route
         bestRouteSA = currentRoute;
         int bestCost = this.graph.getRouteCost(bestRouteSA);
-
-
-        // Set SA parameters
-        float initialTemperature = 1000;
-        float temperatureDecrease = 10;
-        float iterationsPerTemperature = 10;
 
         float currentTemperature = initialTemperature;
 
@@ -146,5 +147,12 @@ public class AntColonyOptimizationWithSimulatedAnnealing extends AntColonyOptimi
             iterationWorstCost=routeCost;
 
         iterationTotalCost+=routeCost;
+    }
+
+    /**
+     * Optimize ACO-SA parameters using genetic algorithms
+     */
+    private void optimizeParameters(){
+
     }
 }

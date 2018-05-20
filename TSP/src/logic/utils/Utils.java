@@ -10,6 +10,7 @@ import java.nio.file.Paths;
 import java.nio.file.StandardOpenOption;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
+import java.util.Random;
 
 public class Utils {
 
@@ -70,6 +71,10 @@ public class Utils {
         createDirectoryIfNotExists(newDirName);
 
         return newDirName;
+    }
+
+    public static double randomDoubleInRange(Random r, double rangeMin, double rangeMax){
+        return rangeMin + (rangeMax - rangeMin) * r.nextDouble();
     }
 
 }

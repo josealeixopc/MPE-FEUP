@@ -9,11 +9,11 @@ import java.util.*;
 
 public class AntColonyOptimization extends Algorithm {
 
-    private final double PHEROMON_WEIGHT = 0.5; //alpha
-    private final double VISIBILITY_WEIGHT = 5; //beta
-    private final double EVAPORATION_FACTOR =0.8;
-    final double Q = 1000;
-    private final double INIT_PHEROMONE_LVL = 20.0;
+    double PHEROMONE_WEIGHT = 0.5; //alpha
+    double VISIBILITY_WEIGHT = 5; //beta
+    double EVAPORATION_FACTOR =0.8;
+    double Q = 1000;
+    double INIT_PHEROMONE_LVL = 20.0;
 
     int bestRouteCost = Integer.MAX_VALUE;
     int nAnts;
@@ -50,14 +50,14 @@ public class AntColonyOptimization extends Algorithm {
         }
     }
 
-    protected void initPheromonePaths() {
+    void initPheromonePaths() {
         List<Edge> edges = graph.getEdges();
         for(Edge edge: edges){
             pheromoneMap.put(edge, INIT_PHEROMONE_LVL);
         }
     }
 
-    protected void resetAntsPath() {
+    void resetAntsPath() {
         ants = new ArrayList<>();
         for(int i=0; i<nAnts; i++){
             ArrayList<Node> ant = new ArrayList<>();
@@ -66,7 +66,7 @@ public class AntColonyOptimization extends Algorithm {
         }
     }
 
-    protected void moveAnts(){
+    void moveAnts(){
         for(ArrayList<Node> ant: ants){
             if(ant.isEmpty()) //if ant hit a dead end
                 continue;
@@ -89,7 +89,7 @@ public class AntColonyOptimization extends Algorithm {
      * @param day day of travel.
      * @return true if a new move was chosen; false in case no move was chosen.
      */
-    protected boolean calculateNextMove(ArrayList<Node> ant, int day) {
+    private boolean calculateNextMove(ArrayList<Node> ant, int day) {
         Node lastNode = ant.get(ant.size()-1);
         List<Edge> edges = lastNode.getEdges(day);
 
@@ -100,7 +100,7 @@ public class AntColonyOptimization extends Algorithm {
                 continue;
             double pheromone = pheromoneMap.get(edge);
             double visibility = Q/(double)edge.getCost();
-            double cost = Math.pow(visibility, VISIBILITY_WEIGHT)*Math.pow(pheromone,PHEROMON_WEIGHT);
+            double cost = Math.pow(visibility, VISIBILITY_WEIGHT)*Math.pow(pheromone, PHEROMONE_WEIGHT);
             //System.out.println(lastNode.getName()+"-("+day+")->"+edge.getDestination().getName()+", vis="+visibility+", pher="+pheromone+", final="+cost);
             totalCost += cost;
             edgesWeightedCosts.add(new Pair<>(edge,cost));
@@ -121,7 +121,7 @@ public class AntColonyOptimization extends Algorithm {
         return false; //should never reach here
     }
 
-    protected boolean calculateLastMove(ArrayList<Node> ant, int day) {
+    private boolean calculateLastMove(ArrayList<Node> ant, int day) {
         Node lastNode = ant.get(ant.size()-1);
         List<Edge> edges = lastNode.getEdges(day);
 
@@ -134,7 +134,7 @@ public class AntColonyOptimization extends Algorithm {
         return false;
     }
 
-    protected void updatePheromones() {
+    void updatePheromones() {
         // evaporate pheromones
         for(Map.Entry<Edge, Double> pheromoneOnEdge: pheromoneMap.entrySet()){
             double newAmount = EVAPORATION_FACTOR*pheromoneOnEdge.getValue();
