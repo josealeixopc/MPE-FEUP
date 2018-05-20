@@ -17,8 +17,16 @@ public class AntColonyOptimizationWithSimulatedAnnealing extends AntColonyOptimi
         this(graph,30);
     }
 
-    private AntColonyOptimizationWithSimulatedAnnealing(Graph graph, int nAnts){
-        super("Ant Colony Optimization with SA Optimization", graph, nAnts);
+    public AntColonyOptimizationWithSimulatedAnnealing(Graph graph, int nAnts){
+        this(graph, nAnts, false);
+    }
+
+    public AntColonyOptimizationWithSimulatedAnnealing(Graph graph, boolean parallel){
+        this(graph, 30, parallel);
+    }
+
+    public AntColonyOptimizationWithSimulatedAnnealing(Graph graph, int nAnts, boolean parallel){
+        super("Ant Colony Optimization with SA Optimization", graph, nAnts, parallel);
     }
 
     @Override
