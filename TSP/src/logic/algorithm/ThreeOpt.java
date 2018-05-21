@@ -5,14 +5,13 @@ import logic.graph.Node;
 
 import java.util.ArrayList;
 
-public class ThreeOpt extends Algorithm {
-
-    private ArrayList<Node> initialRoute;
+public class ThreeOpt extends KOpt {
 
     public ThreeOpt(Graph graph, Algorithm prevAlgorithm){
         super(prevAlgorithm.getName()+" with 3-opt", graph);
         super.bestRoute = prevAlgorithm.bestRoute;
         this.initialRoute = prevAlgorithm.bestRoute;
+        super.numOfIterations = prevAlgorithm.numOfIterations;
     }
 
     @Override
@@ -29,6 +28,7 @@ public class ThreeOpt extends Algorithm {
                         bestRouteCost = cost;
                         super.bestRoute = route;
                     }
+                    super.kOptIterations++;
                 }
             }
         }

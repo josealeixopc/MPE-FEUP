@@ -6,14 +6,13 @@ import logic.graph.Node;
 
 import java.util.ArrayList;
 
-public class TwoOpt extends Algorithm {
-
-    private ArrayList<Node> initialRoute;
+public class TwoOpt extends KOpt {
 
     public TwoOpt(Graph graph, Algorithm prevAlgorithm){
         super(prevAlgorithm.getName()+" with 2-opt", graph);
         super.bestRoute = prevAlgorithm.bestRoute;
         this.initialRoute = prevAlgorithm.bestRoute;
+        super.numOfIterations = prevAlgorithm.numOfIterations;
     }
 
     @Override
@@ -29,6 +28,7 @@ public class TwoOpt extends Algorithm {
                     bestRouteCost=cost;
                     super.bestRoute = route;
                 }
+                super.kOptIterations++;
             }
         }
     }

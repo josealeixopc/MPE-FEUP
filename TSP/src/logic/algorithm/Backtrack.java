@@ -17,6 +17,8 @@ public class Backtrack extends Algorithm {
 
     @Override
     public void computeSolution() {
+        this.startTimer();
+
         ArrayList<Node> currentRoute = new ArrayList<>();
         currentRoute.add(graph.getStartNode());
         backtrackDFS(currentRoute,0,0,graph.getStartNode());
@@ -41,6 +43,11 @@ public class Backtrack extends Algorithm {
         }
 
         for(Iterator<Edge> it = node.getEdges(day).iterator(); it.hasNext();){
+
+            if(this.timerEnded()){
+                return;
+            }
+
             Edge edge = it.next();
             Node nextNode = edge.getDestination();
 

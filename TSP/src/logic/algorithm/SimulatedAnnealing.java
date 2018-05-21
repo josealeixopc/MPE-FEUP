@@ -21,11 +21,11 @@ public class SimulatedAnnealing extends Algorithm {
      * @param nextCost Cost of the next (worse) evaluated state
      * @return The probability of accepting the new state
      */
-    private float calculateAcceptanceProbability(int currentCost, int nextCost, float temperature) {
+    static float calculateAcceptanceProbability(int currentCost, int nextCost, float temperature) {
         return (float) Math.pow(Math.E, -(currentCost - nextCost) / temperature);
     }
 
-    private ArrayList<Node> swapOperation(ArrayList<Node> route) {
+    static ArrayList<Node> swapOperation(Graph graph, ArrayList<Node> route) {
 
         ArrayList<Node> swappedRoute = new ArrayList<>(route);
 
@@ -35,7 +35,7 @@ public class SimulatedAnnealing extends Algorithm {
         Collections.swap(swappedRoute, index1, index2);
 
         // swap until you have a valid route
-        while(this.graph.getRouteCost(swappedRoute) == -1){
+        while(graph.getRouteCost(swappedRoute) == -1){
             index1 = new Random().nextInt(swappedRoute.size() - 2) + 1;
             index2 = new Random().nextInt(swappedRoute.size() - 2) + 1;
             Collections.swap(swappedRoute, index1, index2);
@@ -69,7 +69,7 @@ public class SimulatedAnnealing extends Algorithm {
                 if(day == numberOfCities - 1) {
 
                     // If you can travel from the current city to the start (and final) city, then the path is valid.
-                    // Else, do nothing and make another iteration.
+                    // Else, do nothing and make another outer iteration.
                     if(currentCity.getCostToNode(firstCity, day) != -1){
                         randomRoute.add(firstCity);
                         return randomRoute;
@@ -79,14 +79,17 @@ public class SimulatedAnnealing extends Algorithm {
                 else {
                     List<Edge> currentDayEdges = currentCity.getEdges(day);
 
-                    int randomInt = new Random().nextInt(currentDayEdges.size());
-                    Node nextCity = currentDayEdges.get(randomInt).getDestination();
-
-                    // If it has chosen a city which has already been visited, generate a new number.
-                    while(alreadyVisited.contains(nextCity)){
-                        randomInt = new Random().nextInt(currentDayEdges.size());
-                        nextCity = currentDayEdges.get(randomInt).getDestination();
+                    List<Edge> possibleTravels = new ArrayList<>();
+                    for(Edge e: currentDayEdges) {
+                        if(!alreadyVisited.contains(e.getDestination()))
+                            possibleTravels.add(e);
                     }
+
+                    if(possibleTravels.size() == 0) // if this city is a dead end
+                        break;
+
+                    int randomInt = new Random().nextInt(possibleTravels.size());
+                    Node nextCity = possibleTravels.get(randomInt).getDestination();
 
                     randomRoute.add(nextCity);
                     currentCity = nextCity;
@@ -102,6 +105,7 @@ public class SimulatedAnnealing extends Algorithm {
 
     @Override
     public void computeSolution() {
+        this.startTimer();
 
         // Get random initial route
         int maxIterations = 100;
@@ -117,7 +121,6 @@ public class SimulatedAnnealing extends Algorithm {
         int bestCost = this.graph.getRouteCost(this.bestRoute);
 
 
-
         // Set SA parameters
         float initialTemperature = 1000;
         float temperatureDecrease = 0.05f;
@@ -125,13 +128,13 @@ public class SimulatedAnnealing extends Algorithm {
 
         float currentTemperature = initialTemperature;
 
-        while(currentTemperature > 0){
+        while(currentTemperature > 0 && !this.timerEnded()){
 
             int numOfIterations = 0;
 
             while(numOfIterations < iterationsPerTemperature){
 
-                ArrayList<Node> nextRoute = swapOperation(currentRoute);
+                ArrayList<Node> nextRoute = swapOperation(this.graph, currentRoute);
 
                 int nextCost = this.graph.getRouteCost(nextRoute);
                 int currentCost = this.graph.getRouteCost(currentRoute);
@@ -142,7 +145,7 @@ public class SimulatedAnnealing extends Algorithm {
 
                     // If it's better than best route, update
                     if(currentCost < bestCost){
-                        this.bestRoute = currentRoute;
+                        this.setBestRoute(currentRoute);
                         bestCost = currentCost;
                     }
                 }
@@ -156,6 +159,7 @@ public class SimulatedAnnealing extends Algorithm {
                 }
 
                 numOfIterations++;
+                super.numOfIterations++;
             }
 
             currentTemperature = currentTemperature - temperatureDecrease;
