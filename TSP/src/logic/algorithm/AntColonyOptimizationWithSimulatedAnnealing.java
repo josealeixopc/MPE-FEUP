@@ -28,8 +28,8 @@ public class AntColonyOptimizationWithSimulatedAnnealing extends AntColonyOptimi
 
     // Elitist SA parameters
     private double initialTemperature = 1000;
-    private double temperatureDecrease = 10;
-    private double iterationsPerTemperature = 10;
+    private double temperatureDecrease = 50;
+    private double iterationsPerTemperature = 5;
 
     @Override
     public void computeSolution() {

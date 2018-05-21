@@ -8,7 +8,7 @@
     <list default="true" id="de5df7c7-bcbc-4c9a-b951-ac2e55cf7c29" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change beforePath="$PROJECT_DIR$/TSP/src/logic/Main.java" afterPath="$PROJECT_DIR$/TSP/src/logic/Main.java" />
-      <change beforePath="$PROJECT_DIR$/TSP/src/logic/algorithm/Algorithm.java" afterPath="$PROJECT_DIR$/TSP/src/logic/algorithm/Algorithm.java" />
+      <change beforePath="$PROJECT_DIR$/TSP/src/logic/algorithm/AntColonyOptimizationWithSimulatedAnnealing.java" afterPath="$PROJECT_DIR$/TSP/src/logic/algorithm/AntColonyOptimizationWithSimulatedAnnealing.java" />
       <change beforePath="$PROJECT_DIR$/TSP/src/logic/meta/GA.java" afterPath="$PROJECT_DIR$/TSP/src/logic/meta/GA.java" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
@@ -21,64 +21,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="AntColonyOptimizationWithSimulatedAnnealing.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="AntColonyOptimizationWithSimulatedAnnealing.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/TSP/src/logic/algorithm/AntColonyOptimizationWithSimulatedAnnealing.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="306">
-              <caret line="121" column="48" lean-forward="true" selection-start-line="121" selection-start-column="48" selection-end-line="121" selection-end-column="48" />
-              <folding>
-                <element signature="e#459#460#0" expanded="true" />
-                <element signature="e#489#490#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="SimulatedAnnealing.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/TSP/src/logic/algorithm/SimulatedAnnealing.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="2394">
-              <caret line="142" column="36" lean-forward="false" selection-start-line="142" selection-start-column="36" selection-end-line="142" selection-end-column="36" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="GA.java" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/TSP/src/logic/meta/GA.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-364">
-              <caret line="217" column="19" lean-forward="false" selection-start-line="217" selection-start-column="19" selection-end-line="217" selection-end-column="19" />
-              <folding>
-                <element signature="imports" expanded="true" />
-                <element signature="e#2339#2340#0" expanded="true" />
-                <element signature="e#2413#2414#0" expanded="true" />
-                <element signature="e#3031#3032#0" expanded="true" />
-                <element signature="e#3079#3080#0" expanded="true" />
-                <element signature="e#3455#3456#0" expanded="true" />
-                <element signature="e#3523#3524#0" expanded="true" />
-                <element signature="e#7436#7437#0" expanded="true" />
-                <element signature="e#7488#7489#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Algorithm.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/TSP/src/logic/algorithm/Algorithm.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="234">
-              <caret line="20" column="24" lean-forward="false" selection-start-line="20" selection-start-column="24" selection-end-line="20" selection-end-column="24" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="cost-history_Ant Colony Optimization.csv" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/TSP/results/2018-05-19-235153/30000ms_10/cost-history_Ant Colony Optimization.csv">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="0">
-              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+            <state relative-caret-position="342">
+              <caret line="127" column="51" lean-forward="true" selection-start-line="127" selection-start-column="51" selection-end-line="127" selection-end-column="51" />
               <folding />
             </state>
           </provider>
@@ -87,21 +34,21 @@
       <file leaf-file-name="Main.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/TSP/src/logic/Main.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="162">
-              <caret line="71" column="85" lean-forward="true" selection-start-line="71" selection-start-column="85" selection-end-line="71" selection-end-column="85" />
+            <state relative-caret-position="648">
+              <caret line="76" column="13" lean-forward="false" selection-start-line="76" selection-start-column="13" selection-end-line="76" selection-end-column="13" />
               <folding>
-                <element signature="e#226#227#0" expanded="true" />
-                <element signature="e#257#258#0" expanded="true" />
+                <element signature="e#286#287#0" expanded="true" />
+                <element signature="e#317#318#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Utils.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/TSP/src/logic/utils/Utils.java">
+      <file leaf-file-name="SimulatedAnnealing.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/TSP/src/logic/algorithm/SimulatedAnnealing.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1152">
-              <caret line="74" column="0" lean-forward="false" selection-start-line="74" selection-start-column="0" selection-end-line="74" selection-end-column="0" />
+            <state relative-caret-position="293">
+              <caret line="129" column="36" lean-forward="false" selection-start-line="129" selection-start-column="36" selection-end-line="129" selection-end-column="36" />
               <folding />
             </state>
           </provider>
@@ -110,8 +57,8 @@
       <file leaf-file-name="AntColonyOptimization.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/TSP/src/logic/algorithm/AntColonyOptimization.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="36">
-              <caret line="7" column="19" lean-forward="false" selection-start-line="7" selection-start-column="19" selection-end-line="7" selection-end-column="19" />
+            <state relative-caret-position="72">
+              <caret line="9" column="13" lean-forward="false" selection-start-line="9" selection-start-column="13" selection-end-line="9" selection-end-column="13" />
               <folding />
             </state>
           </provider>
@@ -143,6 +90,19 @@
       <find>.csv</find>
       <find>results</find>
       <find>VISIBILITY_WEIGHT</find>
+      <find>sortP</find>
+      <find>probabili</find>
+      <find>fitness</find>
+      <find>mutate</find>
+      <find>Individ</find>
+      <find>current</find>
+      <find>thre</find>
+      <find>lowest</find>
+      <find>detail</find>
+      <find>iterations</find>
+      <find>iterationsPerTemperature</find>
+      <find>lowe</find>
+      <find>simula</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -169,11 +129,11 @@
         <option value="$PROJECT_DIR$/TSP/src/logic/algorithm/Backtrack.java" />
         <option value="$PROJECT_DIR$/TSP/src/logic/utils/Utils.java" />
         <option value="$PROJECT_DIR$/TSP/src/logic/algorithm/AntColonyOptimization.java" />
+        <option value="$PROJECT_DIR$/TSP/src/logic/algorithm/Algorithm.java" />
+        <option value="$PROJECT_DIR$/TSP/src/logic/meta/GA.java" />
+        <option value="$PROJECT_DIR$/TSP/src/logic/Main.java" />
         <option value="$PROJECT_DIR$/TSP/src/logic/algorithm/SimulatedAnnealing.java" />
         <option value="$PROJECT_DIR$/TSP/src/logic/algorithm/AntColonyOptimizationWithSimulatedAnnealing.java" />
-        <option value="$PROJECT_DIR$/TSP/src/logic/algorithm/Algorithm.java" />
-        <option value="$PROJECT_DIR$/TSP/src/logic/Main.java" />
-        <option value="$PROJECT_DIR$/TSP/src/logic/meta/GA.java" />
       </list>
     </option>
   </component>
@@ -184,10 +144,10 @@
     <sorting>DEFINITION_ORDER</sorting>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="293" />
-    <option name="y" value="-4" />
-    <option name="width" value="1398" />
-    <option name="height" value="1020" />
+    <option name="x" value="257" />
+    <option name="y" value="2" />
+    <option name="width" value="1396" />
+    <option name="height" value="1012" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectView">
@@ -228,6 +188,64 @@
             <path>
               <item name="MPE-FEUP" type="b2602c69:ProjectViewProjectNode" />
               <item name="TSP" type="462c0819:PsiDirectoryNode" />
+              <item name="results" type="462c0819:PsiDirectoryNode" />
+              <item name="2018-05-21-215758" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="MPE-FEUP" type="b2602c69:ProjectViewProjectNode" />
+              <item name="TSP" type="462c0819:PsiDirectoryNode" />
+              <item name="results" type="462c0819:PsiDirectoryNode" />
+              <item name="2018-05-21-215758" type="462c0819:PsiDirectoryNode" />
+              <item name="5000ms_30" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="MPE-FEUP" type="b2602c69:ProjectViewProjectNode" />
+              <item name="TSP" type="462c0819:PsiDirectoryNode" />
+              <item name="results" type="462c0819:PsiDirectoryNode" />
+              <item name="2018-05-21-221310" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="MPE-FEUP" type="b2602c69:ProjectViewProjectNode" />
+              <item name="TSP" type="462c0819:PsiDirectoryNode" />
+              <item name="results" type="462c0819:PsiDirectoryNode" />
+              <item name="2018-05-21-221310" type="462c0819:PsiDirectoryNode" />
+              <item name="2000ms_30" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="MPE-FEUP" type="b2602c69:ProjectViewProjectNode" />
+              <item name="TSP" type="462c0819:PsiDirectoryNode" />
+              <item name="results" type="462c0819:PsiDirectoryNode" />
+              <item name="2018-05-21-223737" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="MPE-FEUP" type="b2602c69:ProjectViewProjectNode" />
+              <item name="TSP" type="462c0819:PsiDirectoryNode" />
+              <item name="results" type="462c0819:PsiDirectoryNode" />
+              <item name="2018-05-21-223743" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="MPE-FEUP" type="b2602c69:ProjectViewProjectNode" />
+              <item name="TSP" type="462c0819:PsiDirectoryNode" />
+              <item name="results" type="462c0819:PsiDirectoryNode" />
+              <item name="2018-05-21-223743" type="462c0819:PsiDirectoryNode" />
+              <item name="2000ms_30" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="MPE-FEUP" type="b2602c69:ProjectViewProjectNode" />
+              <item name="TSP" type="462c0819:PsiDirectoryNode" />
+              <item name="results" type="462c0819:PsiDirectoryNode" />
+              <item name="2018-05-21-230357" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="MPE-FEUP" type="b2602c69:ProjectViewProjectNode" />
+              <item name="TSP" type="462c0819:PsiDirectoryNode" />
+              <item name="results" type="462c0819:PsiDirectoryNode" />
+              <item name="2018-05-21-230357" type="462c0819:PsiDirectoryNode" />
+              <item name="2000ms_30" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="MPE-FEUP" type="b2602c69:ProjectViewProjectNode" />
+              <item name="TSP" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -260,7 +278,7 @@
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
-    <property name="SearchEverywhereHistoryKey" value="utils&#9;FILE&#9;file:///home/jazz/MyRepos/FEUP/4a-2s/MPE-FEUP/TSP/src/logic/utils/Utils.java&#10;ant&#9;PSI&#9;JAVA://logic.algorithm.AntColonyOptimization&#10;m&#9;FILE&#9;file:///home/jazz/MyRepos/FEUP/4a-2s/MPE-FEUP/TSP/src/logic/Main.java&#10;al&#9;FILE&#9;file:///home/jazz/MyRepos/FEUP/4a-2s/MPE-FEUP/TSP/src/logic/algorithm/Algorithm.java&#10;simu&#9;FILE&#9;file:///home/jazz/MyRepos/FEUP/4a-2s/MPE-FEUP/TSP/src/logic/algorithm/SimulatedAnnealing.java&#10;main&#9;FILE&#9;file:///home/jazz/MyRepos/FEUP/4a-2s/MPE-FEUP/TSP/src/logic/Main.java&#10;alg&#9;FILE&#9;file:///home/jazz/MyRepos/FEUP/4a-2s/MPE-FEUP/TSP/src/logic/algorithm/Algorithm.java" />
+    <property name="SearchEverywhereHistoryKey" value="main&#9;FILE&#9;file:///home/jazz/MyRepos/FEUP/4a-2s/MPE-FEUP/TSP/src/logic/Main.java&#10;G&#9;FILE&#9;file:///home/jazz/MyRepos/FEUP/4a-2s/MPE-FEUP/TSP/src/logic/meta/GA.java&#10;util&#9;FILE&#9;file:///home/jazz/MyRepos/FEUP/4a-2s/MPE-FEUP/TSP/src/logic/utils/Utils.java&#10;utils&#9;FILE&#9;file:///home/jazz/MyRepos/FEUP/4a-2s/MPE-FEUP/TSP/src/logic/utils/Utils.java&#10;ant&#9;PSI&#9;JAVA://logic.algorithm.AntColonyOptimization&#10;m&#9;FILE&#9;file:///home/jazz/MyRepos/FEUP/4a-2s/MPE-FEUP/TSP/src/logic/Main.java&#10;al&#9;FILE&#9;file:///home/jazz/MyRepos/FEUP/4a-2s/MPE-FEUP/TSP/src/logic/algorithm/Algorithm.java&#10;simu&#9;FILE&#9;file:///home/jazz/MyRepos/FEUP/4a-2s/MPE-FEUP/TSP/src/logic/algorithm/SimulatedAnnealing.java&#10;alg&#9;FILE&#9;file:///home/jazz/MyRepos/FEUP/4a-2s/MPE-FEUP/TSP/src/logic/algorithm/Algorithm.java" />
     <property name="run.code.analysis.last.selected.profile" value="pProject Default" />
   </component>
   <component name="RunDashboard">
@@ -397,7 +415,7 @@
       <workItem from="1526733275243" duration="21357000" />
       <workItem from="1526774736449" duration="7447000" />
       <workItem from="1526910334242" duration="9267000" />
-      <workItem from="1526923632793" duration="2379000" />
+      <workItem from="1526923632793" duration="13968000" />
     </task>
     <task id="LOCAL-00001" summary="Started elaborating SA. Create a function which generates the initial random path.">
       <created>1522338627065</created>
@@ -462,14 +480,21 @@
       <option name="project" value="LOCAL" />
       <updated>1526915699811</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="Made a few touches to GA.">
+      <created>1526926064989</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1526926064989</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="58294000" />
+    <option name="totallyTimeSpent" value="69883000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="293" y="-4" width="1922" height="1092" extended-state="6" />
+    <frame x="0" y="-4" width="1920" height="1084" extended-state="6" />
     <editor active="true" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -481,26 +506,26 @@
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32984293" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32879582" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32879582" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32984293" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.27588046" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32984293" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Learn" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Theme Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="true" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Inspection Results" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32984293" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32984293" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
     </layout>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -546,91 +571,19 @@
     <MESSAGE value="Finished most metrics." />
     <MESSAGE value="Began structuring GA meta otimization." />
     <MESSAGE value="Meta otimization at least does not worsen the result" />
-    <option name="LAST_COMMIT_MESSAGE" value="Meta otimization at least does not worsen the result" />
+    <MESSAGE value="Made a few touches to GA." />
+    <option name="LAST_COMMIT_MESSAGE" value="Made a few touches to GA." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/TSP/src/logic/meta/GA.java</url>
-          <line>157</line>
-          <properties />
-          <option name="timeStamp" value="20" />
-        </line-breakpoint>
-      </breakpoints>
-      <option name="time" value="21" />
+      <breakpoints-dialog>
+        <breakpoints-dialog />
+      </breakpoints-dialog>
+      <option name="time" value="39" />
     </breakpoint-manager>
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/README.md">
-      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
-        <state split_layout="SPLIT">
-          <first_editor relative-caret-position="72">
-            <caret line="4" column="10" lean-forward="true" selection-start-line="4" selection-start-column="10" selection-end-line="4" selection-end-column="10" />
-          </first_editor>
-          <second_editor />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/TSP/travelling-salesman-challenge/real_data/data_5.txt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="360">
-          <caret line="20" column="13" lean-forward="false" selection-start-line="20" selection-start-column="13" selection-end-line="20" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/TSP/src/logic/graph/Node.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="72">
-          <caret line="4" column="13" lean-forward="false" selection-start-line="4" selection-start-column="13" selection-end-line="4" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/TSP/src/logic/utils/Pair.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="216">
-          <caret line="12" column="17" lean-forward="true" selection-start-line="12" selection-start-column="17" selection-end-line="12" selection-end-column="17" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/TSP/src/logic/graph/Graph.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="72">
-          <caret line="4" column="13" lean-forward="false" selection-start-line="4" selection-start-column="13" selection-end-line="4" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/TSP/src/logic/Parser.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="396">
-          <caret line="39" column="20" lean-forward="false" selection-start-line="39" selection-start-column="20" selection-end-line="39" selection-end-column="20" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/TSP/.gitignore">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="36">
-          <caret line="2" column="8" lean-forward="false" selection-start-line="2" selection-start-column="8" selection-end-line="2" selection-end-column="8" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/TSP/results/30000ms.csv" />
-    <entry file="file://$PROJECT_DIR$/TSP/src/gui/Interface.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="36">
-          <caret line="2" column="17" lean-forward="false" selection-start-line="2" selection-start-column="17" selection-end-line="2" selection-end-column="17" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/TSP/src/logic/graph/Edge.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="574">
-          <caret line="63" column="20" lean-forward="false" selection-start-line="63" selection-start-column="20" selection-end-line="63" selection-end-column="20" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/TSP/src/logic/algorithm/ThreeOpt.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="72">
@@ -695,42 +648,15 @@
     <entry file="file://$PROJECT_DIR$/TSP/results/2018-05-19-233945_30000ms_20/cost-history_Simulated Annealing.csv" />
     <entry file="file://$PROJECT_DIR$/TSP/results/2018-05-19-233804_30000ms_15/best-routes.csv" />
     <entry file="file://$PROJECT_DIR$/TSP/results/2018-05-19-233945_30000ms_20/cost-history_Ant Colony Optimization.csv" />
-    <entry file="file://$PROJECT_DIR$/TSP/src/logic/algorithm/SimulatedAnnealing.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2394">
-          <caret line="142" column="36" lean-forward="false" selection-start-line="142" selection-start-column="36" selection-end-line="142" selection-end-column="36" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/TSP/src/logic/utils/Utils.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1152">
-          <caret line="74" column="0" lean-forward="false" selection-start-line="74" selection-start-column="0" selection-end-line="74" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/TSP/src/logic/algorithm/AntColonyOptimization.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="36">
-          <caret line="7" column="19" lean-forward="false" selection-start-line="7" selection-start-column="19" selection-end-line="7" selection-end-column="19" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/TSP/src/logic/Main.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="162">
-          <caret line="71" column="85" lean-forward="true" selection-start-line="71" selection-start-column="85" selection-end-line="71" selection-end-column="85" />
-          <folding>
-            <element signature="e#226#227#0" expanded="true" />
-            <element signature="e#257#258#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/TSP/results/2018-05-19-235153/30000ms_10/cost-history_Ant Colony Optimization.csv">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/TSP/results/2018-05-21-184813/2000ms_30/cost-history_Ant Colony Optimization with SA Optimization.csv">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
@@ -746,32 +672,132 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/TSP/src/logic/algorithm/AntColonyOptimizationWithSimulatedAnnealing.java">
+    <entry file="file://$PROJECT_DIR$/TSP/results/2018-05-21-183422/2000ms_30/cost-history_Ant Colony Optimization with SA Optimization.csv">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="306">
-          <caret line="121" column="48" lean-forward="true" selection-start-line="121" selection-start-column="48" selection-end-line="121" selection-end-column="48" />
-          <folding>
-            <element signature="e#459#460#0" expanded="true" />
-            <element signature="e#489#490#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/TSP/results/2018-05-21-174335/2000ms_10/cost-history_Simulated Annealing.csv">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="144">
+          <caret line="8" column="0" lean-forward="false" selection-start-line="8" selection-start-column="0" selection-end-line="8" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/TSP/results/2018-05-21-173839/2000ms_20/cost-history_Ant Colony Optimization with SA Optimization.csv">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/TSP/results/2018-05-21-173839/2000ms_5/cost-history_Ant Colony Optimization with SA Optimization.csv">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/TSP/results/2018-05-21-173839/2000ms_10/cost-history_Ant Colony Optimization with SA Optimization.csv">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/TSP/results/2018-05-21-173839/2000ms_15/cost-history_Ant Colony Optimization with SA Optimization.csv">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/TSP/src/logic/utils/Utils.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-656">
+          <caret line="2" column="14" lean-forward="false" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="14" />
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/TSP/src/logic/meta/GA.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-364">
-          <caret line="217" column="19" lean-forward="false" selection-start-line="217" selection-start-column="19" selection-end-line="217" selection-end-column="19" />
+        <state relative-caret-position="473">
+          <caret line="232" column="0" lean-forward="false" selection-start-line="232" selection-start-column="0" selection-end-line="232" selection-end-column="0" />
           <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#2339#2340#0" expanded="true" />
-            <element signature="e#2413#2414#0" expanded="true" />
-            <element signature="e#3031#3032#0" expanded="true" />
-            <element signature="e#3079#3080#0" expanded="true" />
-            <element signature="e#3455#3456#0" expanded="true" />
-            <element signature="e#3523#3524#0" expanded="true" />
-            <element signature="e#7436#7437#0" expanded="true" />
-            <element signature="e#7488#7489#0" expanded="true" />
+            <element signature="imports" expanded="false" />
+            <element signature="e#3637#3638#0" expanded="false" />
+            <element signature="e#3685#3686#0" expanded="false" />
+            <element signature="e#3749#3750#0" expanded="false" />
+            <element signature="e#3829#3830#0" expanded="false" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/TSP/results/2018-05-21-230357/2000ms_30/optimized-parameters.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/TSP/results/2018-05-21-223743/2000ms_30/optimized-parameters.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="144">
+          <caret line="8" column="43" lean-forward="false" selection-start-line="8" selection-start-column="43" selection-end-line="8" selection-end-column="43" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/TSP/results/2018-05-21-221310/2000ms_30/optimized-parameters.csv">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="10" lean-forward="false" selection-start-line="0" selection-start-column="10" selection-end-line="0" selection-end-column="10" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/TSP/src/logic/Main.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="648">
+          <caret line="76" column="13" lean-forward="false" selection-start-line="76" selection-start-column="13" selection-end-line="76" selection-end-column="13" />
+          <folding>
+            <element signature="e#286#287#0" expanded="true" />
+            <element signature="e#317#318#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/TSP/src/logic/algorithm/AntColonyOptimization.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="72">
+          <caret line="9" column="13" lean-forward="false" selection-start-line="9" selection-start-column="13" selection-end-line="9" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/TSP/src/logic/algorithm/SimulatedAnnealing.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="293">
+          <caret line="129" column="36" lean-forward="false" selection-start-line="129" selection-start-column="36" selection-end-line="129" selection-end-column="36" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/TSP/src/logic/algorithm/AntColonyOptimizationWithSimulatedAnnealing.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="342">
+          <caret line="127" column="51" lean-forward="true" selection-start-line="127" selection-start-column="51" selection-end-line="127" selection-end-column="51" />
+          <folding />
         </state>
       </provider>
     </entry>

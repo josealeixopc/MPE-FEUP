@@ -1,6 +1,7 @@
 package logic.meta;
 
 
+import logic.Main;
 import logic.algorithm.Algorithm;
 import logic.algorithm.AntColonyOptimization;
 import logic.algorithm.AntColonyOptimizationWithSimulatedAnnealing;
@@ -8,16 +9,13 @@ import logic.graph.Graph;
 import logic.utils.Pair;
 import logic.utils.Utils;
 
+import java.io.File;
 import java.security.InvalidParameterException;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
-import java.util.Random;
+import java.util.*;
 
 public class GA {
 
-    final double CROSSOVER_RATE = 0.8;
-    private final double MUTATION_RATE = 0.05;
+    private final double MUTATION_RATE = 0.2;
     private final int POPULATION_SIZE = 10;
 
     public static int PHEROMONE_WEIGHT_INDEX = 0;
@@ -31,17 +29,32 @@ public class GA {
 
     private static int NUMBER_OF_PARAMETERS = 8;
 
+    private static int NUMBER_OF_RUNS_PER_INDIVIDUAL = 10;
 
+    private static int CONSTANT_FOR_FITNESS_CALCULATION = 10000;
 
     public class Individual implements Comparable<Individual>{
 
         double[] parameters;
 
-        private int lowestCostAchieved; // the lowest cost achieved
-        private int fitnessValue;
+        private List<Integer> lowestCostsAchieved;
+        private double fitnessValue;
+
+        public Individual(Individual i){
+            this(
+                    i.parameters[PHEROMONE_WEIGHT_INDEX],
+                    i.parameters[VISIBILITY_WEIGHT_INDEX],
+                    i.parameters[EVAPORATION_FACTOR_INDEX],
+                    i.parameters[Q_INDEX],
+                    i.parameters[INIT_PHEROMONE_LVL_INDEX],
+                    i.parameters[INITIAL_TEMPERATURE_INDEX],
+                    i.parameters[TEMPERATURE_DECREASE_INDEX],
+                    i.parameters[ITERATIONS_PER_TEMPERATURE_INDEX]
+            );
+        }
 
         public Individual(double pheromoneWeight, double visibilityWeight, double evaporationFactor, double q, double initPheromoneLvl, double initialTemperature, double temperatureDecrease, double iterationsPerTemperature) {
-            this.parameters = new double[NUMBER_OF_PARAMETERS];
+            this();
 
             this.parameters[PHEROMONE_WEIGHT_INDEX] = pheromoneWeight;
             this.parameters[VISIBILITY_WEIGHT_INDEX] = visibilityWeight;
@@ -53,16 +66,9 @@ public class GA {
             this.parameters[ITERATIONS_PER_TEMPERATURE_INDEX] = iterationsPerTemperature;
         }
 
-        public Individual(double[] parameters){
-            if(parameters.length != NUMBER_OF_PARAMETERS){
-                throw new InvalidParameterException();
-            }
-
-            this.parameters = parameters;
-        }
-
         Individual() {
             this.parameters = new double[NUMBER_OF_PARAMETERS];
+            this.lowestCostsAchieved = new ArrayList<>();
         }
 
         void mutate(){
@@ -75,9 +81,18 @@ public class GA {
             }
         }
 
-        void setLowestCostAchieved(int lowestCostAchieved){
-            this.lowestCostAchieved = lowestCostAchieved;
-            this.fitnessValue = -lowestCostAchieved; // the higher the cost, the lower the fitness value
+        void addLowestCostAchieved(int lowestCostAchieved){
+            this.lowestCostsAchieved.add(lowestCostAchieved);
+
+            double averageCost = 0;
+
+            for(Integer i : this.lowestCostsAchieved){
+                averageCost += i;
+            }
+
+            averageCost = averageCost / this.lowestCostsAchieved.size();
+
+            this.fitnessValue = CONSTANT_FOR_FITNESS_CALCULATION/averageCost; // the higher the cost, the less the fitness
         }
 
         double getFitnessValue(){
@@ -85,17 +100,33 @@ public class GA {
         }
 
         @Override
+        public int compareTo(Individual o) {
+            return Double.compare(this.fitnessValue, o.fitnessValue);
+        }
+
+        @Override
         public String toString() {
             return "Individual{" +
                     "parameters=" + Arrays.toString(parameters) +
-                    ", lowestCostAchieved=" + lowestCostAchieved +
+                    ", lowestCostsAchieved=" + lowestCostsAchieved +
                     ", fitnessValue=" + fitnessValue +
                     '}';
         }
 
-        @Override
-        public int compareTo(Individual o) {
-            return -(this.fitnessValue - o.fitnessValue);
+        public String writeParameteres(){
+            StringBuilder sb = new StringBuilder();
+
+            sb.append("Pheromone weight: ").append(this.parameters[PHEROMONE_WEIGHT_INDEX]).append("\n");
+            sb.append("Visibility weight: ").append(this.parameters[VISIBILITY_WEIGHT_INDEX]).append("\n");
+            sb.append("Evaporation factor: ").append(this.parameters[EVAPORATION_FACTOR_INDEX]).append("\n");
+            sb.append("Q: ").append(this.parameters[Q_INDEX]).append("\n");
+            sb.append("Initial pheromone level: ").append(this.parameters[INIT_PHEROMONE_LVL_INDEX]).append("\n");
+
+            sb.append("Initial temperature: ").append(this.parameters[INITIAL_TEMPERATURE_INDEX]).append("\n");
+            sb.append("Temperature decrease: ").append(this.parameters[TEMPERATURE_DECREASE_INDEX]).append("\n");
+            sb.append("Iterations per temperature: ").append(this.parameters[ITERATIONS_PER_TEMPERATURE_INDEX]).append("\n");
+
+            return sb.toString();
         }
     }
 
@@ -158,8 +189,8 @@ public class GA {
             List<Individual> newPopulation = new ArrayList<>();
 
             // Elitism GA with the best 2 passing to next generation
-            newPopulation.add(this.population[0]);
-            newPopulation.add(this.population[1]);
+            newPopulation.add(new Individual(this.population[0]));
+            newPopulation.add(new Individual(this.population[1]));
 
             while(newPopulation.size() < POPULATION_SIZE) {
 
@@ -177,24 +208,30 @@ public class GA {
                 newPopulation.add(child1);
                 newPopulation.add(child2);
             }
+
+            newPopulation.toArray(this.population);
         }
 
         void evaluatePopulation(Graph graph){
 
             List<Thread> threads = new ArrayList<>();
 
-            for(Individual anIndividual : this.population) {
-                Runnable task = () -> {
-                    AntColonyOptimizationWithSimulatedAnnealing acoSa = new AntColonyOptimizationWithSimulatedAnnealing(graph);
-                    acoSa.setParameters(anIndividual.parameters);
+            for(int i = 0; i < NUMBER_OF_RUNS_PER_INDIVIDUAL; i++) {
+                for(Individual anIndividual : this.population) {
 
-                    acoSa.computeSolution();
-                    anIndividual.setLowestCostAchieved(acoSa.getBestRouteCost());
-                };
+                    Runnable task = () -> {
+                        AntColonyOptimizationWithSimulatedAnnealing acoSa = new AntColonyOptimizationWithSimulatedAnnealing(graph);
+                        acoSa.setParameters(anIndividual.parameters);
 
-                Thread t = new Thread(task);
-                t.start();
-                threads.add(t);
+                        acoSa.computeSolution();
+                        anIndividual.addLowestCostAchieved(acoSa.getBestRouteCost());
+                    };
+
+                    Thread t = new Thread(task);
+                    t.start();
+                    threads.add(t);
+
+                }
             }
 
             for (Thread thread : threads) {
@@ -207,7 +244,7 @@ public class GA {
         }
 
         void sortPopulation(){
-            Arrays.sort(this.population);
+            Arrays.sort(this.population, Collections.reverseOrder()); // reverse because list is in ascending order and we want best first
         }
 
         Individual getBestIndividual(){
@@ -220,7 +257,7 @@ public class GA {
             double rnd = this.r.nextDouble() * this.getTotalFitnessValue();
             int i;
 
-            for(i = 0; i < POPULATION_SIZE && rnd < 0; i++){
+            for(i = 0; i < POPULATION_SIZE && rnd > 0; i++){
                 rnd -= this.population[i].fitnessValue;
             }
 
@@ -228,8 +265,8 @@ public class GA {
             return this.population[i-1];
         }
 
-        int getTotalFitnessValue(){
-            int totalFitnessValue = 0;
+        double getTotalFitnessValue(){
+            double totalFitnessValue = 0;
 
             for (Individual aIndividual : this.population) {
                 totalFitnessValue += aIndividual.fitnessValue;
@@ -238,10 +275,25 @@ public class GA {
             return totalFitnessValue;
         }
 
+        String writePopulation(){
+            StringBuilder sb = new StringBuilder();
+
+            sb.append("## BEGIN OF POPULATION ##");
+
+            for(Individual anIndividual : population){
+                sb.append(anIndividual);
+                sb.append("\n");
+            }
+
+            sb.append("## END OF POPULATION ##");
+
+            return sb.toString();
+        }
+
         @Override
         public String toString() {
             return "Population{" +
-                    "population=" + Arrays.toString(population) +
+                    "population=" + writePopulation() +
                     '}';
         }
     }
@@ -259,8 +311,27 @@ public class GA {
         }
 
         Individual bestIndividual = population.getBestIndividual();
-        System.out.println(bestIndividual);
+
+        saveOptimizedParameters(Main.CURRENT_EXECUTION_RESULTS_FOLDER, bestIndividual);
 
         return bestIndividual.parameters;
+    }
+
+    private static void saveOptimizedParameters(String folderName, GA.Individual individual){
+
+        String filename = folderName + File.separator + "optimized-parameters" + ".txt";
+        Utils.createFileIfNotExists(filename);
+
+        String sb =
+                "Individual" +
+                        "\n" +
+                        individual.toString() +
+                        "\n\n" +
+                        "Detailed parameters" +
+                        "\n" +
+                        individual.writeParameteres() +
+                        "\n";
+
+        Utils.writeToFile(filename, sb);
     }
 }

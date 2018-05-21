@@ -13,6 +13,8 @@ import java.util.*;
 
 public class Main {
 
+    public static String CURRENT_EXECUTION_RESULTS_FOLDER;
+
     public static void main(String[] args) {
         runAlgorithms();
     }
@@ -49,6 +51,8 @@ public class Main {
 
             int numberOfCities = graph.getNodesAmount();
 
+            CURRENT_EXECUTION_RESULTS_FOLDER = Utils.createDirectoryForResults(executionResultsFolder, Algorithm.MAX_PROCESS_TIME_MILLIS, numberOfCities);
+
             System.out.println("Finished parsing in "+(parsingFinishTime-parsingStartTime)+"ms");
             System.out.println();
 
@@ -60,11 +64,11 @@ public class Main {
                     new AntColonyOptimizationWithSimulatedAnnealing(graph)
             };
 
-            boolean optimize = true;
+            boolean optimize = false;
 
             if(optimize){
 
-                Algorithm.MAX_PROCESS_TIME_MILLIS = 5000;
+                Algorithm.MAX_PROCESS_TIME_MILLIS = 500;
 
                 GA ga = new GA();
                 double[] optimizedParameters = ga.getOptimizedParameters(graph, 50);
@@ -72,9 +76,7 @@ public class Main {
                 ((AntColonyOptimizationWithSimulatedAnnealing)algorithms[4]).setParameters(optimizedParameters);
             }
 
-            Algorithm.MAX_PROCESS_TIME_MILLIS = 2000;
-
-            String currentRunResultsFolder = Utils.createDirectoryForResults(executionResultsFolder, Algorithm.MAX_PROCESS_TIME_MILLIS, numberOfCities);
+            Algorithm.MAX_PROCESS_TIME_MILLIS = 5000;
 
             for(Algorithm a : algorithms){
                 if(!algorithmNames.contains(a.getName())){
@@ -95,12 +97,12 @@ public class Main {
 
                 results.add(Integer.toString(algorithm.getBestRouteCost()));
 
-                saveRoutesHistoryOfAlgorithm(currentRunResultsFolder, algorithm);
+                saveRoutesHistoryOfAlgorithm(CURRENT_EXECUTION_RESULTS_FOLDER, algorithm);
             }
 
             System.out.println();
 
-            saveBestRoutes(currentRunResultsFolder, algorithmNames, numberOfCities, results);
+            saveBestRoutes(CURRENT_EXECUTION_RESULTS_FOLDER, algorithmNames, numberOfCities, results);
         }
 
         System.out.println("Finished all instances.");
@@ -139,5 +141,22 @@ public class Main {
         String historyFileName = folderName + File.separator + "cost-history_" + algorithm.getName() + ".csv";
         Utils.createFileIfNotExists(historyFileName);
         Utils.writeToFile(historyFileName, algorithm.writeHistoryOfBestRoutes());
+    }
+
+    private static void saveOptimizedParameters(String folderName, GA.Individual individual){
+
+        String filename = folderName + File.separator + "optimized-parameters" + ".csv";
+        Utils.createFileIfNotExists(filename);
+
+        String sb =
+                "Individual" +
+                "\n" +
+                individual.toString() +
+                "\n\n" +
+                "Detailed parameters" +
+                individual.writeParameteres() +
+                "\n";
+
+        Utils.writeToFile(filename, sb);
     }
 }
