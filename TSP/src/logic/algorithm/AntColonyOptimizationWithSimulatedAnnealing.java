@@ -3,6 +3,7 @@ package logic.algorithm;
 import logic.graph.Edge;
 import logic.graph.Graph;
 import logic.graph.Node;
+import logic.meta.GA;
 
 import java.util.*;
 
@@ -26,9 +27,9 @@ public class AntColonyOptimizationWithSimulatedAnnealing extends AntColonyOptimi
     // ACO Parameters are in AntColonyOptimization.java
 
     // Elitist SA parameters
-    private float initialTemperature = 1000;
-    private float temperatureDecrease = 10;
-    private float iterationsPerTemperature = 10;
+    private double initialTemperature = 1000;
+    private double temperatureDecrease = 10;
+    private double iterationsPerTemperature = 10;
 
     @Override
     public void computeSolution() {
@@ -77,7 +78,7 @@ public class AntColonyOptimizationWithSimulatedAnnealing extends AntColonyOptimi
         bestRouteSA = currentRoute;
         int bestCost = this.graph.getRouteCost(bestRouteSA);
 
-        float currentTemperature = initialTemperature;
+        double currentTemperature = initialTemperature;
 
         while(currentTemperature > 0){
 
@@ -102,7 +103,7 @@ public class AntColonyOptimizationWithSimulatedAnnealing extends AntColonyOptimi
                 }
                 else{
 
-                    float probabilityOfAcceptance = SimulatedAnnealing.calculateAcceptanceProbability(currentCost, nextCost, currentTemperature);
+                    double probabilityOfAcceptance = SimulatedAnnealing.calculateAcceptanceProbability(currentCost, nextCost, currentTemperature);
 
                     if(Math.random() < probabilityOfAcceptance){
                         currentRoute = nextRoute; // next route is worse than current
@@ -122,7 +123,7 @@ public class AntColonyOptimizationWithSimulatedAnnealing extends AntColonyOptimi
         if(routeCost < 0)
             return;
 
-        double addedPheromone = Q/(double)routeCost;
+        double addedPheromone = q /(double)routeCost;
         for(int i=0; i<ant.size()-1; i++){
             Edge edge = ant.get(i).getEdgeToNode(ant.get(i+1),i);
             double currentPheromone = pheromoneMap.get(edge);
@@ -152,7 +153,16 @@ public class AntColonyOptimizationWithSimulatedAnnealing extends AntColonyOptimi
     /**
      * Optimize ACO-SA parameters using genetic algorithms
      */
-    private void optimizeParameters(){
+    public void setParameters(double[] parameters){
+        this.pheromoneWeight = parameters[GA.PHEROMONE_WEIGHT_INDEX];
+        this.visibilityWeight = parameters[GA.VISIBILITY_WEIGHT_INDEX];
+        this.evaporationFactor = parameters[GA.EVAPORATION_FACTOR_INDEX];
+        this.q = parameters[GA.Q_INDEX];
+        this.initPheromoneLvl = parameters[GA.INIT_PHEROMONE_LVL_INDEX];
+
+        this.initialTemperature = parameters[GA.INITIAL_TEMPERATURE_INDEX];
+        this.iterationsPerTemperature = parameters[GA.ITERATIONS_PER_TEMPERATURE_INDEX];
+        this.temperatureDecrease = parameters[GA.TEMPERATURE_DECREASE_INDEX];
 
     }
 }

@@ -9,11 +9,11 @@ import java.util.*;
 
 public class AntColonyOptimization extends Algorithm {
 
-    double PHEROMONE_WEIGHT = 0.5; //alpha
-    double VISIBILITY_WEIGHT = 5; //beta
-    double EVAPORATION_FACTOR =0.8;
-    double Q = 1000;
-    double INIT_PHEROMONE_LVL = 20.0;
+    double pheromoneWeight = 0.5; //alpha
+    double visibilityWeight = 5; //beta
+    double evaporationFactor =0.8;
+    double q = 1000;
+    double initPheromoneLvl = 20.0;
 
     int bestRouteCost = Integer.MAX_VALUE;
     int nAnts;
@@ -53,7 +53,7 @@ public class AntColonyOptimization extends Algorithm {
     void initPheromonePaths() {
         List<Edge> edges = graph.getEdges();
         for(Edge edge: edges){
-            pheromoneMap.put(edge, INIT_PHEROMONE_LVL);
+            pheromoneMap.put(edge, initPheromoneLvl);
         }
     }
 
@@ -99,8 +99,8 @@ public class AntColonyOptimization extends Algorithm {
             if(ant.contains(edge.getDestination()))
                 continue;
             double pheromone = pheromoneMap.get(edge);
-            double visibility = Q/(double)edge.getCost();
-            double cost = Math.pow(visibility, VISIBILITY_WEIGHT)*Math.pow(pheromone, PHEROMONE_WEIGHT);
+            double visibility = q /(double)edge.getCost();
+            double cost = Math.pow(visibility, visibilityWeight)*Math.pow(pheromone, pheromoneWeight);
             //System.out.println(lastNode.getName()+"-("+day+")->"+edge.getDestination().getName()+", vis="+visibility+", pher="+pheromone+", final="+cost);
             totalCost += cost;
             edgesWeightedCosts.add(new Pair<>(edge,cost));
@@ -137,7 +137,7 @@ public class AntColonyOptimization extends Algorithm {
     void updatePheromones() {
         // evaporate pheromones
         for(Map.Entry<Edge, Double> pheromoneOnEdge: pheromoneMap.entrySet()){
-            double newAmount = EVAPORATION_FACTOR*pheromoneOnEdge.getValue();
+            double newAmount = evaporationFactor *pheromoneOnEdge.getValue();
             pheromoneMap.put(pheromoneOnEdge.getKey(), newAmount);
         }
 
@@ -151,7 +151,7 @@ public class AntColonyOptimization extends Algorithm {
         int routeCost = graph.getRouteCost(ant);
         if(routeCost < 0)
             return;
-        double addedPheromone = Q/(double)routeCost;
+        double addedPheromone = q /(double)routeCost;
         for(int i=0; i<ant.size()-1; i++){
             Edge edge = ant.get(i).getEdgeToNode(ant.get(i+1),i);
             double currentPheromone = pheromoneMap.get(edge);

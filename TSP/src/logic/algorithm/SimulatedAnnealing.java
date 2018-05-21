@@ -21,8 +21,8 @@ public class SimulatedAnnealing extends Algorithm {
      * @param nextCost Cost of the next (worse) evaluated state
      * @return The probability of accepting the new state
      */
-    static float calculateAcceptanceProbability(int currentCost, int nextCost, float temperature) {
-        return (float) Math.pow(Math.E, -(currentCost - nextCost) / temperature);
+    static double calculateAcceptanceProbability(int currentCost, int nextCost, double temperature) {
+        return Math.pow(Math.E, -(currentCost - nextCost) / temperature);
     }
 
     static ArrayList<Node> swapOperation(Graph graph, ArrayList<Node> route) {
@@ -119,11 +119,11 @@ public class SimulatedAnnealing extends Algorithm {
 
 
         // Set SA parameters
-        float initialTemperature = 1000;
-        float temperatureDecrease = 0.05f;
-        float iterationsPerTemperature = 100;
+        double initialTemperature = 1000;
+        double temperatureDecrease = 0.05f;
+        double iterationsPerTemperature = 100;
 
-        float currentTemperature = initialTemperature;
+        double currentTemperature = initialTemperature;
 
         while(currentTemperature > 0 && !this.timerEnded()){
 
@@ -148,7 +148,7 @@ public class SimulatedAnnealing extends Algorithm {
                 }
                 else{
 
-                    float probabilityOfAcceptance = calculateAcceptanceProbability(currentCost, nextCost, currentTemperature);
+                    double probabilityOfAcceptance = calculateAcceptanceProbability(currentCost, nextCost, currentTemperature);
 
                     if(Math.random() < probabilityOfAcceptance){
                         currentRoute = nextRoute; // next route is worse than current

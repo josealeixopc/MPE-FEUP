@@ -4,6 +4,7 @@ import logic.algorithm.*;
 
 
 import logic.graph.Graph;
+import logic.meta.GA;
 import logic.utils.Utils;
 
 import java.io.File;
@@ -13,7 +14,10 @@ import java.util.*;
 public class Main {
 
     public static void main(String[] args) {
+        testingGA();
+    }
 
+    public static void runAlgorithms(){
         String[] wantedFiles = new String[]{ //comment unwanted files
                 Parser.DATA5, //1950
                 Parser.DATA10, //5375
@@ -121,5 +125,14 @@ public class Main {
         String historyFileName = folderName + File.separator + "cost-history_" + algorithm.getName() + ".csv";
         Utils.createFileIfNotExists(historyFileName);
         Utils.writeToFile(historyFileName, algorithm.writeHistoryOfBestRoutes());
+    }
+
+    private static void testingGA(){
+        System.out.println("Going for meta");
+
+        Graph graph = new Parser(Parser.DATA5).getGraph();
+
+        GA ga = new GA();
+        ga.run(graph, 5);
     }
 }
