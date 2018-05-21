@@ -53,7 +53,9 @@ public class Main {
                     new Greedy(graph),
                     new SimulatedAnnealing(graph),
                     new AntColonyOptimization(graph),
-                    new AntColonyOptimizationWithSimulatedAnnealing(graph)
+                    new AntColonyOptimization(graph, true),
+                    new AntColonyOptimizationWithSimulatedAnnealing(graph),
+                    new AntColonyOptimizationWithSimulatedAnnealing(graph, true)
             };
 
             String currentRunResultsFolder = Utils.createDirectoryForResults(executionResultsFolder, Algorithm.MAX_PROCESS_TIME_MILLIS, numberOfCities);
