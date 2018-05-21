@@ -31,6 +31,8 @@ public class GA {
 
     private static int NUMBER_OF_PARAMETERS = 8;
 
+
+
     public class Individual implements Comparable<Individual>{
 
         double[] parameters;
@@ -93,7 +95,7 @@ public class GA {
 
         @Override
         public int compareTo(Individual o) {
-            return (this.fitnessValue - o.fitnessValue);
+            return -(this.fitnessValue - o.fitnessValue);
         }
     }
 
@@ -244,7 +246,7 @@ public class GA {
         }
     }
 
-    public void run(Graph graph, int numberOfGenerations) {
+    public double[] getOptimizedParameters(Graph graph, int numberOfGenerations) {
 
         Population population = new Population();
         population.insertRandomPopulation();
@@ -258,5 +260,7 @@ public class GA {
 
         Individual bestIndividual = population.getBestIndividual();
         System.out.println(bestIndividual);
+
+        return bestIndividual.parameters;
     }
 }

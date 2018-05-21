@@ -14,18 +14,18 @@ import java.util.*;
 public class Main {
 
     public static void main(String[] args) {
-        testingGA();
+        runAlgorithms();
     }
 
     public static void runAlgorithms(){
         String[] wantedFiles = new String[]{ //comment unwanted files
-                Parser.DATA5, //1950
-                Parser.DATA10, //5375
-                Parser.DATA15, //
-                Parser.DATA20,
+//                Parser.DATA5, //1950
+//                Parser.DATA10, //5375
+//                Parser.DATA15, //
+//                Parser.DATA20,
                 Parser.DATA30,
-                //Parser.DATA40,
-                //Parser.DATA50,
+//                Parser.DATA40,
+//                Parser.DATA50,
 //                Parser.DATA60,
 //                Parser.DATA70,
 //                Parser.DATA100,
@@ -59,6 +59,20 @@ public class Main {
                     new AntColonyOptimization(graph),
                     new AntColonyOptimizationWithSimulatedAnnealing(graph)
             };
+
+            boolean optimize = true;
+
+            if(optimize){
+
+                Algorithm.MAX_PROCESS_TIME_MILLIS = 5000;
+
+                GA ga = new GA();
+                double[] optimizedParameters = ga.getOptimizedParameters(graph, 50);
+
+                ((AntColonyOptimizationWithSimulatedAnnealing)algorithms[4]).setParameters(optimizedParameters);
+            }
+
+            Algorithm.MAX_PROCESS_TIME_MILLIS = 2000;
 
             String currentRunResultsFolder = Utils.createDirectoryForResults(executionResultsFolder, Algorithm.MAX_PROCESS_TIME_MILLIS, numberOfCities);
 
@@ -125,14 +139,5 @@ public class Main {
         String historyFileName = folderName + File.separator + "cost-history_" + algorithm.getName() + ".csv";
         Utils.createFileIfNotExists(historyFileName);
         Utils.writeToFile(historyFileName, algorithm.writeHistoryOfBestRoutes());
-    }
-
-    private static void testingGA(){
-        System.out.println("Going for meta");
-
-        Graph graph = new Parser(Parser.DATA5).getGraph();
-
-        GA ga = new GA();
-        ga.run(graph, 5);
     }
 }

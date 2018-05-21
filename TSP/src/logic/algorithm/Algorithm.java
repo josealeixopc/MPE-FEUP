@@ -18,7 +18,7 @@ public abstract class Algorithm {
 
     private TreeMap<Long, Integer> historyOfBestRoutes;
 
-    public static long MAX_PROCESS_TIME_MILLIS = 5000;
+    public static long MAX_PROCESS_TIME_MILLIS = 2000;
 
     private long endTime = 0;
 
