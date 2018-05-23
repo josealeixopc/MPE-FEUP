@@ -22,7 +22,7 @@ public class SimulatedAnnealing extends Algorithm {
      * @return The probability of accepting the new state
      */
     static double calculateAcceptanceProbability(int currentCost, int nextCost, double temperature) {
-        return Math.pow(Math.E, -(currentCost - nextCost) / temperature);
+        return Math.pow(Math.E, -(nextCost - currentCost) / temperature);
     }
 
     static ArrayList<Node> swapOperation(Graph graph, ArrayList<Node> route) {

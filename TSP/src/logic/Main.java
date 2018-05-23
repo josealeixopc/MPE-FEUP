@@ -23,14 +23,14 @@ public class Main {
         String[] wantedFiles = new String[]{ //comment unwanted files
 //                Parser.DATA5, //1950
 //                Parser.DATA10, //5375
-//                Parser.DATA15, //
+                Parser.DATA15, //
 //                Parser.DATA20,
-                Parser.DATA30,
+//                Parser.DATA30,
 //                Parser.DATA40,
 //                Parser.DATA50,
-//                Parser.DATA60,
+                Parser.DATA60,
 //                Parser.DATA70,
-//                Parser.DATA100,
+                Parser.DATA100,
 //                Parser.DATA200,
         };
 
@@ -57,13 +57,13 @@ public class Main {
             System.out.println();
 
             Algorithm[] algorithms = new Algorithm[]{ //comment unwanted algorithms
-                    new Backtrack(graph),
-                    new Greedy(graph),
-                    new SimulatedAnnealing(graph),
+//                    new Backtrack(graph),
+//                    new Greedy(graph),
+//                    new SimulatedAnnealing(graph),
                     new AntColonyOptimization(graph),
-                    new AntColonyOptimization(graph, true),
+//                    new AntColonyOptimization(graph, true),
                     new AntColonyOptimizationWithSimulatedAnnealing(graph),
-                    new AntColonyOptimizationWithSimulatedAnnealing(graph, true)
+//                    new AntColonyOptimizationWithSimulatedAnnealing(graph, true)
             };
 
             boolean optimize = false;
@@ -78,7 +78,7 @@ public class Main {
                 ((AntColonyOptimizationWithSimulatedAnnealing)algorithms[4]).setParameters(optimizedParameters);
             }
 
-            Algorithm.MAX_PROCESS_TIME_MILLIS = 5000;
+            Algorithm.MAX_PROCESS_TIME_MILLIS = 30000;
 
             for(Algorithm a : algorithms){
                 if(!algorithmNames.contains(a.getName())){
@@ -98,7 +98,7 @@ public class Main {
                 algorithm.printResults();
                 System.out.println();
 
-                applyOptimizations(graph, algorithm, deltaTime, results, currentRunResultsFolder);
+                //applyOptimizations(graph, algorithm, deltaTime, results, CURRENT_EXECUTION_RESULTS_FOLDER);
 
                 results.add(Integer.toString(algorithm.getBestRouteCost()));
 

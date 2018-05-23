@@ -36,8 +36,8 @@ public class AntColonyOptimizationWithSimulatedAnnealing extends AntColonyOptimi
 
     // Elitist SA parameters
     private double initialTemperature = 1000;
-    private double temperatureDecrease = 50;
-    private double iterationsPerTemperature = 5;
+    private double temperatureDecrease = 1;
+    private double iterationsPerTemperature = 1;
 
     @Override
     public void computeSolution() {
@@ -52,7 +52,7 @@ public class AntColonyOptimizationWithSimulatedAnnealing extends AntColonyOptimi
             updatePheromones();
 
             float populationDiversity = (((float)iterationTotalCost/nAnts)-bestRouteCost)/(iterationWorstCost-bestRouteCost);
-            if(populationDiversity>0.5f)
+            if(populationDiversity>0.7f)
                 elitistSimulatedAnnealing();
             else mutationOperator();
 
@@ -144,8 +144,6 @@ public class AntColonyOptimizationWithSimulatedAnnealing extends AntColonyOptimi
             this.setBestRoute(ant);
             iterationBestRoute = ant;
             iterationBestCost = routeCost;
-
-
 
         } else if(routeCost<iterationBestCost) {
             iterationBestRoute = ant;
