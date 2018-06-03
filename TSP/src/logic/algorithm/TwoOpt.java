@@ -20,6 +20,7 @@ public class TwoOpt extends KOpt {
         int bestRouteCost = getBestRouteCost();
         for(int i=1; i<initialRoute.size()-2; i++){
             for(int j=i+1; j<initialRoute.size()-1; j++){
+                super.kOptIterations++;
                 ArrayList<Node> route = optSwap(i,j);
                 int cost = graph.getRouteCost(route);
                 if(cost<0)
@@ -28,7 +29,6 @@ public class TwoOpt extends KOpt {
                     bestRouteCost=cost;
                     super.bestRoute = route;
                 }
-                super.kOptIterations++;
             }
         }
     }

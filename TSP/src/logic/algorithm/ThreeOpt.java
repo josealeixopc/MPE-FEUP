@@ -20,6 +20,7 @@ public class ThreeOpt extends KOpt {
         for(int i=1; i<initialRoute.size()-3; i++){
             for(int j=i+1; j<initialRoute.size()-2; j++){
                 for(int k=j+1; k<initialRoute.size()-1; k++){
+                    super.kOptIterations++;
                     ArrayList<Node> route = optSwap(i, j, k);
                     int cost = graph.getRouteCost(route);
                     if(cost<0)
@@ -28,7 +29,6 @@ public class ThreeOpt extends KOpt {
                         bestRouteCost = cost;
                         super.bestRoute = route;
                     }
-                    super.kOptIterations++;
                 }
             }
         }
