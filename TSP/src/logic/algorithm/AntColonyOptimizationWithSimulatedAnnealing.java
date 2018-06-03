@@ -18,7 +18,7 @@ public class AntColonyOptimizationWithSimulatedAnnealing extends AntColonyOptimi
         this(graph,30);
     }
 
-    public AntColonyOptimizationWithSimulatedAnnealing(Graph graph, int nAnts){
+    private AntColonyOptimizationWithSimulatedAnnealing(Graph graph, int nAnts){
         this(graph, nAnts, false);
     }
 
@@ -26,7 +26,7 @@ public class AntColonyOptimizationWithSimulatedAnnealing extends AntColonyOptimi
         this(graph, 30, parallel);
     }
 
-    public AntColonyOptimizationWithSimulatedAnnealing(Graph graph, int nAnts, boolean parallel){
+    private AntColonyOptimizationWithSimulatedAnnealing(Graph graph, int nAnts, boolean parallel){
         super("Ant Colony Optimization with SA Optimization", graph, nAnts, parallel);
     }
 
@@ -35,8 +35,8 @@ public class AntColonyOptimizationWithSimulatedAnnealing extends AntColonyOptimi
     // ACO Parameters are in AntColonyOptimization.java
 
     // Elitist SA parameters
-    private double initialTemperature = 1000;
-    private double temperatureDecrease = 1;
+    private double initialTemperature = 1;
+    private double temperatureDecrease = 0.05;
     private double iterationsPerTemperature = 1;
 
     @Override
@@ -166,7 +166,6 @@ public class AntColonyOptimizationWithSimulatedAnnealing extends AntColonyOptimi
         this.q = parameters[GA.Q_INDEX];
         this.initPheromoneLvl = parameters[GA.INIT_PHEROMONE_LVL_INDEX];
 
-        this.initialTemperature = parameters[GA.INITIAL_TEMPERATURE_INDEX];
         this.iterationsPerTemperature = parameters[GA.ITERATIONS_PER_TEMPERATURE_INDEX];
         this.temperatureDecrease = parameters[GA.TEMPERATURE_DECREASE_INDEX];
 

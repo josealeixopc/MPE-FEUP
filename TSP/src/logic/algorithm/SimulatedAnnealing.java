@@ -122,8 +122,7 @@ public class SimulatedAnnealing extends Algorithm {
 
 
         // Set SA parameters
-        double initialTemperature = 1000;
-        double temperatureDecrease = 0.05f;
+        double initialTemperature = 1;
         double iterationsPerTemperature = 100;
 
         double currentTemperature = initialTemperature;
@@ -162,7 +161,7 @@ public class SimulatedAnnealing extends Algorithm {
                 super.numOfIterations++;
             }
 
-            currentTemperature = currentTemperature - temperatureDecrease;
+            currentTemperature = this.getTimeLeft() / Algorithm.MAX_PROCESS_TIME_MILLIS;
         }
     }
 }

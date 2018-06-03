@@ -17,4 +17,5 @@ for src in cities:
         if src == dst:
             continue
         for day in range(N_CITIES):
-            print("{} {} {} {}".format(src, dst, day, random.randint(10, 1500)))
+            if (random.random() > 0.1): # 10% of not having this flight. Use this in order to "limit" some routes.
+                print("{} {} {} {}".format(src, dst, day, random.randint(10, 1500)))

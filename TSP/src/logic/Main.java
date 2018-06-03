@@ -13,23 +13,31 @@ import java.util.*;
 
 public class Main {
 
-    public static String CURRENT_EXECUTION_RESULTS_FOLDER;
+    private static boolean OPTIMIZE_PARAMETERS;
 
     public static void main(String[] args) {
+        setConfiguration();
         runAlgorithms();
     }
 
-    public static void runAlgorithms(){
+    private static void setConfiguration(){
+        Algorithm.setMaximumComputationTimeMs(30000);
+        OPTIMIZE_PARAMETERS = false;
+    }
+
+    public static String CURRENT_EXECUTION_RESULTS_FOLDER;
+
+    private static void runAlgorithms(){
         String[] wantedFiles = new String[]{ //comment unwanted files
-//                Parser.DATA5, //1950
-//                Parser.DATA10, //5375
+                Parser.DATA5, //1950
+                Parser.DATA10, //5375
                 Parser.DATA15, //
-//                Parser.DATA20,
-//                Parser.DATA30,
-//                Parser.DATA40,
-//                Parser.DATA50,
+                Parser.DATA20,
+                Parser.DATA30,
+                Parser.DATA40,
+                Parser.DATA50,
                 Parser.DATA60,
-//                Parser.DATA70,
+                Parser.DATA70,
                 Parser.DATA100,
 //                Parser.DATA200,
         };
@@ -59,23 +67,25 @@ public class Main {
             Algorithm[] algorithms = new Algorithm[]{ //comment unwanted algorithms
 //                    new Backtrack(graph),
 //                    new Greedy(graph),
-//                    new SimulatedAnnealing(graph),
-                    new AntColonyOptimization(graph),
+                    new SimulatedAnnealing(graph),
+//                    new AntColonyOptimization(graph),
 //                    new AntColonyOptimization(graph, true),
-                    new AntColonyOptimizationWithSimulatedAnnealing(graph),
+//                    new AntColonyOptimizationWithSimulatedAnnealing(graph),
+//                    new AntColonyOptimizationWithSimulatedAnnealing(graph),
 //                    new AntColonyOptimizationWithSimulatedAnnealing(graph, true)
             };
 
-            boolean optimize = false;
-
-            if(optimize){
+            if(OPTIMIZE_PARAMETERS){
 
                 Algorithm.MAX_PROCESS_TIME_MILLIS = 500;
 
                 GA ga = new GA();
-                double[] optimizedParameters = ga.getOptimizedParameters(graph, 50);
+                double[] optimizedParameters;
+                //optimizedParameters = ga.getOptimizedParameters(graph, 50);
+                optimizedParameters = new double[]{0.09160796184254227, 9.323069011041728, 0.11214092973402023, 122.0351586326558, 0.32456099020564455, 0.04276216530577507, 1.2807224294683748};
 
-                ((AntColonyOptimizationWithSimulatedAnnealing)algorithms[4]).setParameters(optimizedParameters);
+                ((AntColonyOptimizationWithSimulatedAnnealing)algorithms[2]).setParameters(optimizedParameters);
+                algorithms[2].setName("ACO-SA with meta optimization");
             }
 
             Algorithm.MAX_PROCESS_TIME_MILLIS = 30000;
@@ -98,7 +108,7 @@ public class Main {
                 algorithm.printResults();
                 System.out.println();
 
-                //applyOptimizations(graph, algorithm, deltaTime, results, CURRENT_EXECUTION_RESULTS_FOLDER);
+                applyOptimizations(graph, algorithm, deltaTime, results, CURRENT_EXECUTION_RESULTS_FOLDER);
 
                 results.add(Integer.toString(algorithm.getBestRouteCost()));
 

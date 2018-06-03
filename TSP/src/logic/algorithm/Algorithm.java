@@ -4,6 +4,7 @@ import logic.Main;
 import logic.graph.Graph;
 import logic.graph.Node;
 
+import java.security.InvalidParameterException;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
@@ -18,8 +19,9 @@ public abstract class Algorithm {
 
     private TreeMap<Long, Integer> historyOfBestRoutes;
 
-    public static long MAX_PROCESS_TIME_MILLIS = 2000;
+    public static long MAX_PROCESS_TIME_MILLIS = 30000;
 
+    private long startTime = 0;
     private long endTime = 0;
 
     /**
@@ -30,6 +32,10 @@ public abstract class Algorithm {
         this.name = name;
         this.graph=graph;
         this.historyOfBestRoutes = new TreeMap<>();
+
+        if(MAX_PROCESS_TIME_MILLIS <= 0){
+            throw new InvalidParameterException("The time limit for the algorithm execution (Algorithm.MAX_PROCESS_TIME_MILLIS) must be a positive value.");
+        }
     }
 
     void setBestRoute(ArrayList<Node> newBestRoute){
@@ -38,7 +44,8 @@ public abstract class Algorithm {
 
     void setBestRoute(ArrayList<Node> newBestRoute, int costOfNewBestRoute){
         this.bestRoute = newBestRoute;
-        long timeTaken = System.currentTimeMillis() - (endTime - MAX_PROCESS_TIME_MILLIS); // current time - starting time
+
+        long timeTaken = this.getTimeElapsed();
         this.historyOfBestRoutes.put(timeTaken, costOfNewBestRoute);
     }
 
@@ -106,14 +113,32 @@ public abstract class Algorithm {
         return name;
     }
 
+    public void setName(String name){
+        this.name = name;
+    }
+
     /**
      * Implementation of the algorithm.
      */
     public abstract void computeSolution();
 
-    void startTimer(){
-        this.endTime = System.currentTimeMillis() + MAX_PROCESS_TIME_MILLIS;
+
+    /**
+     * TIMER
+     */
+
+    public static void setMaximumComputationTimeMs(long time){
+        MAX_PROCESS_TIME_MILLIS = time;
     }
+
+    void startTimer(){
+        this.startTime = System.currentTimeMillis();
+        this.endTime = this.startTime + MAX_PROCESS_TIME_MILLIS;
+    }
+
+    long getTimeElapsed() { return System.currentTimeMillis() - this.startTime; }
+
+    long getTimeLeft() { return this.endTime - System.currentTimeMillis(); }
 
     boolean timerEnded(){
         return (System.currentTimeMillis() > this.endTime);
