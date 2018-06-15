@@ -62,5 +62,6 @@ public class Greedy extends Algorithm {
             return;
 
         bestRoute = route;
+        super.numOfIterations=graph.getNodesAmount();
     }
 }

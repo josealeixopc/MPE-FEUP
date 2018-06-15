@@ -96,10 +96,12 @@ public class AntColonyOptimization extends Algorithm {
     }
 
     private void moveAntsParallel(ThreadPoolExecutor executor) {
-        for(ArrayList<Node> ant: ants){
-            executor.submit(() -> moveAnt(ant));
+        for(int i=0; i<ants.size(); i++){
+            final int i2 = i;
+            executor.submit(() -> ants.set(i2,moveAnt(ants.get(i2))));
         }
-        while(executor.getActiveCount()>0); //finish all ants
+        while(executor.getCompletedTaskCount()-executor.getTaskCount()!=0); //finish all ants
+
     }
 
     private ArrayList<Node> moveAnt(ArrayList<Node> ant) {
