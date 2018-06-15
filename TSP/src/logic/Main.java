@@ -15,18 +15,20 @@ public class Main {
 
     private static boolean OPTIMIZE_PARAMETERS;
     private static boolean kOpt;
+    private static int numberOfRunsForAllAgorithms;
 
     public static void main(String[] args) {
         setConfiguration();
-        for(int i = 0; i < 10; i++) {
+        for(int i = 0; i < numberOfRunsForAllAgorithms; i++) {
             runAlgorithms();
         }
     }
 
     private static void setConfiguration(){
         Algorithm.setMaximumComputationTimeMs(30000);
-        OPTIMIZE_PARAMETERS = false;
-        kOpt = false;
+        OPTIMIZE_PARAMETERS = true;
+        kOpt = true;
+        numberOfRunsForAllAgorithms = 2;
     }
 
     public static String CURRENT_EXECUTION_RESULTS_FOLDER;
@@ -69,13 +71,13 @@ public class Main {
             System.out.println();
 
             Algorithm[] algorithms = new Algorithm[]{ //comment unwanted algorithms
-//                    new Backtrack(graph),
-//                    new Greedy(graph),
+                    new Backtrack(graph),
+                    new Greedy(graph),
                     new SimulatedAnnealing(graph),
-//                    new AntColonyOptimization(graph),
-//                    new AntColonyOptimization(graph, true),
-//                    new AntColonyOptimizationWithSimulatedAnnealing(graph),
-//                    new AntColonyOptimizationWithSimulatedAnnealing(graph),
+                    new AntColonyOptimization(graph),
+                    new AntColonyOptimization(graph, true),
+                    new AntColonyOptimizationWithSimulatedAnnealing(graph),
+                    new AntColonyOptimizationWithSimulatedAnnealing(graph),
 //                    new AntColonyOptimizationWithSimulatedAnnealing(graph, true)
             };
 
@@ -83,7 +85,7 @@ public class Main {
 
                 double[] optimizedParameters;
 
-                Algorithm.MAX_PROCESS_TIME_MILLIS = 2000;
+                // Algorithm.MAX_PROCESS_TIME_MILLIS = 2000;
 
 
                 //GA ga = new GA();
@@ -111,7 +113,7 @@ public class Main {
                 algorithm.printResults();
                 System.out.println();
 
-                if(kOpt){
+                if(kOpt && algorithm.getBestRouteCost() != -1){
                     applyOptimizations(graph, algorithm, deltaTime, results, CURRENT_EXECUTION_RESULTS_FOLDER, algorithmNames);
                 }
 

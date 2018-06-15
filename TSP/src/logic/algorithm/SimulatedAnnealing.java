@@ -108,7 +108,7 @@ public class SimulatedAnnealing extends Algorithm {
         this.startTimer();
 
         // Get random initial route
-        int maxIterations = 1000;
+        int maxIterations = 10000;
         ArrayList<Node> currentRoute = this.createRandomRoute(this.graph, maxIterations);
 
         if(currentRoute == null){
