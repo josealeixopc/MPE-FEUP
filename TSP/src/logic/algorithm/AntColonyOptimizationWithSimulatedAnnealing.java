@@ -64,9 +64,11 @@ public class AntColonyOptimizationWithSimulatedAnnealing extends AntColonyOptimi
         int k1 = new Random().nextInt(graph.getNodesAmount()-2)+1;
         int k2= k1+1;
         ArrayList<Node> ant = new ArrayList<>(bestRoute);
+
         Node tmp = ant.get(k1);
         ant.set(k1,ant.get(k2));
         ant.set(k2,tmp);
+
         updatePheromoneForAnt(ant);
     }
 
@@ -134,9 +136,12 @@ public class AntColonyOptimizationWithSimulatedAnnealing extends AntColonyOptimi
         double addedPheromone = q /(double)routeCost;
         for(int i=0; i<ant.size()-1; i++){
             Edge edge = ant.get(i).getEdgeToNode(ant.get(i+1),i);
-            double currentPheromone = pheromoneMap.get(edge);
-            pheromoneMap.put(edge,currentPheromone+addedPheromone);
+            if(pheromoneMap.get(edge) != null){
+                double currentPheromone = pheromoneMap.get(edge);
+                pheromoneMap.put(edge,currentPheromone+addedPheromone);
+            }
         }
+
 
         // update values for SA and stopping condition
         if(routeCost<bestRouteCost){

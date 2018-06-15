@@ -47,7 +47,7 @@ public class GA {
 
     private static int NUMBER_OF_PARAMETERS = 7;
 
-    private static int NUMBER_OF_RUNS_PER_INDIVIDUAL = 10;
+    private static int NUMBER_OF_RUNS_PER_INDIVIDUAL = 5;
 
     private static int CONSTANT_FOR_FITNESS_CALCULATION = 10000;
 
@@ -108,7 +108,12 @@ public class GA {
 
             averageCost = averageCost / this.lowestCostsAchieved.size();
 
-            this.fitnessValue = CONSTANT_FOR_FITNESS_CALCULATION/averageCost; // the higher the cost, the less the fitness
+            if(averageCost < 0 ){
+                this.fitnessValue = 0;
+            }
+            else{
+                this.fitnessValue = CONSTANT_FOR_FITNESS_CALCULATION/averageCost; // the higher the cost, the less the fitness
+            }
         }
 
         double getFitnessValue(){
@@ -285,6 +290,10 @@ public class GA {
 
             for(i = 0; i < POPULATION_SIZE && rnd > 0; i++){
                 rnd -= this.population[i].fitnessValue;
+            }
+
+            if(i == 0){
+                System.out.println("hello");
             }
 
             // the individuals with greater fitness are the more probable to be chosen

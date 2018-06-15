@@ -14,32 +14,36 @@ import java.util.*;
 public class Main {
 
     private static boolean OPTIMIZE_PARAMETERS;
+    private static boolean kOpt;
 
     public static void main(String[] args) {
         setConfiguration();
-        runAlgorithms();
+        for(int i = 0; i < 10; i++) {
+            runAlgorithms();
+        }
     }
 
     private static void setConfiguration(){
         Algorithm.setMaximumComputationTimeMs(30000);
         OPTIMIZE_PARAMETERS = false;
+        kOpt = false;
     }
 
     public static String CURRENT_EXECUTION_RESULTS_FOLDER;
 
     private static void runAlgorithms(){
         String[] wantedFiles = new String[]{ //comment unwanted files
-                Parser.DATA5, //1950
-                Parser.DATA10, //5375
-                Parser.DATA15, //
+//                Parser.DATA5, //1950
+//                Parser.DATA10, //5375
+//                Parser.DATA15, //
                 Parser.DATA20,
-                Parser.DATA30,
-                Parser.DATA40,
-                Parser.DATA50,
+//                Parser.DATA30,
+//                Parser.DATA40,
+//                Parser.DATA50,
                 Parser.DATA60,
-                Parser.DATA70,
+//                Parser.DATA70,
                 Parser.DATA100,
-//                Parser.DATA200,
+//                Parser.DATA200
         };
 
         Utils.createDirectoryIfNotExists(Utils.RESULTS_FOLDER);
@@ -77,24 +81,23 @@ public class Main {
 
             if(OPTIMIZE_PARAMETERS){
 
-                Algorithm.MAX_PROCESS_TIME_MILLIS = 500;
-
-                GA ga = new GA();
                 double[] optimizedParameters;
-                //optimizedParameters = ga.getOptimizedParameters(graph, 50);
-                optimizedParameters = new double[]{0.09160796184254227, 9.323069011041728, 0.11214092973402023, 122.0351586326558, 0.32456099020564455, 0.04276216530577507, 1.2807224294683748};
 
-                ((AntColonyOptimizationWithSimulatedAnnealing)algorithms[2]).setParameters(optimizedParameters);
-                algorithms[2].setName("ACO-SA with meta optimization");
+                Algorithm.MAX_PROCESS_TIME_MILLIS = 2000;
+
+
+                //GA ga = new GA();
+
+                //optimizedParameters = ga.getOptimizedParameters(graph, 50);
+                optimizedParameters = new double [] {0.08196997880479073, 9.404331306385323, 0.34581929504732634, 766.2836062451062, 3.2456692376427565, 0.04587146320415543, 2.360969972973809};
+
+                ((AntColonyOptimizationWithSimulatedAnnealing)algorithms[6]).setParameters(optimizedParameters);
+                algorithms[6].setName("ACO-SA with meta optimization");
+
             }
 
             Algorithm.MAX_PROCESS_TIME_MILLIS = 30000;
 
-            for(Algorithm a : algorithms){
-                if(!algorithmNames.contains(a.getName())){
-                    algorithmNames.add(a.getName());
-                }
-            }
 
             List<String> results = new ArrayList<>();
 
@@ -108,8 +111,11 @@ public class Main {
                 algorithm.printResults();
                 System.out.println();
 
-                applyOptimizations(graph, algorithm, deltaTime, results, CURRENT_EXECUTION_RESULTS_FOLDER);
+                if(kOpt){
+                    applyOptimizations(graph, algorithm, deltaTime, results, CURRENT_EXECUTION_RESULTS_FOLDER, algorithmNames);
+                }
 
+                algorithmNames.add(algorithm.getName());
                 results.add(Integer.toString(algorithm.getBestRouteCost()));
 
                 saveRoutesHistoryOfAlgorithm(CURRENT_EXECUTION_RESULTS_FOLDER, algorithm);
@@ -123,7 +129,7 @@ public class Main {
         System.out.println("Finished all instances.");
     }
 
-    private static void applyOptimizations(Graph graph, Algorithm algorithm, long deltaTime, List<String> results, String currentRunResultsFolder) {
+    private static void applyOptimizations(Graph graph, Algorithm algorithm, long deltaTime, List<String> results, String currentRunResultsFolder, List<String> algorithmNames) {
         Algorithm[] optimizations = new Algorithm[]{ //comment unwanted algorithms
                 new TwoOpt(graph, algorithm),
                 new ThreeOpt(graph, algorithm)
@@ -138,6 +144,7 @@ public class Main {
             optimization.printResults();
             System.out.println();
 
+            algorithmNames.add(optimization.getName());
             results.add(Integer.toString(algorithm.getBestRouteCost()));
 
             saveRoutesHistoryOfAlgorithm(currentRunResultsFolder, optimization);

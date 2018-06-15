@@ -5,15 +5,13 @@
     <option name="CUSTOM_SCOPE_NAME" value="Module 'TSP'" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="de5df7c7-bcbc-4c9a-b951-ac2e55cf7c29" name="Default" comment="Fixed SA so that temperature decreases in function of the time left. Also adapted the data generator so that some flights do not have a &quot;return&quot; flight.">
+    <list default="true" id="de5df7c7-bcbc-4c9a-b951-ac2e55cf7c29" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change beforePath="$PROJECT_DIR$/TSP/TSP.iml" afterPath="$PROJECT_DIR$/TSP/TSP.iml" />
       <change beforePath="$PROJECT_DIR$/TSP/src/logic/Main.java" afterPath="$PROJECT_DIR$/TSP/src/logic/Main.java" />
-      <change beforePath="$PROJECT_DIR$/TSP/src/logic/algorithm/Algorithm.java" afterPath="$PROJECT_DIR$/TSP/src/logic/algorithm/Algorithm.java" />
+      <change beforePath="$PROJECT_DIR$/TSP/src/logic/Parser.java" afterPath="$PROJECT_DIR$/TSP/src/logic/Parser.java" />
       <change beforePath="$PROJECT_DIR$/TSP/src/logic/algorithm/AntColonyOptimizationWithSimulatedAnnealing.java" afterPath="$PROJECT_DIR$/TSP/src/logic/algorithm/AntColonyOptimizationWithSimulatedAnnealing.java" />
       <change beforePath="$PROJECT_DIR$/TSP/src/logic/algorithm/SimulatedAnnealing.java" afterPath="$PROJECT_DIR$/TSP/src/logic/algorithm/SimulatedAnnealing.java" />
       <change beforePath="$PROJECT_DIR$/TSP/src/logic/meta/GA.java" afterPath="$PROJECT_DIR$/TSP/src/logic/meta/GA.java" />
-      <change beforePath="$PROJECT_DIR$/TSP/travelling-salesman-challenge/data_generator.py" afterPath="$PROJECT_DIR$/TSP/travelling-salesman-challenge/data_generator.py" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -28,8 +26,18 @@
       <file leaf-file-name="Main.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/TSP/src/logic/Main.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="339">
-              <caret line="81" column="20" lean-forward="false" selection-start-line="81" selection-start-column="20" selection-end-line="81" selection-end-column="20" />
+            <state relative-caret-position="1000">
+              <caret line="74" column="27" lean-forward="false" selection-start-line="74" selection-start-column="27" selection-end-line="74" selection-end-column="27" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="GA.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/TSP/src/logic/meta/GA.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="1881">
+              <caret line="361" column="0" lean-forward="false" selection-start-line="361" selection-start-column="0" selection-end-line="361" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -38,89 +46,8 @@
       <file leaf-file-name="SimulatedAnnealing.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/TSP/src/logic/algorithm/SimulatedAnnealing.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="432">
-              <caret line="33" column="0" lean-forward="false" selection-start-line="33" selection-start-column="0" selection-end-line="33" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="data_generator.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/TSP/travelling-salesman-challenge/data_generator.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="144">
-              <caret line="8" column="31" lean-forward="true" selection-start-line="8" selection-start-column="31" selection-end-line="8" selection-end-column="31" />
-              <folding>
-                <element signature="e#0#13#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="AntColonyOptimizationWithSimulatedAnnealing.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/TSP/src/logic/algorithm/AntColonyOptimizationWithSimulatedAnnealing.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="311">
-              <caret line="28" column="4" lean-forward="false" selection-start-line="28" selection-start-column="4" selection-end-line="28" selection-end-column="4" />
-              <folding>
-                <element signature="e#571#572#0" expanded="true" />
-                <element signature="e#612#613#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="README.md" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/TSP/travelling-salesman-challenge/README.md">
-          <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
-            <state split_layout="SPLIT">
-              <first_editor relative-caret-position="0">
-                <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-                <folding />
-              </first_editor>
-              <second_editor />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="data_10.txt" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/TSP/travelling-salesman-challenge/real_data/data_10.txt">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="360">
-              <caret line="20" column="0" lean-forward="false" selection-start-line="20" selection-start-column="0" selection-end-line="20" selection-end-column="13" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Algorithm.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/TSP/src/logic/algorithm/Algorithm.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="319">
-              <caret line="138" column="9" lean-forward="false" selection-start-line="138" selection-start-column="9" selection-end-line="138" selection-end-column="9" />
-              <folding>
-                <element signature="e#1549#1550#0" expanded="true" />
-                <element signature="e#1596#1597#0" expanded="true" />
-                <element signature="e#2397#2398#0" expanded="true" />
-                <element signature="e#2459#2460#0" expanded="true" />
-                <element signature="e#3334#3335#0" expanded="true" />
-                <element signature="e#3361#3362#0" expanded="true" />
-                <element signature="e#3400#3401#0" expanded="true" />
-                <element signature="e#3432#3433#0" expanded="true" />
-                <element signature="e#3628#3629#0" expanded="true" />
-                <element signature="e#3674#3675#0" expanded="true" />
-                <element signature="e#4010#4011#0" expanded="true" />
-                <element signature="e#4076#4077#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="GA.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/TSP/src/logic/meta/GA.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="357">
-              <caret line="141" column="39" lean-forward="true" selection-start-line="141" selection-start-column="39" selection-end-line="141" selection-end-column="39" />
+            <state relative-caret-position="-108">
+              <caret line="110" column="32" lean-forward="false" selection-start-line="110" selection-start-column="32" selection-end-line="110" selection-end-column="32" />
               <folding />
             </state>
           </provider>
@@ -137,25 +64,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>VISIBILITY_WEIGHT</find>
-      <find>sortP</find>
-      <find>probabili</find>
-      <find>fitness</find>
-      <find>Individ</find>
-      <find>current</find>
-      <find>thre</find>
-      <find>lowest</find>
-      <find>detail</find>
-      <find>iterations</find>
-      <find>lowe</find>
-      <find>simula</find>
-      <find>mutatio</find>
-      <find>diversi</find>
-      <find>process</find>
-      <find>processe</find>
-      <find>parallel</find>
-      <find>cr</find>
-      <find>ranges</find>
       <find>paral</find>
       <find>iterationsPerTemperature</find>
       <find>INITIAL</find>
@@ -167,6 +75,25 @@
       <find>temperatureDecrease</find>
       <find>optimi</find>
       <find>setMa</find>
+      <find>appl</find>
+      <find>No result</find>
+      <find>timer</find>
+      <find>Time:</find>
+      <find>fitnessValue</find>
+      <find>10000</find>
+      <find>CONSTANT_FOR_FITNESS_CALCULATION</find>
+      <find>iterationWorstCost</find>
+      <find>bestRoute</find>
+      <find>Integer.M</find>
+      <find>Integer.Max</find>
+      <find>Max</find>
+      <find>MAX_VALUE</find>
+      <find>best route</find>
+      <find>10</find>
+      <find>-1</find>
+      <find>lowestC</find>
+      <find>getRouteCos</find>
+      <find>addLowestCostAchieved</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -185,20 +112,20 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/TSP/src/logic/Parser.java" />
-        <option value="$PROJECT_DIR$/TSP/src/logic/graph/Graph.java" />
         <option value="$PROJECT_DIR$/TSP/src/logic/utils/Pair.java" />
         <option value="$PROJECT_DIR$/TSP/.gitignore" />
         <option value="$PROJECT_DIR$/TSP/src/logic/algorithm/Greedy.java" />
         <option value="$PROJECT_DIR$/TSP/src/logic/algorithm/Backtrack.java" />
         <option value="$PROJECT_DIR$/TSP/src/logic/utils/Utils.java" />
         <option value="$PROJECT_DIR$/TSP/src/logic/algorithm/AntColonyOptimization.java" />
-        <option value="$PROJECT_DIR$/TSP/src/logic/algorithm/SimulatedAnnealing.java" />
         <option value="$PROJECT_DIR$/TSP/travelling-salesman-challenge/data_generator.py" />
-        <option value="$PROJECT_DIR$/TSP/src/logic/algorithm/AntColonyOptimizationWithSimulatedAnnealing.java" />
         <option value="$PROJECT_DIR$/TSP/src/logic/algorithm/Algorithm.java" />
+        <option value="$PROJECT_DIR$/TSP/src/logic/graph/Graph.java" />
         <option value="$PROJECT_DIR$/TSP/src/logic/meta/GA.java" />
+        <option value="$PROJECT_DIR$/TSP/src/logic/algorithm/AntColonyOptimizationWithSimulatedAnnealing.java" />
+        <option value="$PROJECT_DIR$/TSP/src/logic/Parser.java" />
         <option value="$PROJECT_DIR$/TSP/src/logic/Main.java" />
+        <option value="$PROJECT_DIR$/TSP/src/logic/algorithm/SimulatedAnnealing.java" />
       </list>
     </option>
   </component>
@@ -229,18 +156,12 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scratches" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
             <path>
               <item name="MPE-FEUP" type="b2602c69:ProjectViewProjectNode" />
               <item name="TSP" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="MPE-FEUP" type="b2602c69:ProjectViewProjectNode" />
-              <item name="TSP" type="462c0819:PsiDirectoryNode" />
-              <item name=".idea" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="MPE-FEUP" type="b2602c69:ProjectViewProjectNode" />
@@ -264,12 +185,21 @@
               <item name="TSP" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="logic" type="462c0819:PsiDirectoryNode" />
-              <item name="algorithm" type="462c0819:PsiDirectoryNode" />
+              <item name="graph" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="MPE-FEUP" type="b2602c69:ProjectViewProjectNode" />
               <item name="TSP" type="462c0819:PsiDirectoryNode" />
-              <item name="travelling-salesman-challenge" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="logic" type="462c0819:PsiDirectoryNode" />
+              <item name="meta" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="MPE-FEUP" type="b2602c69:ProjectViewProjectNode" />
+              <item name="TSP" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="logic" type="462c0819:PsiDirectoryNode" />
+              <item name="utils" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -278,6 +208,7 @@
       <pane id="Scope" />
       <pane id="AndroidView" />
       <pane id="PackagesPane" />
+      <pane id="Scratches" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -285,7 +216,7 @@
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
-    <property name="SearchEverywhereHistoryKey" value="simu&#9;FILE&#9;file:///home/jazz/MyRepos/FEUP/4a-2s/MPE-FEUP/TSP/src/logic/algorithm/SimulatedAnnealing.java&#10;main&#9;FILE&#9;file:///home/jazz/MyRepos/FEUP/4a-2s/MPE-FEUP/TSP/src/logic/Main.java&#10;al&#9;FILE&#9;file:///home/jazz/MyRepos/FEUP/4a-2s/MPE-FEUP/TSP/src/logic/algorithm/Algorithm.java&#10;ga&#9;FILE&#9;file:///home/jazz/MyRepos/FEUP/4a-2s/MPE-FEUP/TSP/src/logic/meta/GA.java&#10;G&#9;FILE&#9;file:///home/jazz/MyRepos/FEUP/4a-2s/MPE-FEUP/TSP/src/logic/meta/GA.java&#10;util&#9;FILE&#9;file:///home/jazz/MyRepos/FEUP/4a-2s/MPE-FEUP/TSP/src/logic/utils/Utils.java&#10;utils&#9;FILE&#9;file:///home/jazz/MyRepos/FEUP/4a-2s/MPE-FEUP/TSP/src/logic/utils/Utils.java&#10;ant&#9;PSI&#9;JAVA://logic.algorithm.AntColonyOptimization&#10;m&#9;FILE&#9;file:///home/jazz/MyRepos/FEUP/4a-2s/MPE-FEUP/TSP/src/logic/Main.java&#10;alg&#9;FILE&#9;file:///home/jazz/MyRepos/FEUP/4a-2s/MPE-FEUP/TSP/src/logic/algorithm/Algorithm.java" />
+    <property name="SearchEverywhereHistoryKey" value="main&#9;FILE&#9;file:///home/jazz/MyRepos/FEUP/4a-2s/MPE-FEUP/TSP/src/logic/Main.java&#10;simu&#9;FILE&#9;file:///home/jazz/MyRepos/FEUP/4a-2s/MPE-FEUP/TSP/src/logic/algorithm/SimulatedAnnealing.java&#10;back&#9;PSI&#9;JAVA://logic.algorithm.Backtrack&#10;simul&#9;FILE&#9;file:///home/jazz/MyRepos/FEUP/4a-2s/MPE-FEUP/TSP/src/logic/algorithm/SimulatedAnnealing.java&#10;graph&#9;FILE&#9;file:///home/jazz/MyRepos/FEUP/4a-2s/MPE-FEUP/TSP/src/logic/graph/Graph.java&#10;ant&#9;PSI&#9;JAVA://logic.algorithm.AntColonyOptimizationWithSimulatedAnnealing&#10;Tw&#9;FILE&#9;file:///home/jazz/MyRepos/FEUP/4a-2s/MPE-FEUP/TSP/src/logic/algorithm/TwoOpt.java&#10;al&#9;FILE&#9;file:///home/jazz/MyRepos/FEUP/4a-2s/MPE-FEUP/TSP/src/logic/algorithm/Algorithm.java&#10;ga&#9;FILE&#9;file:///home/jazz/MyRepos/FEUP/4a-2s/MPE-FEUP/TSP/src/logic/meta/GA.java&#10;G&#9;FILE&#9;file:///home/jazz/MyRepos/FEUP/4a-2s/MPE-FEUP/TSP/src/logic/meta/GA.java&#10;util&#9;FILE&#9;file:///home/jazz/MyRepos/FEUP/4a-2s/MPE-FEUP/TSP/src/logic/utils/Utils.java&#10;utils&#9;FILE&#9;file:///home/jazz/MyRepos/FEUP/4a-2s/MPE-FEUP/TSP/src/logic/utils/Utils.java&#10;m&#9;FILE&#9;file:///home/jazz/MyRepos/FEUP/4a-2s/MPE-FEUP/TSP/src/logic/Main.java&#10;alg&#9;FILE&#9;file:///home/jazz/MyRepos/FEUP/4a-2s/MPE-FEUP/TSP/src/logic/algorithm/Algorithm.java" />
     <property name="run.code.analysis.last.selected.profile" value="pProject Default" />
     <property name="project.structure.last.edited" value="Project" />
     <property name="project.structure.proportion" value="0.0" />
@@ -398,11 +329,6 @@
       <option name="PROGRAM_PARAMETERS" />
       <predefined_log_file id="idea.log" enabled="true" />
     </configuration>
-    <recent_temporary>
-      <list size="1">
-        <item index="0" class="java.lang.String" itemvalue="Python.data_generator" />
-      </list>
-    </recent_temporary>
   </component>
   <component name="SbtLocalSettings">
     <option name="externalProjectsViewState">
@@ -435,7 +361,10 @@
       <workItem from="1527013276981" duration="6784000" />
       <workItem from="1527068731131" duration="834000" />
       <workItem from="1528041719039" duration="1311000" />
-      <workItem from="1528048950902" duration="3003000" />
+      <workItem from="1528048950902" duration="3836000" />
+      <workItem from="1528814937175" duration="4703000" />
+      <workItem from="1529015431975" duration="14705000" />
+      <workItem from="1529063384579" duration="9755000" />
     </task>
     <task id="LOCAL-00001" summary="Started elaborating SA. Create a function which generates the initial random path.">
       <created>1522338627065</created>
@@ -514,11 +443,18 @@
       <option name="project" value="LOCAL" />
       <updated>1526942103220</updated>
     </task>
-    <option name="localTasksCounter" value="12" />
+    <task id="LOCAL-00012" summary="Fixed SA so that temperature decreases in function of the time left. Also adapted the data generator so that some flights do not have a &quot;return&quot; flight.">
+      <created>1528052703204</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1528052703205</updated>
+    </task>
+    <option name="localTasksCounter" value="13" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="100529000" />
+    <option name="totallyTimeSpent" value="130525000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="-4" width="1922" height="1092" extended-state="6" />
@@ -526,21 +462,21 @@
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32984293" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32984293" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Image Layers" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32984293" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32879582" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32879582" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32984293" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.291889" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.30149412" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Learn" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="SciView" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
+      <window_info id="SciView" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -609,12 +545,42 @@
       <breakpoints-dialog>
         <breakpoints-dialog />
       </breakpoints-dialog>
-      <option name="time" value="62" />
+      <option name="time" value="78" />
     </breakpoint-manager>
     <watches-manager />
   </component>
   <component name="debuggerHistoryManager">
     <expressions id="evaluateExpression">
+      <expression>
+        <expression-string>Algorithm.MAX_PROCESS_TIME_MILLIS</expression-string>
+        <language-id>JAVA</language-id>
+        <evaluation-mode>EXPRESSION</evaluation-mode>
+      </expression>
+      <expression>
+        <expression-string>this.getTimeLeft()</expression-string>
+        <language-id>JAVA</language-id>
+        <evaluation-mode>EXPRESSION</evaluation-mode>
+      </expression>
+      <expression>
+        <expression-string>this.getTimeLeft() / Algorithm.MAX_PROCESS_TIME_MILLIS</expression-string>
+        <language-id>JAVA</language-id>
+        <evaluation-mode>EXPRESSION</evaluation-mode>
+      </expression>
+      <expression>
+        <expression-string>acoSa.getBestRouteCost()</expression-string>
+        <language-id>JAVA</language-id>
+        <evaluation-mode>EXPRESSION</evaluation-mode>
+      </expression>
+      <expression>
+        <expression-string>this.getTotalFitnessValue()</expression-string>
+        <language-id>JAVA</language-id>
+        <evaluation-mode>EXPRESSION</evaluation-mode>
+      </expression>
+      <expression>
+        <expression-string>double rnd = this.r.nextDouble() * this.getTotalFitnessValue()</expression-string>
+        <language-id>JAVA</language-id>
+        <evaluation-mode>EXPRESSION</evaluation-mode>
+      </expression>
       <expression>
         <expression-string>Math.pow(Math.E, -(currentCost - nextCost) / temperature)</expression-string>
         <language-id>JAVA</language-id>
@@ -623,205 +589,393 @@
     </expressions>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/TSP/results/2018-05-21-184813/2000ms_30/cost-history_Ant Colony Optimization with SA Optimization.csv" />
-    <entry file="file://$PROJECT_DIR$/TSP/results/2018-05-21-183422/2000ms_30/cost-history_Ant Colony Optimization with SA Optimization.csv" />
-    <entry file="file://$PROJECT_DIR$/TSP/results/2018-05-21-174335/2000ms_10/cost-history_Simulated Annealing.csv" />
-    <entry file="file://$PROJECT_DIR$/TSP/results/2018-05-21-173839/2000ms_20/cost-history_Ant Colony Optimization with SA Optimization.csv" />
-    <entry file="file://$PROJECT_DIR$/TSP/results/2018-05-21-173839/2000ms_5/cost-history_Ant Colony Optimization with SA Optimization.csv" />
-    <entry file="file://$PROJECT_DIR$/TSP/results/2018-05-21-173839/2000ms_10/cost-history_Ant Colony Optimization with SA Optimization.csv" />
-    <entry file="file://$PROJECT_DIR$/TSP/results/2018-05-21-173839/2000ms_15/cost-history_Ant Colony Optimization with SA Optimization.csv" />
-    <entry file="file://$PROJECT_DIR$/TSP/src/logic/utils/Utils.java">
+    <entry file="file://$PROJECT_DIR$/TSP/results/2018-06-14-235318/30000ms_10/best-routes.csv">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-656">
-          <caret line="2" column="14" lean-forward="false" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="14" />
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="2" selection-end-column="0" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/TSP/results/2018-05-21-230357/2000ms_30/optimized-parameters.txt" />
-    <entry file="file://$PROJECT_DIR$/TSP/results/2018-05-21-223743/2000ms_30/optimized-parameters.txt" />
-    <entry file="file://$PROJECT_DIR$/TSP/results/2018-05-21-221310/2000ms_30/optimized-parameters.csv" />
-    <entry file="file://$PROJECT_DIR$/TSP/src/logic/algorithm/ThreeOpt.java">
+    <entry file="file://$PROJECT_DIR$/TSP/results/2018-06-14-235318/30000ms_5/best-routes.csv">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="72">
-          <caret line="7" column="16" lean-forward="false" selection-start-line="7" selection-start-column="16" selection-end-line="7" selection-end-column="16" />
-          <folding />
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/TSP/results/2018-05-22-215800/2000ms_15/best-routes.csv" />
-    <entry file="file://$PROJECT_DIR$/TSP/results/2018-05-22-215800/30000ms_100/best-routes.csv" />
-    <entry file="file://$PROJECT_DIR$/TSP/results/2018-05-22-215800/30000ms_100/cost-history_Ant Colony Optimization with SA Optimization.csv" />
-    <entry file="file://$PROJECT_DIR$/TSP/results/2018-05-22-215800/30000ms_100/cost-history_Ant Colony Optimization.csv" />
-    <entry file="file://$PROJECT_DIR$/TSP/results/2018-05-22-215800/30000ms_60/best-routes.csv" />
-    <entry file="file://$PROJECT_DIR$/TSP/src/logic/graph/Edge.java">
+    <entry file="file://$PROJECT_DIR$/TSP/results/2018-06-14-235318/30000ms_30/best-routes.csv">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1026">
-          <caret line="63" column="20" lean-forward="false" selection-start-line="63" selection-start-column="20" selection-end-line="63" selection-end-column="20" />
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/TSP/src/logic/algorithm/Backtrack.java">
+    <entry file="file://$PROJECT_DIR$/TSP/results/2018-06-14-235318/30000ms_200/cost-history_Ant Colony Optimization.csv">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="720">
-          <caret line="52" column="0" lean-forward="false" selection-start-line="52" selection-start-column="0" selection-end-line="52" selection-end-column="0" />
-          <folding />
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/TSP/results/2018-05-23-105101/2000ms_15/cost-history_Ant Colony Optimization.csv" />
-    <entry file="file://$PROJECT_DIR$/TSP/travelling-salesman-challenge/real_data/data_5.txt">
+    <entry file="file://$PROJECT_DIR$/TSP/results/2018-06-14-235318/30000ms_200/cost-history_Ant Colony Optimization (parallel).csv">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="360">
-          <caret line="20" column="13" lean-forward="false" selection-start-line="20" selection-start-column="13" selection-end-line="20" selection-end-column="13" />
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/TSP/results/2018-05-23-105101/2000ms_15/best-routes.csv" />
+    <entry file="file://$PROJECT_DIR$/TSP/results/2018-06-14-235318/30000ms_200/cost-history_Ant Colony Optimization (parallel) with 2-opt.csv">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/TSP/results/2018-06-14-235318/30000ms_200/cost-history_Ant Colony Optimization (parallel) with 3-opt.csv">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/TSP/results/2018-06-14-235318/30000ms_200/cost-history_Ant Colony Optimization with 2-opt.csv">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/TSP/results/2018-06-14-235318/30000ms_200/cost-history_Ant Colony Optimization with 3-opt.csv">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/TSP/results/2018-06-14-235318/30000ms_200/cost-history_Greedy.csv">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/TSP/results/2018-06-14-235318/30000ms_200/cost-history_Greedy with 2-opt.csv">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/TSP/results/2018-06-14-235318/30000ms_200/cost-history_Greedy with 3-opt.csv">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/TSP/results/2018-06-14-235318/30000ms_200/cost-history_Simulated Annealing with 2-opt.csv">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/TSP/results/2018-06-14-235318/30000ms_200/cost-history_Simulated Annealing.csv">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-92">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/TSP/results/2018-06-14-235318/30000ms_100/cost-history_Ant Colony Optimization.csv">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/TSP/results/2018-06-14-235318/30000ms_100/best-routes.csv">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/TSP/results/2018-06-14-235318/30000ms_100/cost-history_Ant Colony Optimization with 3-opt.csv">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/TSP/results/2018-06-14-235318/30000ms_100/cost-history_Ant Colony Optimization with 2-opt.csv">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/TSP/results/2018-06-14-235318/30000ms_100/cost-history_Ant Colony Optimization with SA Optimization with 3-opt.csv">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/TSP/results/2018-06-15-011741/30000ms_10/best-routes.csv">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/TSP/results/2018-06-15-011741/30000ms_40/best-routes.csv">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="36">
+          <caret line="2" column="0" lean-forward="false" selection-start-line="2" selection-start-column="0" selection-end-line="2" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/TSP/results/2018-06-15-011741/30000ms_5/cost-history_Greedy with 3-opt.csv">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/TSP/results/2018-06-15-011741/30000ms_5/cost-history_Greedy.csv">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/TSP/src/logic/algorithm/Greedy.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="648">
-          <caret line="52" column="9" lean-forward="false" selection-start-line="52" selection-start-column="9" selection-end-line="52" selection-end-column="9" />
+        <state relative-caret-position="-216">
+          <caret line="26" column="26" lean-forward="false" selection-start-line="26" selection-start-column="26" selection-end-line="26" selection-end-column="26" />
+          <folding>
+            <element signature="e#253#254#0" expanded="false" />
+            <element signature="e#291#292#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/TSP/results/2018-06-15-011741/30000ms_5/best-routes.csv">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/TSP/src/logic/algorithm/TwoOpt.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="108">
+          <caret line="10" column="11" lean-forward="false" selection-start-line="10" selection-start-column="11" selection-end-line="10" selection-end-column="11" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="jar:///usr/lib/jvm/java-1.8.0-openjdk-amd64/jre/lib/rt.jar!/java/lang/Runnable.class">
+    <entry file="file://$PROJECT_DIR$/TSP/results/2018-06-15-021924/30000ms_5/best-routes.csv">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="108">
-          <caret line="9" column="9" lean-forward="false" selection-start-line="9" selection-start-column="9" selection-end-line="9" selection-end-column="9" />
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="1" selection-end-column="91" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/TSP/results/2018-06-15-032758/30000ms_100/optimized-parameters.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="18">
+          <caret line="1" column="179" lean-forward="false" selection-start-line="1" selection-start-column="179" selection-end-line="1" selection-end-column="179" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/TSP/travelling-salesman-challenge/real_data/data_5.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="18">
+          <caret line="1" column="0" lean-forward="false" selection-start-line="1" selection-start-column="0" selection-end-line="1" selection-end-column="13" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/TSP/src/logic/graph/Graph.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="194">
-          <caret line="107" column="0" lean-forward="false" selection-start-line="107" selection-start-column="0" selection-end-line="107" selection-end-column="0" />
+        <state relative-caret-position="1674">
+          <caret line="97" column="40" lean-forward="false" selection-start-line="97" selection-start-column="40" selection-end-line="97" selection-end-column="40" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/TSP/src/logic/graph/Node.java">
+    <entry file="file://$PROJECT_DIR$/TSP/results/2018-06-15-132228/30000ms_100/optimized-parameters.txt">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="172">
-          <caret line="53" column="0" lean-forward="false" selection-start-line="53" selection-start-column="0" selection-end-line="53" selection-end-column="0" />
+        <state relative-caret-position="18">
+          <caret line="1" column="205" lean-forward="false" selection-start-line="1" selection-start-column="205" selection-end-line="1" selection-end-column="205" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/TSP/results/2018-06-15-042452/30000ms_100/optimized-parameters.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="18">
+          <caret line="1" column="213" lean-forward="false" selection-start-line="1" selection-start-column="203" selection-end-line="1" selection-end-column="213" />
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/TSP/src/logic/algorithm/AntColonyOptimization.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="180">
-          <caret line="59" column="91" lean-forward="false" selection-start-line="59" selection-start-column="8" selection-end-line="59" selection-end-column="91" />
+        <state relative-caret-position="1869">
+          <caret line="185" column="30" lean-forward="false" selection-start-line="185" selection-start-column="30" selection-end-line="185" selection-end-column="30" />
           <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/TSP/results/2018-05-23-151151/2000ms_15/optimized-parameters.txt" />
-    <entry file="file://$PROJECT_DIR$/TSP/results/2018-05-23-151151/2000ms_15/cost-history_Ant Colony Optimization with SA Optimization.csv" />
-    <entry file="file://$PROJECT_DIR$/TSP/results/2018-05-23-153314/2000ms_15/optimized-parameters.txt" />
-    <entry file="file://$PROJECT_DIR$/TSP/results/2018-05-23-153314/2000ms_15/cost-history_Ant Colony Optimization with SA Optimization.csv" />
-    <entry file="file://$PROJECT_DIR$/TSP/results/2018-05-23-153314/2000ms_15/cost-history_ACO-SA with meta optimization.csv" />
-    <entry file="file://$PROJECT_DIR$/TSP/results/2018-05-23-153314/30000ms_60/cost-history_Ant Colony Optimization.csv" />
-    <entry file="file://$PROJECT_DIR$/TSP/results/2018-05-23-153314/30000ms_60/optimized-parameters.txt" />
-    <entry file="file://$PROJECT_DIR$/TSP/results/2018-05-23-153314/30000ms_60/cost-history_ACO-SA with meta optimization.csv" />
-    <entry file="file://$PROJECT_DIR$/TSP/results/2018-05-23-153314/30000ms_60/cost-history_Ant Colony Optimization with SA Optimization.csv" />
-    <entry file="file://$PROJECT_DIR$/TSP/results/2018-05-23-160925/2000ms_60/cost-history_Ant Colony Optimization.csv" />
-    <entry file="file://$PROJECT_DIR$/TSP/results/2018-05-23-160925/2000ms_60/cost-history_ACO-SA with meta optimization.csv" />
-    <entry file="file://$PROJECT_DIR$/TSP/results/2018-05-23-160925/2000ms_60/cost-history_Ant Colony Optimization with SA Optimization.csv" />
-    <entry file="file://$PROJECT_DIR$/TSP/results/2018-05-23-161534/2000ms_60/cost-history_ACO-SA with meta optimization.csv" />
-    <entry file="file://$PROJECT_DIR$/TSP/results/2018-05-23-161534/2000ms_60/cost-history_Ant Colony Optimization with SA Optimization.csv" />
-    <entry file="file://$PROJECT_DIR$/TSP/results/2018-05-23-161212/2000ms_60/cost-history_ACO-SA with meta optimization.csv" />
-    <entry file="file://$PROJECT_DIR$/TSP/travelling-salesman-challenge/real_data/data_10.txt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="360">
-          <caret line="20" column="0" lean-forward="false" selection-start-line="20" selection-start-column="0" selection-end-line="20" selection-end-column="13" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/README.md">
-      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
-        <state split_layout="SPLIT">
-          <first_editor relative-caret-position="0">
-            <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-            <folding />
-          </first_editor>
-          <second_editor />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/TSP/travelling-salesman-challenge/README.md">
-      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
-        <state split_layout="SPLIT">
-          <first_editor relative-caret-position="0">
-            <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-            <folding />
-          </first_editor>
-          <second_editor />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/TSP/src/logic/algorithm/SimulatedAnnealing.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="432">
-          <caret line="33" column="0" lean-forward="false" selection-start-line="33" selection-start-column="0" selection-end-line="33" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/TSP/travelling-salesman-challenge/data_generator.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="144">
-          <caret line="8" column="31" lean-forward="true" selection-start-line="8" selection-start-column="31" selection-end-line="8" selection-end-column="31" />
-          <folding>
-            <element signature="e#0#13#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/TSP/src/logic/algorithm/AntColonyOptimizationWithSimulatedAnnealing.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="311">
-          <caret line="28" column="4" lean-forward="false" selection-start-line="28" selection-start-column="4" selection-end-line="28" selection-end-column="4" />
+        <state relative-caret-position="360">
+          <caret line="58" column="0" lean-forward="false" selection-start-line="58" selection-start-column="0" selection-end-line="58" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/TSP/results/2018-06-15-143109/30000ms_100/optimized-parameters.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="18">
+          <caret line="1" column="22" lean-forward="false" selection-start-line="1" selection-start-column="22" selection-end-line="1" selection-end-column="162" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/TSP/results/2018-06-15-143109/30000ms_100/best-routes.csv">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/TSP/src/logic/Parser.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="414">
+          <caret line="28" column="39" lean-forward="false" selection-start-line="28" selection-start-column="39" selection-end-line="28" selection-end-column="39" />
           <folding>
-            <element signature="e#571#572#0" expanded="true" />
-            <element signature="e#612#613#0" expanded="true" />
+            <element signature="e#3196#3197#0" expanded="false" />
+            <element signature="e#3224#3225#0" expanded="false" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/TSP/src/logic/algorithm/Algorithm.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="319">
-          <caret line="138" column="9" lean-forward="false" selection-start-line="138" selection-start-column="9" selection-end-line="138" selection-end-column="9" />
+        <state relative-caret-position="2070">
+          <caret line="129" column="34" lean-forward="false" selection-start-line="129" selection-start-column="34" selection-end-line="129" selection-end-column="34" />
           <folding>
-            <element signature="e#1549#1550#0" expanded="true" />
-            <element signature="e#1596#1597#0" expanded="true" />
-            <element signature="e#2397#2398#0" expanded="true" />
-            <element signature="e#2459#2460#0" expanded="true" />
-            <element signature="e#3334#3335#0" expanded="true" />
-            <element signature="e#3361#3362#0" expanded="true" />
-            <element signature="e#3400#3401#0" expanded="true" />
-            <element signature="e#3432#3433#0" expanded="true" />
-            <element signature="e#3628#3629#0" expanded="true" />
-            <element signature="e#3674#3675#0" expanded="true" />
-            <element signature="e#4010#4011#0" expanded="true" />
-            <element signature="e#4076#4077#0" expanded="true" />
+            <element signature="e#2397#2398#0" expanded="false" />
+            <element signature="e#2459#2460#0" expanded="false" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/TSP/src/logic/algorithm/Backtrack.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="72">
+          <caret line="9" column="13" lean-forward="false" selection-start-line="9" selection-start-column="13" selection-end-line="9" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/TSP/results/2018-06-15-143109/30000ms_100/cost-history_Ant Colony Optimization with SA Optimization.csv">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/TSP/results/2018-06-15-143109/30000ms_100/cost-history_ACO-SA with meta optimization.csv">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/TSP/src/logic/meta/GA.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="357">
-          <caret line="141" column="39" lean-forward="true" selection-start-line="141" selection-start-column="39" selection-end-line="141" selection-end-column="39" />
+        <state relative-caret-position="1881">
+          <caret line="361" column="0" lean-forward="false" selection-start-line="361" selection-start-column="0" selection-end-line="361" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/TSP/results/2018-06-15-164822/30000ms_20/best-routes.csv">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/TSP/results/2018-06-15-164721/30000ms_20/best-routes.csv">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/TSP/results/2018-06-15-164655/30000ms_20/best-routes.csv">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/TSP/results/2018-06-15-164650/30000ms_20/best-routes.csv">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/TSP/results/2018-06-15-153054/30000ms_100/best-routes.csv">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/TSP/results/2018-06-15-164634/30000ms_20/best-routes.csv">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/TSP/results/2018-06-15-050025/30000ms_100/best-routes.csv">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="36">
+          <caret line="2" column="0" lean-forward="false" selection-start-line="2" selection-start-column="0" selection-end-line="2" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/TSP/src/logic/algorithm/SimulatedAnnealing.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-108">
+          <caret line="110" column="32" lean-forward="false" selection-start-line="110" selection-start-column="32" selection-end-line="110" selection-end-column="32" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/TSP/src/logic/Main.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="339">
-          <caret line="81" column="20" lean-forward="false" selection-start-line="81" selection-start-column="20" selection-end-line="81" selection-end-column="20" />
+        <state relative-caret-position="1000">
+          <caret line="74" column="27" lean-forward="false" selection-start-line="74" selection-start-column="27" selection-end-line="74" selection-end-column="27" />
           <folding />
         </state>
       </provider>

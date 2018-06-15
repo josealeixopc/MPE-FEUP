@@ -35,7 +35,7 @@ public class SimulatedAnnealing extends Algorithm {
         Collections.swap(swappedRoute, index1, index2);
 
         // swap until you have a valid route
-        while(graph.getRouteCost(swappedRoute) == -1){
+        while(graph.getRouteCost(swappedRoute) < 0){
             index1 = new Random().nextInt(swappedRoute.size() - 2) + 1;
             index2 = new Random().nextInt(swappedRoute.size() - 2) + 1;
             Collections.swap(swappedRoute, index1, index2);
@@ -108,7 +108,7 @@ public class SimulatedAnnealing extends Algorithm {
         this.startTimer();
 
         // Get random initial route
-        int maxIterations = 100;
+        int maxIterations = 1000;
         ArrayList<Node> currentRoute = this.createRandomRoute(this.graph, maxIterations);
 
         if(currentRoute == null){
@@ -123,7 +123,7 @@ public class SimulatedAnnealing extends Algorithm {
 
         // Set SA parameters
         double initialTemperature = 1;
-        double iterationsPerTemperature = 100;
+        double iterationsPerTemperature = 10;
 
         double currentTemperature = initialTemperature;
 
@@ -161,7 +161,7 @@ public class SimulatedAnnealing extends Algorithm {
                 super.numOfIterations++;
             }
 
-            currentTemperature = this.getTimeLeft() / Algorithm.MAX_PROCESS_TIME_MILLIS;
+            currentTemperature = this.getTimeLeft() / (double) Algorithm.MAX_PROCESS_TIME_MILLIS;
         }
     }
 }
