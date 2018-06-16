@@ -108,6 +108,10 @@ public abstract class Algorithm {
         System.out.println("Number of nodes = " + this.graph.getNodesAmount());
     }
 
+    public int getNumIterations(){
+        return numOfIterations;
+    }
+
 
     public String getName() {
         return name;

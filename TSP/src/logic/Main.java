@@ -29,9 +29,9 @@ public class Main {
     private static boolean OPTIMIZE_PARAMETERS = false;
 
     // SELECT ALGORITHMS TO RUN
-    private static boolean runBacktrack = true;
-    private static boolean runGreedy = true;
-    private static boolean runSimulatedAnnealing = true;
+    private static boolean runBacktrack = false;
+    private static boolean runGreedy = false;
+    private static boolean runSimulatedAnnealing = false;
     private static boolean runAntColonyOptimization = true;
     private static boolean runAcoSa = true; // runs AntColonyOptimizationWithSimulatedAnnealing
 
@@ -127,6 +127,7 @@ public class Main {
     }
 
     private static void runAlgorithms(){
+        String finalOutput = new String();
 
         Utils.createDirectoryIfNotExists(Utils.RESULTS_FOLDER);
         String executionResultsFolder = Utils.createDirectoryForExecution();
@@ -175,6 +176,11 @@ public class Main {
             List<String> results = new ArrayList<>();
 
             for(Algorithm algorithm: algorithms){
+                finalOutput += file.split("data_")[1].split(".txt")[0];
+                finalOutput += "; ";
+                finalOutput += algorithm.getName();
+                finalOutput += "; ";
+
                 System.out.println("==="+algorithm.getName()+"===");
                 long startTime = System.currentTimeMillis();
                 algorithm.computeSolution();
@@ -185,8 +191,16 @@ public class Main {
                 System.out.println();
 
                 if((use2Opt || use3Opt) && algorithm.getBestRouteCost() != -1){
-                    applyOptimizations(graph, algorithm, deltaTime, results, CURRENT_EXECUTION_RESULTS_FOLDER, algorithmNames);
+                    finalOutput += deltaTime;
+                    finalOutput += "; ";
+                    finalOutput += algorithm.getBestRouteCost();
+                    finalOutput += "; ";
+                    finalOutput += algorithm.getNumIterations();
+                    finalOutput += "; ";
+                    finalOutput = applyOptimizations(graph, algorithm, deltaTime, results, CURRENT_EXECUTION_RESULTS_FOLDER,algorithmNames, finalOutput);
                 }
+
+                finalOutput += "\n";
 
                 algorithmNames.add(algorithm.getName());
                 results.add(Integer.toString(algorithm.getBestRouteCost()));
@@ -200,12 +214,20 @@ public class Main {
         }
 
         System.out.println("Finished all instances.");
+        System.out.println();
+        System.out.println("=====================");
+        System.out.println("=====================");
+        System.out.println("=====================");
+        System.out.println();
+        System.out.println(finalOutput);
     }
 
-    private static void applyOptimizations(Graph graph, Algorithm algorithm, long deltaTime, List<String> results, String currentRunResultsFolder, List<String> algorithmNames) {
+    private static String applyOptimizations(Graph graph, Algorithm algorithm, long deltaTime, List<String> results, String currentRunResultsFolder, List<String> algorithmNames, String finalOutput) {
         Algorithm[] optimizations = getOptimizations(graph, algorithm);
 
-        for(Algorithm optimization: optimizations){
+
+        for(int i=0; i<optimizations.length; i++){
+            KOpt optimization = (KOpt) optimizations[i];
             System.out.println("==="+optimization.getName()+"===");
             long startTime = System.currentTimeMillis();
             optimization.computeSolution();
@@ -215,10 +237,23 @@ public class Main {
             System.out.println();
 
             algorithmNames.add(optimization.getName());
+            finalOutput += finishTime-startTime;
+            finalOutput += "; ";
+            finalOutput += deltaTime+finishTime-startTime;
+            finalOutput += "; ";
+            finalOutput += optimization.getBestRouteCost();
+            finalOutput += "; ";
+            finalOutput += optimization.getkOptIterations();
+            finalOutput += "; ";
+            finalOutput += optimization.getkOptIterations()+algorithm.getNumIterations();
+            finalOutput += "; ";
+
             results.add(Integer.toString(algorithm.getBestRouteCost()));
 
             saveRoutesHistoryOfAlgorithm(currentRunResultsFolder, optimization);
+
         }
+        return finalOutput;
     }
 
     private static void saveBestRoutes(String folderName, List<String> algorithmNames, int numberOfCities, List<String> results){

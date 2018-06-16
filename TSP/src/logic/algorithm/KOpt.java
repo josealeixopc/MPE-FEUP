@@ -5,7 +5,7 @@ import logic.graph.Node;
 
 import java.util.ArrayList;
 
-abstract class KOpt extends Algorithm {
+public abstract class KOpt extends Algorithm {
 
     protected ArrayList<Node> initialRoute;
     protected int kOptIterations;
@@ -33,5 +33,9 @@ abstract class KOpt extends Algorithm {
         System.out.println("Cost = "+getBestRouteCost());
         System.out.println("Number of iterations = " + super.numOfIterations + " (+"+this.kOptIterations+")");
         System.out.println("Number of nodes = " + super.graph.getNodesAmount());
+    }
+
+    public int getkOptIterations() {
+        return kOptIterations;
     }
 }
