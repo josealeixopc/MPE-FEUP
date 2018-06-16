@@ -20,13 +20,7 @@ public class Parser {
     static final String DATA60 = PREFIX + "data_60.txt";
     static final String DATA70 = PREFIX + "data_70.txt";
     static final String DATA100 = PREFIX + "data_100.txt";
-    //static final String DATA200 = PREFIX + "data_200.txt";
-    //static final String DATA300 = PREFIX + "data_300.txt";
 
-    public static final String[] FILES = new String[]{
-            DATA5, DATA10, DATA15, DATA20,
-            DATA30, DATA40, DATA50, DATA60,
-            DATA70, DATA100, /* DATA200, DATA300*/};
     public static final int[] OPTIMAL_SOLUTIONS = new int[]{
             1950, 5375, 4281, Integer.MAX_VALUE,
             Integer.MAX_VALUE, Integer.MAX_VALUE, Integer.MAX_VALUE, Integer.MAX_VALUE,
