@@ -15,19 +15,17 @@ public class AntColonyOptimizationWithSimulatedAnnealing extends AntColonyOptimi
     private int iterationTotalCost;
 
     public AntColonyOptimizationWithSimulatedAnnealing(Graph graph){
-        this(graph,30);
+        this(graph,30, false, false);
     }
 
-    private AntColonyOptimizationWithSimulatedAnnealing(Graph graph, int nAnts){
-        this(graph, nAnts, false);
+    public AntColonyOptimizationWithSimulatedAnnealing(Graph graph, boolean parallel, boolean metaOptimized) {
+        this(graph, 30, parallel, metaOptimized);
     }
 
-    public AntColonyOptimizationWithSimulatedAnnealing(Graph graph, boolean parallel){
-        this(graph, 30, parallel);
-    }
-
-    private AntColonyOptimizationWithSimulatedAnnealing(Graph graph, int nAnts, boolean parallel){
-        super("Ant Colony Optimization with SA Optimization", graph, nAnts, parallel);
+    private AntColonyOptimizationWithSimulatedAnnealing(Graph graph, int nAnts, boolean parallel, boolean metaOptimized){
+        super("Ant Colony Optimization with SA Optimization"+(metaOptimized? " (metaoptimized)":""), graph, nAnts, parallel);
+        if(metaOptimized)
+            setParameters(new double [] {0.08196997880479073, 9.404331306385323, 0.34581929504732634, 766.2836062451062, 3.2456692376427565, 0.04587146320415543, 2.360969972973809});
     }
 
     // Parameters
