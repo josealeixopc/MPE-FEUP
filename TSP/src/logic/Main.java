@@ -202,7 +202,7 @@ public class Main {
         System.out.println("Finished all instances.");
     }
 
-    private static String applyOptimizations(Graph graph, Algorithm algorithm, long deltaTime, List<String> results, String currentRunResultsFolder, List<String> algorithmNames, String finalOutput) {
+    private static void applyOptimizations(Graph graph, Algorithm algorithm, long deltaTime, List<String> results, String currentRunResultsFolder, List<String> algorithmNames) {
         Algorithm[] optimizations = getOptimizations(graph, algorithm);
 
         for(Algorithm optimization: optimizations){
